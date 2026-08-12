@@ -1,5 +1,5 @@
 {
- "generado_utc": "2026-08-12T19:28:08.740015+00:00",
+ "generado_utc": "2026-08-12T20:54:21.719808+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Solo estadísticas agregadas. No contiene datos personales.",
  "ciclo_actual": {
@@ -2270,6 +2270,360 @@
     "total": 6176,
     "ausentes": 184,
     "pct": 2.98
+   }
+  },
+  "examen_por_dia": {
+   "dia1": {
+    "total": 6176,
+    "ausentes": 43,
+    "presentes": 6133,
+    "puntajes": {
+     "n": 6133,
+     "min": 5.8,
+     "max": 609.88,
+     "media": 346.186,
+     "mediana": 352.72,
+     "desv": 89.315,
+     "p10": 226.376,
+     "p25": 288.06,
+     "p75": 409.2,
+     "p90": 457.24
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 30,
+      "n": 2
+     },
+     {
+      "desde": 30,
+      "hasta": 60,
+      "n": 7
+     },
+     {
+      "desde": 60,
+      "hasta": 90,
+      "n": 13
+     },
+     {
+      "desde": 90,
+      "hasta": 120,
+      "n": 36
+     },
+     {
+      "desde": 120,
+      "hasta": 150,
+      "n": 77
+     },
+     {
+      "desde": 150,
+      "hasta": 180,
+      "n": 128
+     },
+     {
+      "desde": 180,
+      "hasta": 210,
+      "n": 187
+     },
+     {
+      "desde": 210,
+      "hasta": 240,
+      "n": 323
+     },
+     {
+      "desde": 240,
+      "hasta": 270,
+      "n": 437
+     },
+     {
+      "desde": 270,
+      "hasta": 300,
+      "n": 574
+     },
+     {
+      "desde": 300,
+      "hasta": 330,
+      "n": 671
+     },
+     {
+      "desde": 330,
+      "hasta": 360,
+      "n": 808
+     },
+     {
+      "desde": 360,
+      "hasta": 390,
+      "n": 860
+     },
+     {
+      "desde": 390,
+      "hasta": 420,
+      "n": 728
+     },
+     {
+      "desde": 420,
+      "hasta": 450,
+      "n": 577
+     },
+     {
+      "desde": 450,
+      "hasta": 480,
+      "n": 366
+     },
+     {
+      "desde": 480,
+      "hasta": 510,
+      "n": 207
+     },
+     {
+      "desde": 510,
+      "hasta": 540,
+      "n": 87
+     },
+     {
+      "desde": 540,
+      "hasta": 570,
+      "n": 38
+     },
+     {
+      "desde": 570,
+      "hasta": 600,
+      "n": 5
+     },
+     {
+      "desde": 600,
+      "hasta": 630,
+      "n": 2
+     }
+    ]
+   },
+   "dia2": {
+    "total": 6176,
+    "ausentes": 56,
+    "presentes": 6120,
+    "puntajes": {
+     "n": 6120,
+     "min": 1.0,
+     "max": 600.0,
+     "media": 209.629,
+     "mediana": 195.0,
+     "desv": 129.712,
+     "p10": 48.0,
+     "p25": 105.0,
+     "p75": 303.0,
+     "p90": 396.0
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 30,
+      "n": 374
+     },
+     {
+      "desde": 30,
+      "hasta": 60,
+      "n": 373
+     },
+     {
+      "desde": 60,
+      "hasta": 90,
+      "n": 518
+     },
+     {
+      "desde": 90,
+      "hasta": 120,
+      "n": 508
+     },
+     {
+      "desde": 120,
+      "hasta": 150,
+      "n": 496
+     },
+     {
+      "desde": 150,
+      "hasta": 180,
+      "n": 521
+     },
+     {
+      "desde": 180,
+      "hasta": 210,
+      "n": 479
+     },
+     {
+      "desde": 210,
+      "hasta": 240,
+      "n": 442
+     },
+     {
+      "desde": 240,
+      "hasta": 270,
+      "n": 417
+     },
+     {
+      "desde": 270,
+      "hasta": 300,
+      "n": 407
+     },
+     {
+      "desde": 300,
+      "hasta": 330,
+      "n": 366
+     },
+     {
+      "desde": 330,
+      "hasta": 360,
+      "n": 303
+     },
+     {
+      "desde": 360,
+      "hasta": 390,
+      "n": 251
+     },
+     {
+      "desde": 390,
+      "hasta": 420,
+      "n": 229
+     },
+     {
+      "desde": 420,
+      "hasta": 450,
+      "n": 168
+     },
+     {
+      "desde": 450,
+      "hasta": 480,
+      "n": 111
+     },
+     {
+      "desde": 480,
+      "hasta": 510,
+      "n": 85
+     },
+     {
+      "desde": 510,
+      "hasta": 540,
+      "n": 36
+     },
+     {
+      "desde": 540,
+      "hasta": 570,
+      "n": 25
+     },
+     {
+      "desde": 570,
+      "hasta": 600,
+      "n": 8
+     },
+     {
+      "desde": 600,
+      "hasta": 630,
+      "n": 3
+     }
+    ]
+   },
+   "dia3": {
+    "total": 6176,
+    "ausentes": 184,
+    "presentes": 5892,
+    "puntajes": {
+     "n": 5892,
+     "min": 1.0,
+     "max": 500.0,
+     "media": 171.709,
+     "mediana": 156.0,
+     "desv": 118.44,
+     "p10": 24.0,
+     "p25": 68.0,
+     "p75": 267.0,
+     "p90": 340.0
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 30,
+      "n": 672
+     },
+     {
+      "desde": 30,
+      "hasta": 60,
+      "n": 608
+     },
+     {
+      "desde": 60,
+      "hasta": 90,
+      "n": 628
+     },
+     {
+      "desde": 90,
+      "hasta": 120,
+      "n": 473
+     },
+     {
+      "desde": 120,
+      "hasta": 150,
+      "n": 473
+     },
+     {
+      "desde": 150,
+      "hasta": 180,
+      "n": 414
+     },
+     {
+      "desde": 180,
+      "hasta": 210,
+      "n": 389
+     },
+     {
+      "desde": 210,
+      "hasta": 240,
+      "n": 379
+     },
+     {
+      "desde": 240,
+      "hasta": 270,
+      "n": 421
+     },
+     {
+      "desde": 270,
+      "hasta": 300,
+      "n": 389
+     },
+     {
+      "desde": 300,
+      "hasta": 330,
+      "n": 341
+     },
+     {
+      "desde": 330,
+      "hasta": 360,
+      "n": 282
+     },
+     {
+      "desde": 360,
+      "hasta": 390,
+      "n": 205
+     },
+     {
+      "desde": 390,
+      "hasta": 420,
+      "n": 122
+     },
+     {
+      "desde": 420,
+      "hasta": 450,
+      "n": 75
+     },
+     {
+      "desde": 450,
+      "hasta": 480,
+      "n": 17
+     },
+     {
+      "desde": 480,
+      "hasta": 510,
+      "n": 4
+     }
+    ]
    }
   }
  },

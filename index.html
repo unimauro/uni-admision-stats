@@ -6,6 +6,15 @@
 <title>Admisión UNI en cifras</title>
 <meta name="description" content="Estadísticas agregadas y anónimas de los procesos de admisión de la Universidad Nacional de Ingeniería (UNI): postulantes, ausentismo, puntajes por prueba, especialidad y modalidad, comparativas entre carreras y mercado laboral.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="uni-seal.png">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMFHSDRJD6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NMFHSDRJD6');
+</script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="Admisión UNI en cifras">
 <meta property="og:description" content="Postulantes, ausentismo, puntajes de cierre por carrera, vacantes CEPRE y salarios referenciales del proceso de admisión UNI. Estadísticas agregadas, sin datos personales, actualizadas cada 12 horas.">
@@ -27,29 +36,29 @@
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
   --a-violet:#4a3aa7; --a-yellow:#eda100; --a-magenta:#e87ba4; --a-red:#e34948; --guinda:#7d1c35;
   --wash-s1:rgba(42,120,214,.08); --wash-s2:rgba(235,104,52,.08); --wash-s3:rgba(27,175,122,.08);
-  --wash-violet:rgba(74,58,167,.08); --wash-yellow:rgba(237,161,0,.10); --wash-magenta:rgba(232,123,164,.10);
+  --wash-violet:rgba(74,58,167,.08); --wash-yellow:rgba(237,161,0,.10); --wash-magenta:rgba(232,123,164,.10); --wash-guinda:rgba(125,28,53,.09);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme: dark;
     --page:#0d0d0d; --surface:#1a1a19;
-    --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+    --ink:#ffffff; --ink-2:#cdccc1; --muted:#9a988f;
     --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
     --s1:#3987e5; --s2:#d95926; --s3:#199e70;
     --a-violet:#9085e9; --a-yellow:#c98500; --a-magenta:#d55181;
     --wash-s1:rgba(57,135,229,.13); --wash-s2:rgba(217,89,38,.13); --wash-s3:rgba(25,158,112,.13);
-    --wash-violet:rgba(144,133,233,.13); --wash-yellow:rgba(201,133,0,.14); --wash-magenta:rgba(213,81,129,.14);
+    --wash-violet:rgba(144,133,233,.13); --wash-yellow:rgba(201,133,0,.14); --wash-magenta:rgba(213,81,129,.14); --wash-guinda:rgba(217,113,140,.15);
   }
 }
 :root[data-theme="dark"]{
   color-scheme: dark;
   --page:#0d0d0d; --surface:#1a1a19;
-  --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+  --ink:#ffffff; --ink-2:#cdccc1; --muted:#9a988f;
   --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70;
   --a-violet:#9085e9; --a-yellow:#c98500; --a-magenta:#d55181;
   --wash-s1:rgba(57,135,229,.13); --wash-s2:rgba(217,89,38,.13); --wash-s3:rgba(25,158,112,.13);
-  --wash-violet:rgba(144,133,233,.13); --wash-yellow:rgba(201,133,0,.14); --wash-magenta:rgba(213,81,129,.14);
+  --wash-violet:rgba(144,133,233,.13); --wash-yellow:rgba(201,133,0,.14); --wash-magenta:rgba(213,81,129,.14); --wash-guinda:rgba(217,113,140,.15);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth; scroll-padding-top:64px}
@@ -103,7 +112,10 @@ main{display:block; min-width:0}
 /* ---------- encabezado ---------- */
 header.site{padding:34px 0 6px}
 header.site h1{font-size:clamp(26px,5vw,38px); line-height:1.15; margin:0 0 6px}
-header.site h1 .uni{color:var(--guinda)}
+header.site h1 .uni{
+  background:linear-gradient(100deg, var(--guinda), var(--s1));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
 header.site .sub{color:var(--ink-2); max-width:62ch; margin:0}
 .updated{color:var(--muted); font-size:13px; margin-top:10px}
 
@@ -138,7 +150,8 @@ h2{font-size:clamp(20px,3.5vw,26px); margin:0 0 4px}
 /* ---------- cards ---------- */
 .cards{display:grid; grid-template-columns:1fr; gap:16px}
 @media(min-width:860px){.cards.two{grid-template-columns:1fr 1fr}}
-.card{background:var(--surface); border:1px solid var(--ring); border-radius:12px; padding:18px 18px 12px; min-width:0}
+.card{background:var(--surface); border:1px solid var(--ring); border-radius:12px; padding:18px 18px 12px; min-width:0; transition:border-color .15s, box-shadow .15s}
+.card:hover{border-color:rgba(125,125,140,.35); box-shadow:0 3px 16px rgba(0,0,0,.10)}
 .card h3{margin:0; font-size:16.5px}
 .card .sub{margin:2px 0 14px; font-size:13px; color:var(--ink-2)}
 .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--ink-2); margin:0 0 10px}
@@ -203,7 +216,8 @@ footer.page-foot p{max-width:75ch}
   position:fixed; right:18px; bottom:18px; z-index:20;
   background:var(--s1); color:#fff; border:none; border-radius:99px;
   padding:12px 18px; font:600 14.5px/1 system-ui,sans-serif; cursor:pointer;
-  box-shadow:0 6px 18px rgba(0,0,0,.25); display:flex; align-items:center; gap:8px;
+  box-shadow:0 6px 22px rgba(42,120,214,.45); display:flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg, var(--s1), var(--a-violet));
 }
 #bot-panel{
   position:fixed; right:14px; bottom:14px; z-index:21; display:none; flex-direction:column;
@@ -232,6 +246,41 @@ footer.page-foot p{max-width:75ch}
 }
 .bot-form button:disabled{opacity:.5}
 .bot-note{font-size:11px; color:var(--muted); text-align:center; padding:0 12px 9px}
+
+/* ---------- chips de facultad ---------- */
+.chips{display:flex; flex-wrap:wrap; gap:7px; margin:2px 0 14px}
+.chip{
+  display:inline-flex; align-items:center; gap:6px; border:1px solid var(--ring);
+  background:var(--page); color:var(--ink-2); border-radius:99px; padding:4px 12px;
+  font-size:12.5px; cursor:pointer;
+}
+.chip:hover{color:var(--ink)}
+.chip.active{background:var(--wash-s1); color:var(--ink); font-weight:600; border-color:var(--s1)}
+.chip-dot{width:8px; height:8px; border-radius:50%; display:inline-block}
+
+/* ---------- calculadora ---------- */
+.calc{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:4px 0 8px}
+.calc select,.calc input{
+  border:1px solid var(--ring); border-radius:9px; background:var(--page); color:var(--ink);
+  font-size:14.5px; padding:9px 12px;
+}
+.calc input{width:130px}
+.calc button{
+  background:var(--s1); border:none; color:#fff; border-radius:9px; padding:10px 16px;
+  font-weight:600; font-size:14px; cursor:pointer;
+}
+.calc-result{font-size:15px; margin:8px 0 4px; line-height:1.6}
+.calc-result b{font-size:19px}
+.calc-note{font-size:12px; color:var(--muted)}
+
+/* ---------- toggle de tema ---------- */
+.theme-toggle{
+  border:1px solid var(--ring); background:var(--page); color:var(--ink-2);
+  border-radius:99px; padding:5px 11px; font-size:14px; cursor:pointer; line-height:1;
+}
+.theme-toggle:hover{color:var(--ink)}
+.sidebar .theme-toggle{position:absolute; top:24px; right:16px}
+.sidebar{position:fixed}
 </style>
 </head>
 <body>
@@ -239,8 +288,10 @@ footer.page-foot p{max-width:75ch}
   <aside class="sidebar" aria-label="Navegación">
     <div class="brand"><span class="uni">UNI</span> en cifras</div>
     <div class="brand-sub">Admisión · estadísticas abiertas</div>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro">🌙</button>
     <nav id="side-nav">
       <a class="nav-link" href="#examen"><span class="dot" style="background:var(--s1)"></span>Examen 2026-2</a>
+      <a class="nav-link" href="#variacion"><span class="dot" style="background:var(--guinda)"></span>Variación 2026-1 → 2</a>
       <a class="nav-link" href="#cepre"><span class="dot" style="background:var(--s2)"></span>CEPRE · vacantes</a>
       <a class="nav-link" href="#buscador"><span class="dot" style="background:var(--a-red)"></span>Buscar carrera</a>
       <a class="nav-link" href="#comparativas"><span class="dot" style="background:var(--a-violet)"></span>Carreras comparadas</a>
@@ -258,7 +309,9 @@ footer.page-foot p{max-width:75ch}
 
   <main>
     <nav class="topnav" aria-label="Secciones">
+      <button class="theme-toggle" id="theme-toggle-m" aria-label="Cambiar tema claro/oscuro">🌙</button>
       <a href="#examen"><span class="dot" style="background:var(--s1)"></span>Examen 2026-2</a>
+      <a href="#variacion"><span class="dot" style="background:var(--guinda)"></span>Variación</a>
       <a href="#cepre"><span class="dot" style="background:var(--s2)"></span>CEPRE</a>
       <a href="#buscador"><span class="dot" style="background:var(--a-red)"></span>Buscar</a>
       <a href="#comparativas"><span class="dot" style="background:var(--a-violet)"></span>Carreras</a>
@@ -282,7 +335,7 @@ footer.page-foot p{max-width:75ch}
       <footer class="page-foot">
         <p>Fuente: <a href="https://puntajes.admision.uni.edu.pe/" rel="noopener">publicaciones oficiales
         de la Dirección de Admisión UNI</a>. Los datos se revisan automáticamente cada 12 horas
-        durante el proceso de admisión. Salarios referenciales: convocatorias CAS públicas del Estado peruano.</p>
+        durante el proceso de admisión. Salarios referenciales: convocatorias CAS públicas del Estado peruano, vía <a href="https://unimauro.github.io/salariosperu/" rel="noopener">SalariosPerú</a>.</p>
         <p>Este sitio publica únicamente estadísticas agregadas: no contiene nombres, códigos ni
         ningún dato personal de postulantes. Proyecto independiente, sin afiliación oficial con la UNI.</p>
       </footer>
@@ -309,6 +362,29 @@ footer.page-foot p{max-width:75ch}
 <script>
 (function(){
 "use strict";
+
+/* ---------- tema claro/oscuro ---------- */
+const savedTheme = localStorage.getItem("theme");
+if(savedTheme) document.documentElement.dataset.theme = savedTheme;
+function currentTheme(){
+  return document.documentElement.dataset.theme ||
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+}
+function themeIcons(){
+  const icon = currentTheme() === "dark" ? "☀️" : "🌙";
+  document.querySelectorAll(".theme-toggle").forEach(b => b.textContent = icon);
+}
+function toggleTheme(){
+  const next = currentTheme() === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("theme", next);
+  themeIcons();
+  if(lastStats){ const sy = scrollY; render(lastStats); scrollTo(0, sy); }
+}
+document.addEventListener("DOMContentLoaded", ()=>{
+  themeIcons();
+  document.querySelectorAll(".theme-toggle").forEach(b => b.addEventListener("click", toggleTheme));
+});
 
 /* ---------- utilidades ---------- */
 const $ = sel => document.querySelector(sel);
@@ -504,10 +580,11 @@ function rangePlot(items, opts){
     const top = padT + i*rowH;
     const cy = top + rowH/2;
     svg.appendChild(el("text",{x:labelW, y:cy+4, "text-anchor":"end", class:"cattext", text:truncate(it.label, maxChars)}));
-    svg.appendChild(el("line",{x1:X(it.min), x2:X(it.max), y1:cy, y2:cy, stroke:css("--s1"), "stroke-width":2, "stroke-linecap":"round"}));
+    const lineC = opts.color || css("--s1");
+    svg.appendChild(el("line",{x1:X(it.min), x2:X(it.max), y1:cy, y2:cy, stroke:lineC, "stroke-width":2, "stroke-linecap":"round"}));
     [[it.min,4],[it.max,4]].forEach(([v,r])=>{
       svg.appendChild(el("circle",{cx:X(v), cy, r:r+2, fill:css("--surface")}));   // anillo 2px
-      svg.appendChild(el("circle",{cx:X(v), cy, r, fill:css("--s1")}));
+      svg.appendChild(el("circle",{cx:X(v), cy, r, fill:lineC}));
     });
     svg.appendChild(el("circle",{cx:X(it.med), cy, r:6, fill:css("--surface")}));
     svg.appendChild(el("circle",{cx:X(it.med), cy, r:4, fill:css("--s2")}));
@@ -616,11 +693,14 @@ function tile(label, value, detail, accent){
   return t;
 }
 
+const KICKER_WASH = {"--s1":"--wash-s1","--s2":"--wash-s2","--s3":"--wash-s3","--a-violet":"--wash-violet",
+  "--a-yellow":"--wash-yellow","--a-magenta":"--wash-magenta","--a-red":"--wash-s2","--guinda":"--wash-guinda"};
 function section(id, kicker, accentVar, title, note){
   const s = document.createElement("section");
   s.id = id;
   const k = document.createElement("p");
   k.className = "kicker";
+  if(KICKER_WASH[accentVar]) k.style.background = `var(${KICKER_WASH[accentVar]})`;
   const dot = document.createElement("span");
   dot.className = "dot"; dot.style.background = `var(${accentVar})`;
   k.appendChild(dot); k.appendChild(document.createTextNode(kicker));
@@ -640,6 +720,66 @@ function nota(accentVar, washVar, html){
 }
 
 const ESP_SHORT = s => s.replace("INGENIERÍA","ING.").replace("ARQUITECTURA","ARQ.");
+
+/* ---------- facultades UNI ---------- */
+const FACULTADES = {
+  "FAUA":["ARQUITECTURA"],
+  "FC":["FÍSICA","MATEMÁTICA","QUÍMICA","CIENCIA DE LA COMPUTACIÓN","INGENIERÍA FÍSICA"],
+  "FIA":["INGENIERÍA AMBIENTAL","INGENIERÍA SANITARIA","INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL"],
+  "FIC":["INGENIERÍA CIVIL"],
+  "FIEE":["INGENIERÍA ELÉCTRICA","INGENIERÍA ELECTRÓNICA","INGENIERÍA DE TELECOMUNICACIONES","INGENIERÍA DE CIBERSEGURIDAD"],
+  "FIEECS":["INGENIERÍA ECONÓMICA","INGENIERÍA ESTADÍSTICA"],
+  "FIGMM":["INGENIERÍA GEOLÓGICA","INGENIERÍA DE MINAS","INGENIERÍA METALÚRGICA"],
+  "FIIS":["INGENIERÍA INDUSTRIAL","INGENIERÍA DE SISTEMAS","INGENIERÍA DE SOFTWARE"],
+  "FIM":["INGENIERÍA MECÁNICA","INGENIERÍA MECATRÓNICA","INGENIERÍA MECÁNICA-ELÉCTRICA","INGENIERÍA NAVAL","INGENIERÍA AEROESPACIAL"],
+  "FIP":["INGENIERÍA DE PETRÓLEO Y GAS NATURAL","INGENIERÍA PETROQUÍMICA"],
+  "FIQT":["INGENIERÍA QUÍMICA","INGENIERÍA TEXTIL"],
+};
+const FAC_ORDER = ["FAUA","FC","FIA","FIC","FIEE","FIEECS","FIGMM","FIIS","FIM","FIP","FIQT","Otras"];
+const FAC_VARS  = ["--guinda","--s1","--s3","--s2","--a-violet","--a-yellow","--a-magenta","--a-red","--seq-450","--seq-250","--axis","--muted"];
+function facultadDe(esp){
+  const e = esp.trim().toUpperCase();
+  for(const [fac, lista] of Object.entries(FACULTADES)) if(lista.includes(e)) return fac;
+  return "Otras";
+}
+function facColor(f){
+  const i = FAC_ORDER.indexOf(f);
+  return css(FAC_VARS[i >= 0 ? i : FAC_VARS.length-1]);
+}
+
+/* tarjeta con filtro por facultad */
+function facFilterCard(title, sub, espEntries, buildChart, table){
+  const c = document.createElement("div");
+  c.className = "card";
+  c.appendChild(el("h3",{text:title}));
+  if(sub) c.appendChild(el("p",{class:"sub",text:sub}));
+  const chips = document.createElement("div"); chips.className = "chips";
+  const fig = document.createElement("figure");
+  const facs = FAC_ORDER.filter(f => espEntries.some(([n])=>facultadDe(n)===f));
+  let activa = null;
+  function pinta(){
+    chips.innerHTML = "";
+    const mk = (label, fac, color) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "chip" + (fac===activa ? " active" : "");
+      if(color){ const d = document.createElement("span"); d.className = "chip-dot"; d.style.background = color; b.appendChild(d); }
+      b.appendChild(document.createTextNode(label));
+      b.addEventListener("click", ()=>{ activa = (fac===activa ? null : fac); pinta(); });
+      chips.appendChild(b);
+    };
+    mk("Todas", null, null);
+    facs.forEach(f => mk(f, f, facColor(f)));
+    const items = activa ? espEntries.filter(([n])=>facultadDe(n)===activa) : espEntries;
+    const color = activa ? facColor(activa) : css("--s1");
+    fig.innerHTML = "";
+    fig.appendChild(buildChart(items, color));
+  }
+  pinta();
+  c.appendChild(chips); c.appendChild(fig);
+  if(table) c.appendChild(table);
+  return c;
+}
 
 /* ---------- render principal ---------- */
 let lastStats = null;
@@ -730,7 +870,111 @@ function render(stats){
         ausItems.map(it=>[it.label, fmt(it.raw.total), fmt(it.raw.ausentes), fmt1(it.values[0])+"%"]))));
     s1.appendChild(cardsAus);
   }
+
+  /* calculadora: como me fue */
+  {
+    const pruebas = [];
+    if(aa) pruebas.push({nombre:"Apt. Académica y Humanidades · 2026-2", st:aa});
+    if(voc) pruebas.push({nombre:"Apt. Vocacional (Arq.) · 2026-2", st:voc});
+    const d1c = (hist.examen_por_dia||{}).dia1;
+    if(d1c && d1c.histograma) pruebas.push({nombre:"Prueba 1 (Apt. Académica) · 2026-1", st:d1c});
+    if(adm && adm.histograma_final) pruebas.push({nombre:"Puntaje final · 2026-1", st:{histograma:adm.histograma_final, puntajes:adm.puntaje_final}});
+    if(pruebas.length){
+      const cCalc = document.createElement("div"); cCalc.className = "card";
+      cCalc.appendChild(el("h3",{text:"¿Cómo me fue? — percentil y nota equivalente"}));
+      cCalc.appendChild(el("p",{class:"sub",text:"Ingresa tu puntaje: mira a cuántos superas y tu equivalente sobre 20, relativo al máximo de ese proceso."}));
+      const form = document.createElement("div"); form.className = "calc";
+      const sel = document.createElement("select");
+      pruebas.forEach((p,i)=>{ const o=document.createElement("option"); o.value=i; o.textContent=p.nombre; sel.appendChild(o); });
+      const inp = document.createElement("input");
+      inp.type = "number"; inp.placeholder = "Tu puntaje"; inp.min = 0;
+      const btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Calcular";
+      form.appendChild(sel); form.appendChild(inp); form.appendChild(btn);
+      const res = document.createElement("div"); res.className = "calc-result";
+      const notaP = el("p",{class:"calc-note",text:"Referencial: percentil sobre los presentes con puntaje publicado; la equivalencia sobre 20 es relativa al máximo de ese proceso, no es una calificación oficial de la UNI."});
+      function calcular(){
+        const p = pruebas[+sel.value], v = parseFloat(inp.value);
+        if(isNaN(v)){ res.textContent = "Ingresa un puntaje válido."; return; }
+        const bins = p.st.histograma, total = bins.reduce((a,b)=>a+b.n,0);
+        let below = 0;
+        bins.forEach(b=>{
+          if(v >= b.hasta) below += b.n;
+          else if(v > b.desde) below += b.n * (v - b.desde)/(b.hasta - b.desde);
+        });
+        const pct = Math.max(0, Math.min(100, 100*below/total));
+        const max = p.st.puntajes.max;
+        const n20 = Math.min(20, 20*v/max);
+        res.innerHTML = `Con <b>${fmt1(v)}</b> pts superas aprox. al <b>${fmt1(pct)}%</b> de los ${fmt(total)} presentes · equivalente <b>${fmt1(n20)}/20</b> (${fmt1(n20/2)}/10) — máximo del proceso: ${fmt1(max)} pts.`;
+      }
+      btn.addEventListener("click", calcular);
+      inp.addEventListener("keydown", e=>{ if(e.key==="Enter") calcular(); });
+      cCalc.appendChild(form); cCalc.appendChild(res); cCalc.appendChild(notaP);
+      const wrap = document.createElement("div"); wrap.className = "cards"; wrap.appendChild(cCalc);
+      s1.appendChild(wrap);
+    }
+  }
   app.appendChild(s1);
+
+
+  /* ===== Variacion entre ciclos ===== */
+  {
+    const d1 = (hist.examen_por_dia||{}).dia1;
+    if(d1 && aa && d1.puntajes && aa.puntajes){
+      const sV = section("variacion", "Variación entre ciclos", "--guinda", "¿Cómo va 2026-2 frente a 2026-1?",
+        "La primera prueba (Aptitud Académica y Humanidades) abre ambos procesos, así que es la mejor base de comparación directa. " +
+        "Abajo, la CEPRE actual frente a la del ciclo anterior.");
+      const dPost = 100*(aa.total - d1.total)/d1.total;
+      const dMed = aa.puntajes.mediana - d1.puntajes.mediana;
+      const tilesV = document.createElement("div"); tilesV.className = "tiles";
+      tilesV.appendChild(tile("Postulantes · prueba 1", fmt(aa.total),
+        `2026-1: ${fmt(d1.total)} (${dPost>=0?"+":""}${fmt1(dPost)}%)`, "var(--guinda)"));
+      tilesV.appendChild(tile("Mediana · prueba 1", fmt1(aa.puntajes.mediana),
+        `2026-1: ${fmt1(d1.puntajes.mediana)} (${dMed>=0?"+":""}${fmt1(dMed)} pts)`, "var(--guinda)"));
+      tilesV.appendChild(tile("Máximo · prueba 1", fmt1(aa.puntajes.max),
+        `2026-1: ${fmt1(d1.puntajes.max)}`, "var(--guinda)"));
+      tilesV.appendChild(tile("Ausentismo · prueba 1", aa.pct_ausentismo + "%",
+        `2026-1: ${fmt1(100*d1.ausentes/d1.total)}%`, "var(--guinda)"));
+      sV.appendChild(tilesV);
+      sV.appendChild(nota("--guinda","--wash-guinda",
+        `Se presentaron <b>${fmt(Math.abs(Math.round(d1.total - aa.total)))} postulantes ${dPost<0?"menos":"más"}</b> que en la primera prueba del ciclo pasado ` +
+        `(${dPost>=0?"+":""}${fmt1(dPost)}%). La mediana de puntaje ${dMed>=0?"subió":"bajó"} ${fmt1(Math.abs(dMed))} pts. ` +
+        `Comparación referencial: cada examen tiene su propia dificultad.`));
+      const cardsV = document.createElement("div"); cardsV.className = "cards two";
+      cardsV.appendChild(card("Prueba 1 · 2026-2", fmt(aa.presentes) + " presentes",
+        histogram(aa.histograma, {W: halfW, aria:"Distribución prueba 1 2026-2"}), null));
+      cardsV.appendChild(card("Prueba 1 · 2026-1", fmt(d1.presentes) + " presentes",
+        histogram(d1.histograma, {W: halfW, aria:"Distribución prueba 1 2026-1", color:css("--s3")}), null));
+      sV.appendChild(cardsV);
+
+      const cepAnt = (hist.cepre||{}).por_especialidad || {};
+      const espCepV = (lima && lima.por_especialidad) || {};
+      const comunesC = Object.keys(espCepV).filter(k => cepAnt[k]);
+      if(comunesC.length){
+        const items = comunesC.map(k => ({
+          name:k, label:ESP_SHORT(k),
+          values:[espCepV[k].mediana, cepAnt[k].mediana],
+          act:espCepV[k], ant:cepAnt[k]
+        })).sort((a,b)=>b.values[0]-a.values[0]);
+        const cardsC = document.createElement("div"); cardsC.className = "cards";
+        cardsC.appendChild(card("CEPRE: puntaje mediano por especialidad — actual vs. ciclo anterior",
+          "Mediana del puntaje CEPRE por especialidad en la publicación actual (agosto 2026) y en la del ciclo anterior. Registros por publicación en la tabla.",
+          hBars(items, {
+            W: fullW,
+            series:[{name:"CEPRE 2026", color:css("--s1")},{name:"CEPRE anterior", color:css("--s2")}],
+            aria:"Comparación CEPRE actual vs anterior",
+            fmtVal: v => fmt1(v),
+            tip: it => `<div class="t-title">${it.name}</div>
+              <div class="t-row">CEPRE 2026: mediana ${fmt1(it.act.mediana)} (${fmt(it.act.ingresantes)} registros)</div>
+              <div class="t-row">CEPRE anterior: mediana ${fmt1(it.ant.mediana)} (${fmt(it.ant.ingresantes)} registros)</div>`
+          }),
+          tableView(["Especialidad","Mediana 2026","Registros 2026","Mediana anterior","Registros anteriores"],
+            items.map(it=>[it.name, fmt1(it.act.mediana), fmt(it.act.ingresantes), fmt1(it.ant.mediana), fmt(it.ant.ingresantes)])),
+          [{label:"CEPRE 2026", color:css("--s1")},{label:"CEPRE anterior", color:css("--s2")}]));
+        sV.appendChild(cardsC);
+      }
+      app.appendChild(sV);
+    }
+  }
 
   /* ===== CEPRE ===== */
   let vacLima = 0;
@@ -758,18 +1002,19 @@ function render(stats){
         `<b>${topCierre[0]}</b> tuvo el cierre más exigente (${fmt1(topCierre[1].min)} pts).`));
 
       const cards2 = document.createElement("div"); cards2.className = "cards";
-      cards2.appendChild(card("Vacantes asignadas por especialidad — CEPRE Lima",
-        fmt(vacLima) + " vacantes de ingreso directo",
-        hBars(espItems.map(([name,d])=>({label:ESP_SHORT(name), values:[d.ingresantes], d, name})), {
+      cards2.appendChild(facFilterCard("Vacantes asignadas por especialidad — CEPRE Lima",
+        fmt(vacLima) + " vacantes de ingreso directo · filtra por facultad",
+        espItems,
+        (items, color) => hBars(items.map(([name,d])=>({label:ESP_SHORT(name), values:[d.ingresantes], d, name})), {
           W: fullW,
-          series:[{name:"Vacantes", color:css("--s1")}],
+          series:[{name:"Vacantes", color}],
           aria:"Vacantes CEPRE por especialidad",
-          tip: it => `<div class="t-title">${it.name}</div>
+          tip: it => `<div class="t-title">${it.name} · ${facultadDe(it.name)}</div>
             <div class="t-row">${fmt(it.d.ingresantes)} vacantes asignadas</div>
             <div class="t-row">Puntaje: mín ${fmt1(it.d.min)} · mediana ${fmt1(it.d.mediana)} · máx ${fmt1(it.d.max)}</div>`
         }),
-        tableView(["Especialidad","Vacantes","Mín","Mediana","Máx"],
-          espItems.map(([name,d])=>[name, fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max)]))));
+        tableView(["Especialidad","Facultad","Vacantes","Mín","Mediana","Máx"],
+          espItems.map(([name,d])=>[name, facultadDe(name), fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max)]))));
 
       const rangos = espItems
         .map(([name,d])=>({label:ESP_SHORT(name), min:d.min, med:d.mediana, max:d.max, n:d.ingresantes}))
@@ -820,7 +1065,7 @@ function render(stats){
         perfil.appendChild(el("h3",{text:carrera}));
         const a = espAdm[carrera], c = espCep[carrera], sal = salarioDe(carrera);
         const posA = rankAdm.indexOf(carrera), posC = rankCep.indexOf(carrera);
-        const subParts = [];
+        const subParts = ["Facultad: " + facultadDe(carrera)];
         if(posA >= 0) subParts.push(`N.º ${posA+1} de ${rankAdm.length} en exigencia por examen (2026-1)`);
         if(posC >= 0) subParts.push(`N.º ${posC+1} de ${rankCep.length} en exigencia CEPRE (2026)`);
         perfil.appendChild(el("p",{class:"perfil-sub", text: subParts.join(" · ") || "Sin ranking disponible"}));
@@ -994,12 +1239,13 @@ function render(stats){
       const rangos = espH
         .map(([name,d])=>({label:ESP_SHORT(name), min:d.min, med:d.mediana, max:d.max, n:d.ingresantes}))
         .sort((a,b)=>b.min-a.min);
-      cards4.appendChild(card("Puntaje de cierre por especialidad — Admisión 2026-1",
-        "Puntaje final de los ingresantes, ordenado por cierre (mínimo que ingresó). Rango en azul, mediana en naranja.",
-        rangePlot(rangos, {W: fullW, aria:"Puntaje de cierre por especialidad 2026-1"}),
-        tableView(["Especialidad","Ingresantes","Cierre (mín)","Mediana","Máx"],
-          espH.sort((a,b)=>b[1].min-a[1].min).map(([name,d])=>[name, fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max)])),
-        [{label:"mín–máx", color:css("--s1")},{label:"mediana", color:css("--s2")}]));
+      cards4.appendChild(facFilterCard("Puntaje de cierre por especialidad — Admisión 2026-1",
+        "Puntaje final de los ingresantes, ordenado por cierre (mínimo que ingresó). La mediana va en naranja. Filtra por facultad.",
+        espH.sort((a,b)=>b[1].min-a[1].min),
+        (items, color) => rangePlot(items.map(([name,d])=>({label:ESP_SHORT(name), min:d.min, med:d.mediana, max:d.max, n:d.ingresantes})),
+          {W: fullW, color, aria:"Puntaje de cierre por especialidad 2026-1"}),
+        tableView(["Especialidad","Facultad","Ingresantes","Cierre (mín)","Mediana","Máx"],
+          espH.map(([name,d])=>[name, facultadDe(name), fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max)]))));
     }
     s4.appendChild(cards4);
     app.appendChild(s4);
@@ -1022,6 +1268,10 @@ function render(stats){
         `mientras que <b>${masDemanda[0]}</b> es la más demandada por el Estado ` +
         `(${masDemanda[1].convocatorias} convocatorias, ${masDemanda[1].plazas} plazas). ` +
         `Ojo: es sector público CAS; el mercado privado puede diferir.`));
+      const link5 = document.createElement("p");
+      link5.className = "section-note";
+      link5.innerHTML = 'Explora todas las convocatorias y sueldos en <a href="https://unimauro.github.io/salariosperu/" target="_blank" rel="noopener">SalariosPerú</a>.';
+      s5.appendChild(link5);
       const cards5 = document.createElement("div"); cards5.className = "cards";
       cards5.appendChild(card("Mediana salarial CAS por carrera",
         "Sueldo mensual (S/) en convocatorias públicas que piden cada profesión. El número de convocatorias y plazas va en la tabla.",

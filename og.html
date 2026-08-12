@@ -20,11 +20,15 @@ body{display:flex; align-items:center; justify-content:center;
 h1{font-size:84px; font-weight:800; line-height:1.06; margin-top:14px}
 h1 .light{opacity:.85; font-weight:650}
 .sub{font-size:29px; opacity:.88; margin-top:18px; max-width:900px; line-height:1.4}
-.stats{display:flex; gap:26px; margin-top:auto}
+.stats{display:flex; gap:26px; margin-top:auto; max-width:900px}
 .stat{background:rgba(255,255,255,.10); border:1.5px solid rgba(255,255,255,.28);
   border-radius:18px; padding:20px 30px; backdrop-filter:blur(2px)}
 .stat .v{font-size:46px; font-weight:750}
 .stat .l{font-size:20px; opacity:.85; margin-top:2px}
+.seal{position:absolute; right:64px; bottom:64px; width:150px; height:150px; border-radius:50%;
+  background:#fcfcf9; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.seal img{width:124px; height:124px}
 .bars{position:absolute; right:64px; top:70px; display:flex; align-items:flex-end; gap:14px; height:150px; opacity:.95}
 .bars div{width:34px; background:#fff; border-radius:8px 8px 0 0}
 </style>
@@ -47,6 +51,7 @@ h1 .light{opacity:.85; font-weight:650}
       <div class="stat"><div class="v">34</div><div class="l">especialidades</div></div>
       <div class="stat"><div class="v">12 h</div><div class="l">actualización</div></div>
     </div>
+    <div class="seal"><img src="uni-seal.png" alt=""></div>
   </div>
 </body>
 </html>
