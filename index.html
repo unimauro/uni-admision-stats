@@ -422,6 +422,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 const $ = sel => document.querySelector(sel);
 const fmt = n => n==null ? "–" : Number(n).toLocaleString("es-PE");
 const fmt1 = n => n==null ? "–" : Number(n).toLocaleString("es-PE",{maximumFractionDigits:1});
+const vig = (v, base) => (base && v!=null) ? Number(Math.max(0, Math.min(20, 20*v/base))).toLocaleString("es-PE",{maximumFractionDigits:1}) : null;
 const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 const NS = "http://www.w3.org/2000/svg";
 const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -625,6 +626,7 @@ function rangePlot(items, opts){
     const hit = el("rect",{x:0, y:top, width:W, height:rowH, fill:"transparent",
       onmousemove:e=>showTip(e,`<div class="t-title">${esc(it.label)}</div>
         <div class="t-row">Mínimo: ${fmt1(it.min)} · Mediana: ${fmt1(it.med)} · Máximo: ${fmt1(it.max)}</div>
+        ${opts.vigBase?`<div class="t-row">Nota ${opts.vigLabel||""}: ${vig(it.min,opts.vigBase)} · ${vig(it.med,opts.vigBase)} · ${vig(it.max,opts.vigBase)} /20</div>`:""}
         ${it.n!=null?`<div class="t-row">${fmt(it.n)} ingresantes</div>`:""}`),
       onmouseleave:hideTip});
     svg.appendChild(hit);
@@ -1009,9 +1011,9 @@ function render(stats){
       const tilesV = document.createElement("div"); tilesV.className = "tiles";
       tilesV.appendChild(tile("Postulantes · prueba 1", fmt(aa.total),
         `2026-1: ${fmt(d1.total)} (${dPost>=0?"+":""}${fmt1(dPost)}%)`, "var(--guinda)"));
-      tilesV.appendChild(tile("Mediana · prueba 1", fmt1(aa.puntajes.mediana),
+      tilesV.appendChild(tile("Mediana · prueba 1", fmt1(aa.puntajes.mediana) + " · " + vig(aa.puntajes.mediana,745) + "/20",
         `2026-1: ${fmt1(d1.puntajes.mediana)} (${dMed>=0?"+":""}${fmt1(dMed)} pts)`, "var(--guinda)"));
-      tilesV.appendChild(tile("Máximo · prueba 1", fmt1(aa.puntajes.max),
+      tilesV.appendChild(tile("Máximo · prueba 1", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,745) + "/20",
         `2026-1: ${fmt1(d1.puntajes.max)}`, "var(--guinda)"));
       tilesV.appendChild(tile("Ausentismo · prueba 1", aa.pct_ausentismo + "%",
         `2026-1: ${fmt1(100*d1.ausentes/d1.total)}%`, "var(--guinda)"));
@@ -1060,6 +1062,7 @@ function render(stats){
   /* ===== CEPRE ===== */
   let vacLima = 0;
   if(lima){
+    const cepreBase = lima.puntajes ? lima.puntajes.max : null;   // CEPRE no tiene máximo oficial: nota vigesimal referencial sobre el máximo observado
     vacLima = Object.values(lima.por_especialidad || {}).reduce((a,d)=>a+d.ingresantes, 0);
     const vacJuli = juli ? Object.values(juli.por_especialidad || {}).reduce((a,d)=>a+d.ingresantes, 0) : 0;
     const s2 = section("cepre", "CEPRE-UNI", "--s2", "CEPRE — Asignación de vacantes (agosto 2026)",
@@ -1069,7 +1072,7 @@ function render(stats){
     tiles2.appendChild(tile("Alumnos CEPRE · Lima", fmt(lima.total), "con puntaje publicado", "var(--s2)"));
     tiles2.appendChild(tile("Alcanzaron vacante · Lima", fmt(vacLima), fmt1(100*vacLima/lima.total) + "% de los alumnos", "var(--s2)"));
     if(juli) tiles2.appendChild(tile("Juliaca", fmt(juli.total), fmt(vacJuli) + " alcanzaron vacante", "var(--s2)"));
-    if(lima.puntajes) tiles2.appendChild(tile("Puntaje máximo · Lima", fmt1(lima.puntajes.max), "mediana " + fmt1(lima.puntajes.mediana), "var(--s2)"));
+    if(lima.puntajes) tiles2.appendChild(tile("Puntaje máximo · Lima", fmt1(lima.puntajes.max), "mediana " + fmt1(lima.puntajes.mediana) + " · nota ref. hasta " + vig(lima.puntajes.max,cepreBase) + "/20", "var(--s2)"));
     s2.appendChild(tiles2);
 
     const esp = lima.por_especialidad || {};
@@ -1092,19 +1095,20 @@ function render(stats){
           aria:"Vacantes CEPRE por especialidad",
           tip: it => `<div class="t-title">${esc(it.name)} · ${facultadDe(it.name)}</div>
             <div class="t-row">${fmt(it.d.ingresantes)} vacantes asignadas</div>
-            <div class="t-row">Puntaje: mín ${fmt1(it.d.min)} · mediana ${fmt1(it.d.mediana)} · máx ${fmt1(it.d.max)}</div>`
+            <div class="t-row">Puntaje: mín ${fmt1(it.d.min)} · mediana ${fmt1(it.d.mediana)} · máx ${fmt1(it.d.max)}</div>
+            <div class="t-row">Nota ref.: ${vig(it.d.min,cepreBase)} · ${vig(it.d.mediana,cepreBase)} · ${vig(it.d.max,cepreBase)} /20</div>`
         }),
-        tableView(["Especialidad","Facultad","Vacantes","Mín","Mediana","Máx"],
-          espItems.map(([name,d])=>[name, facultadDe(name), fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max)]))));
+        tableView(["Especialidad","Facultad","Vacantes","Mín","Mediana","Máx","Cierre /20 (ref.)"],
+          espItems.map(([name,d])=>[name, facultadDe(name), fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max), vig(d.min,cepreBase)]))));
 
       const rangos = espItems
         .map(([name,d])=>({label:ESP_SHORT(name), min:d.min, med:d.mediana, max:d.max, n:d.ingresantes}))
         .sort((a,b)=>b.med-a.med);
       cards2.appendChild(card("Puntajes de los que alcanzaron vacante — CEPRE Lima",
         "Rango mínimo–máximo (azul) y mediana (naranja). El mínimo equivale al puntaje de cierre de cada especialidad.",
-        rangePlot(rangos, {W: fullW, aria:"Rango de puntajes por especialidad"}),
-        tableView(["Especialidad","Cierre (mín)","Mediana","Máx"],
-          rangos.map(r=>[r.label, fmt1(r.min), fmt1(r.med), fmt1(r.max)])),
+        rangePlot(rangos, {W: fullW, vigBase: cepreBase, vigLabel:"ref.", aria:"Rango de puntajes por especialidad"}),
+        tableView(["Especialidad","Cierre (mín)","Mediana","Máx","Cierre /20 (ref.)"],
+          rangos.map(r=>[r.label, fmt1(r.min), fmt1(r.med), fmt1(r.max), vig(r.min,cepreBase)])),
         [{label:"mín–máx", color:css("--s1")},{label:"mediana", color:css("--s2")}]));
       s2.appendChild(cards2);
     }
@@ -1145,6 +1149,7 @@ function render(stats){
         perfil.innerHTML = "";
         perfil.appendChild(el("h3",{text:carrera}));
         const a = espAdm[carrera], c = espCep[carrera], sal = salarioDe(carrera);
+        const cepreMax = (lima && lima.puntajes) ? lima.puntajes.max : null;
         const posA = rankAdm.indexOf(carrera), posC = rankCep.indexOf(carrera);
         const subParts = ["Facultad: " + facultadDe(carrera)];
         if(posA >= 0) subParts.push(`N.º ${posA+1} de ${rankAdm.length} en exigencia por examen (2026-1)`);
@@ -1152,11 +1157,11 @@ function render(stats){
         perfil.appendChild(el("p",{class:"perfil-sub", text: subParts.join(" · ") || "Sin ranking disponible"}));
         const t = document.createElement("div"); t.className = "tiles";
         if(a){
-          t.appendChild(tile("Cierre examen 2026-1", fmt1(a.min), "mediana " + fmt1(a.mediana) + " · máx " + fmt1(a.max), "var(--s1)"));
+          t.appendChild(tile("Cierre examen 2026-1", fmt1(a.min) + " · " + vig(a.min,1845) + "/20", "mediana " + fmt1(a.mediana) + " · máx " + fmt1(a.max) + " (nota sobre 1,845=20)", "var(--s1)"));
           t.appendChild(tile("Ingresantes 2026-1", fmt(a.ingresantes), "por examen ordinario", "var(--s1)"));
         }
         if(c){
-          t.appendChild(tile("Cierre CEPRE 2026", fmt1(c.min), "mediana " + fmt1(c.mediana) + " · máx " + fmt1(c.max), "var(--s2)"));
+          t.appendChild(tile("Cierre CEPRE 2026", fmt1(c.min) + " · " + (cepreMax?vig(c.min,cepreMax)+"/20 ref.":""), "mediana " + fmt1(c.mediana) + " · máx " + fmt1(c.max), "var(--s2)"));
           t.appendChild(tile("Vacantes CEPRE 2026", fmt(c.ingresantes), "ingreso directo · Lima", "var(--s2)"));
         }
         if(sal && sal.salario){
@@ -1282,7 +1287,7 @@ function render(stats){
     tiles3.appendChild(tile("Postulantes", fmt(adm.total_postulantes), "", "var(--s3)"));
     tiles3.appendChild(tile("Ingresantes", fmt(adm.total_ingresantes),
       fmt1(100*adm.total_ingresantes/adm.total_postulantes) + "% de admisión", "var(--s3)"));
-    if(adm.puntaje_final) tiles3.appendChild(tile("Puntaje final máximo", fmt1(adm.puntaje_final.max), "mediana " + fmt1(adm.puntaje_final.mediana), "var(--s3)"));
+    if(adm.puntaje_final) tiles3.appendChild(tile("Puntaje final máximo", fmt1(adm.puntaje_final.max) + " · " + vig(adm.puntaje_final.max,1845) + "/20", "mediana " + fmt1(adm.puntaje_final.mediana) + " (" + vig(adm.puntaje_final.mediana,1845) + "/20) · sobre 1,845 = 20", "var(--s3)"));
     if(hist.cepre) tiles3.appendChild(tile("Ingreso directo CEPRE", fmt(hist.cepre.total_ingresantes), "ciclo anterior", "var(--s3)"));
     s4.appendChild(tiles3);
 
@@ -1324,9 +1329,9 @@ function render(stats){
         "Puntaje final de los ingresantes, ordenado por cierre (mínimo que ingresó). La mediana va en naranja. Filtra por facultad.",
         espH.sort((a,b)=>b[1].min-a[1].min),
         (items, color) => rangePlot(items.map(([name,d])=>({label:ESP_SHORT(name), min:d.min, med:d.mediana, max:d.max, n:d.ingresantes})),
-          {W: fullW, color, aria:"Puntaje de cierre por especialidad 2026-1"}),
-        tableView(["Especialidad","Facultad","Ingresantes","Cierre (mín)","Mediana","Máx"],
-          espH.map(([name,d])=>[name, facultadDe(name), fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max)]))));
+          {W: fullW, color, vigBase:1845, vigLabel:"oficial", aria:"Puntaje de cierre por especialidad 2026-1"}),
+        tableView(["Especialidad","Facultad","Ingresantes","Cierre (mín)","Mediana","Máx","Cierre /20"],
+          espH.map(([name,d])=>[name, facultadDe(name), fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max), vig(d.min,1845)]))));
     }
     s4.appendChild(cards4);
     app.appendChild(s4);
