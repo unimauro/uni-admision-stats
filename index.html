@@ -851,6 +851,12 @@ function render(stats){
   if(voc) tiles1.appendChild(tile("Postulantes · Vocacional", fmt(voc.total), fmt(voc.ausentes) + " ausentes (" + voc.pct_ausentismo + "%)", "var(--s3)"));
   s1.appendChild(tiles1);
 
+  s1.appendChild(nota("--a-yellow","--wash-yellow",
+    `<b>¿Cómo se califica?</b> El examen de admisión UNI se puntúa sobre <b>1,845 puntos = nota 20</b> ` +
+    `(Aptitud Académica 745 + Matemática 600 + Física-Química 500). La nota vigesimal es ` +
+    `<b>N = puntaje ÷ 1,845 × 20</b>. Nadie saca el máximo: el mejor puntaje final de 2026-1 fue 1,692 pts ≈ 18.3/20. ` +
+    `El CEPRE usa su propia escala consolidada (máximo observado ~2,774) sin conversión oficial publicada a 20.`));
+
   if(aa && hist.ausentismo_por_dia){
     const d = hist.ausentismo_por_dia;
     const d1 = d.dia1 ? d.dia1.pct : null, d3 = d.dia3 ? d.dia3.pct : null;
@@ -874,6 +880,33 @@ function render(stats){
   }
   s1.appendChild(cards1);
 
+  /* pruebas 2026-2 adicionales (Matemática, Física-Química, etc.) que aparezcan en el futuro */
+  const ausExtra = [];
+  {
+    const conocidas = new Set(["resultados-admision-aptitud-academica-humanidades",
+      "resultados-admision-vocacional","asignacion-vacantes-lima","asignacion-vacantes-juliaca"]);
+    const nombresEsp = {
+      "resultados-admision-matematica":"Matemática",
+      "resultados-admision-fisica-quimica":"Física y Química",
+      "resultados-admision-fisica":"Física",
+      "resultados-admision-quimica":"Química",
+    };
+    const nuevas = Object.entries(pubs).filter(([k,p]) =>
+      !conocidas.has(k) && k.startsWith("resultados-admision") && p.histograma && p.histograma.length);
+    if(nuevas.length){
+      const cardsN = document.createElement("div"); cardsN.className = "cards two";
+      nuevas.forEach(([k,p])=>{
+        const bonito = nombresEsp[k] || (p.nombre_oficial || k.replace("resultados-admision-","").replace(/-/g," "));
+        cardsN.appendChild(card("Distribución de puntajes — " + bonito,
+          fmt(p.presentes) + " presentes · " + (p.puntajes ? "máximo " + fmt1(p.puntajes.max) + " pts" : ""),
+          histogram(p.histograma, {W: halfW, color:css("--a-violet"), aria:"Histograma de " + bonito}),
+          tableView(["Rango (pts)","Postulantes"], p.histograma.filter(b=>b.n>0).map(b=>[`${b.desde}–${b.hasta}`, fmt(b.n)]))));
+        if(p.ausentes != null) ausExtra.push({label:"2026-2 · " + bonito, values:[p.pct_ausentismo], raw:p});
+      });
+      s1.appendChild(cardsN);
+    }
+  }
+
   /* ausentismo comparado */
   const ausItems = [];
   const ausHist = hist.ausentismo_por_dia || {};
@@ -882,6 +915,7 @@ function render(stats){
   });
   if(voc) ausItems.push({label:"2026-2 · Vocacional (Arq.)", values:[voc.pct_ausentismo], raw:voc});
   if(aa) ausItems.push({label:"2026-2 · Apt. Académica y Hum.", values:[aa.pct_ausentismo], raw:aa});
+  ausExtra.forEach(x => ausItems.push(x));
   if(ausItems.length){
     const chart = hBars(ausItems, {
       W: fullW,
@@ -902,25 +936,32 @@ function render(stats){
 
   /* calculadora: como me fue */
   {
+    // Máximos teóricos OFICIALES (reglamento UNI): 1,845 pts = nota 20.
+    // Aptitud Académica 745 + Matemática 600 + Física-Química 500 = 1,845.
+    // maxT presente = conversión oficial; ausente = escala propia sin conversión oficial a 20.
     const pruebas = [];
-    if(aa) pruebas.push({nombre:"Apt. Académica y Humanidades · 2026-2", st:aa});
-    if(voc) pruebas.push({nombre:"Apt. Vocacional (Arq.) · 2026-2", st:voc});
+    if(aa) pruebas.push({nombre:"Apt. Académica y Humanidades · 2026-2", st:aa, maxT:null});
+    if(voc) pruebas.push({nombre:"Apt. Vocacional (Arq.) · 2026-2", st:voc, maxT:null});
     const d1c = (hist.examen_por_dia||{}).dia1;
-    if(d1c && d1c.histograma) pruebas.push({nombre:"Prueba 1 (Apt. Académica) · 2026-1", st:d1c});
-    if(adm && adm.histograma_final) pruebas.push({nombre:"Puntaje final · 2026-1", st:{histograma:adm.histograma_final, puntajes:adm.puntaje_final}});
+    if(d1c && d1c.histograma) pruebas.push({nombre:"Prueba 1 · Aptitud Académica · 2026-1", st:d1c, maxT:745});
+    const d2c = (hist.examen_por_dia||{}).dia2;
+    if(d2c && d2c.histograma) pruebas.push({nombre:"Prueba 2 · Matemática · 2026-1", st:d2c, maxT:600});
+    const d3c = (hist.examen_por_dia||{}).dia3;
+    if(d3c && d3c.histograma) pruebas.push({nombre:"Prueba 3 · Física y Química · 2026-1", st:d3c, maxT:500});
+    if(adm && adm.histograma_final) pruebas.push({nombre:"Examen de admisión (total) · 2026-1", st:{histograma:adm.histograma_final, puntajes:adm.puntaje_final}, maxT:1845});
     if(pruebas.length){
       const cCalc = document.createElement("div"); cCalc.className = "card";
-      cCalc.appendChild(el("h3",{text:"¿Cómo me fue? — percentil y nota equivalente"}));
-      cCalc.appendChild(el("p",{class:"sub",text:"Ingresa tu puntaje: mira a cuántos superas y tu equivalente sobre 20, relativo al máximo de ese proceso."}));
+      cCalc.appendChild(el("h3",{text:"¿Cómo me fue? — puntaje, percentil y nota vigesimal"}));
+      cCalc.appendChild(el("p",{class:"sub",text:"Ingresa tu puntaje: a cuántos superas y tu nota sobre 20. El examen de admisión UNI se califica sobre 1,845 puntos = nota 20 (Aptitud Académica 745 + Matemática 600 + Física-Química 500)."}));
       const form = document.createElement("div"); form.className = "calc";
       const sel = document.createElement("select");
-      pruebas.forEach((p,i)=>{ const o=document.createElement("option"); o.value=i; o.textContent=p.nombre; sel.appendChild(o); });
+      pruebas.forEach((p,i)=>{ const o=document.createElement("option"); o.value=i; o.textContent=p.nombre + (p.maxT ? ` (máx ${fmt(p.maxT)} = 20)` : ""); sel.appendChild(o); });
       const inp = document.createElement("input");
       inp.type = "number"; inp.placeholder = "Tu puntaje"; inp.min = 0;
       const btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Calcular";
       form.appendChild(sel); form.appendChild(inp); form.appendChild(btn);
       const res = document.createElement("div"); res.className = "calc-result";
-      const notaP = el("p",{class:"calc-note",text:"Referencial: percentil sobre los presentes con puntaje publicado; la equivalencia sobre 20 es relativa al máximo de ese proceso, no es una calificación oficial de la UNI."});
+      const notaP = el("p",{class:"calc-note",text:"El percentil se calcula sobre los presentes con puntaje publicado. La nota vigesimal usa la fórmula oficial N = puntaje ÷ máximo × 20 (máximo del reglamento cuando se indica; en pruebas con escala propia se usa el máximo del proceso y se marca como referencial)."});
       function calcular(){
         const p = pruebas[+sel.value], v = parseFloat(inp.value);
         if(isNaN(v)){ res.textContent = "Ingresa un puntaje válido."; return; }
@@ -930,10 +971,13 @@ function render(stats){
           if(v >= b.hasta) below += b.n;
           else if(v > b.desde) below += b.n * (v - b.desde)/(b.hasta - b.desde);
         });
-        const pct = Math.max(0, Math.min(100, 100*below/total));
-        const max = p.st.puntajes.max;
-        const n20 = Math.min(20, 20*v/max);
-        res.innerHTML = `Con <b>${fmt1(v)}</b> pts superas aprox. al <b>${fmt1(pct)}%</b> de los ${fmt(total)} presentes · equivalente <b>${fmt1(n20)}/20</b> (${fmt1(n20/2)}/10) — máximo del proceso: ${fmt1(max)} pts.`;
+        const pct = total > 0 ? Math.max(0, Math.min(100, 100*below/total)) : 0;
+        const oficial = p.maxT != null;
+        const base = oficial ? p.maxT : p.st.puntajes.max;
+        const n20 = base > 0 ? Math.max(0, Math.min(20, 20*v/base)) : 0;
+        res.innerHTML = `Puntaje: <b>${fmt1(v)}</b> pts · superas al <b>${fmt1(pct)}%</b> de los ${fmt(total)} presentes<br>` +
+          `Nota${oficial ? "" : " referencial"}: <b>${fmt1(n20)}/20</b> (${fmt1(n20/2)}/10) — ` +
+          (oficial ? `sobre el máximo oficial de ${fmt(base)} pts = 20` : `relativo al máximo del proceso (${fmt1(base)} pts); esta prueba no tiene conversión oficial a 20`);
       }
       btn.addEventListener("click", calcular);
       inp.addEventListener("keydown", e=>{ if(e.key==="Enter") calcular(); });
