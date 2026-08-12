@@ -34,6 +34,7 @@
   --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
   --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10);
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+  --seq-250:#86b6ef; --seq-450:#1c5cab;
   --a-violet:#4a3aa7; --a-yellow:#eda100; --a-magenta:#e87ba4; --a-red:#e34948; --guinda:#7d1c35;
   --wash-s1:rgba(42,120,214,.08); --wash-s2:rgba(235,104,52,.08); --wash-s3:rgba(27,175,122,.08);
   --wash-violet:rgba(74,58,167,.08); --wash-yellow:rgba(237,161,0,.10); --wash-magenta:rgba(232,123,164,.10); --wash-guinda:rgba(125,28,53,.09);
@@ -45,6 +46,7 @@
     --ink:#ffffff; --ink-2:#cdccc1; --muted:#9a988f;
     --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
     --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --seq-250:#6da7ec; --seq-450:#184f95;
     --a-violet:#9085e9; --a-yellow:#c98500; --a-magenta:#d55181;
     --wash-s1:rgba(57,135,229,.13); --wash-s2:rgba(217,89,38,.13); --wash-s3:rgba(25,158,112,.13);
     --wash-violet:rgba(144,133,233,.13); --wash-yellow:rgba(201,133,0,.14); --wash-magenta:rgba(213,81,129,.14); --wash-guinda:rgba(217,113,140,.15);
@@ -56,6 +58,7 @@
   --ink:#ffffff; --ink-2:#cdccc1; --muted:#9a988f;
   --grid:#2c2c2a; --axis:#383835; --ring:rgba(255,255,255,.10);
   --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+  --seq-250:#6da7ec; --seq-450:#184f95;
   --a-violet:#9085e9; --a-yellow:#c98500; --a-magenta:#d55181;
   --wash-s1:rgba(57,135,229,.13); --wash-s2:rgba(217,89,38,.13); --wash-s3:rgba(25,158,112,.13);
   --wash-violet:rgba(144,133,233,.13); --wash-yellow:rgba(201,133,0,.14); --wash-magenta:rgba(213,81,129,.14); --wash-guinda:rgba(217,113,140,.15);
@@ -421,6 +424,7 @@ const fmt = n => n==null ? "–" : Number(n).toLocaleString("es-PE");
 const fmt1 = n => n==null ? "–" : Number(n).toLocaleString("es-PE",{maximumFractionDigits:1});
 const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 const NS = "http://www.w3.org/2000/svg";
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 function el(tag, attrs, children){
   const isSvg = ["svg","g","rect","path","line","circle","text","title"].includes(tag);
@@ -594,7 +598,8 @@ function rangePlot(items, opts){
   const err = span/5/stepBase;
   const step = stepBase * (err >= 5 ? 10 : err >= 2 ? 5 : err >= 1 ? 2 : 1);
   const min = Math.floor(rawMin/step)*step;
-  const tMax = Math.ceil(rawMax/step)*step;
+  let tMax = Math.ceil(rawMax/step)*step;
+  if(tMax === min) tMax = min + (step || 1);
   const ticks = [];
   for(let t = min; t <= tMax + step*0.001; t += step) ticks.push(Math.round(t*100)/100);
   const x0 = labelW + 10, plotW = W - x0 - padR;
@@ -618,7 +623,7 @@ function rangePlot(items, opts){
     svg.appendChild(el("circle",{cx:X(it.med), cy, r:6, fill:css("--surface")}));
     svg.appendChild(el("circle",{cx:X(it.med), cy, r:4, fill:css("--s2")}));
     const hit = el("rect",{x:0, y:top, width:W, height:rowH, fill:"transparent",
-      onmousemove:e=>showTip(e,`<div class="t-title">${it.label}</div>
+      onmousemove:e=>showTip(e,`<div class="t-title">${esc(it.label)}</div>
         <div class="t-row">Mínimo: ${fmt1(it.min)} · Mediana: ${fmt1(it.med)} · Máximo: ${fmt1(it.max)}</div>
         ${it.n!=null?`<div class="t-row">${fmt(it.n)} ingresantes</div>`:""}`),
       onmouseleave:hideTip});
@@ -631,7 +636,7 @@ function rangePlot(items, opts){
 function lineChart(seriesList, labels, opts){
   const W = opts.W || 640, padL = 48, padR = 12, padT = 14, padB = 30, plotH = 190;
   const H = padT + plotH + padB;
-  const maxV = Math.max(...seriesList.flatMap(s=>s.values), 1);
+  const maxV = Math.max(...seriesList.flatMap(s=>s.values.filter(v=>v!=null)), 1);
   const ticks = niceTicks(maxV, 4);
   const yMax = ticks[ticks.length-1];
   const plotW = W - padL - padR;
@@ -649,10 +654,11 @@ function lineChart(seriesList, labels, opts){
   });
   seriesList.forEach(s=>{
     if(labels.length > 1){
-      const d = s.values.map((v,i)=>`${i===0?"M":"L"}${X(i)},${Y(v)}`).join(" ");
+      const d = s.values.map((v,i)=>v==null?null:`${X(i)},${Y(v)}`).filter(Boolean).map((seg,j)=>(j===0?"M":"L")+seg).join(" ");
       svg.appendChild(el("path",{d, fill:"none", stroke:s.color, "stroke-width":2, "stroke-linejoin":"round", "stroke-linecap":"round"}));
     }
     s.values.forEach((v,i)=>{
+      if(v==null) return;
       svg.appendChild(el("circle",{cx:X(i), cy:Y(v), r:6, fill:css("--surface")}));
       svg.appendChild(el("circle",{cx:X(i), cy:Y(v), r:4, fill:s.color}));
     });
@@ -660,7 +666,7 @@ function lineChart(seriesList, labels, opts){
   labels.forEach((lb,i)=>{
     const hit = el("rect",{x:X(i)-Math.max(plotW/labels.length/2,12), y:padT, width:Math.max(plotW/labels.length,24), height:plotH, fill:"transparent",
       onmousemove:e=>showTip(e,`<div class="t-title">${lb}</div>` +
-        seriesList.map(s=>`<div class="t-row">${s.name}: ${fmt(s.values[i])}</div>`).join("")),
+        seriesList.map(s=>s.values[i]==null?"":`<div class="t-row">${s.name}: ${fmt(s.values[i])}</div>`).join("")),
       onmouseleave:hideTip});
     svg.appendChild(hit);
   });
@@ -801,6 +807,7 @@ function facFilterCard(title, sub, espEntries, buildChart, table){
     facs.forEach(f => mk(f, f, facColor(f)));
     const items = activa ? espEntries.filter(([n])=>facultadDe(n)===activa) : espEntries;
     const color = activa ? facColor(activa) : css("--s1");
+    hideTip();
     fig.innerHTML = "";
     fig.appendChild(buildChart(items, color));
   }
@@ -815,6 +822,7 @@ let lastStats = null;
 
 function render(stats){
   const app = $("#app");
+  hideTip();
   app.className = ""; app.innerHTML = "";
   const appW = Math.max(app.clientWidth || 320, 300);
   const twoCol = matchMedia("(min-width:860px)").matches;
@@ -922,7 +930,7 @@ function render(stats){
       series: [{name:"% ausentismo", color: css("--s1")}],
       aria: "Ausentismo por prueba y ciclo",
       fmtVal: v => fmt1(v) + "%",
-      tip: it => `<div class="t-title">${it.label}</div>
+      tip: it => `<div class="t-title">${esc(it.label)}</div>
         <div class="t-row">Ausentes: ${fmt(it.raw.ausentes)} de ${fmt(it.raw.total)} (${fmt1(it.values[0])}%)</div>`
     });
     const cardsAus = document.createElement("div"); cardsAus.className = "cards";
@@ -940,8 +948,8 @@ function render(stats){
     // Aptitud Académica 745 + Matemática 600 + Física-Química 500 = 1,845.
     // maxT presente = conversión oficial; ausente = escala propia sin conversión oficial a 20.
     const pruebas = [];
-    if(aa) pruebas.push({nombre:"Apt. Académica y Humanidades · 2026-2", st:aa, maxT:null});
-    if(voc) pruebas.push({nombre:"Apt. Vocacional (Arq.) · 2026-2", st:voc, maxT:null});
+    if(aa && aa.puntajes) pruebas.push({nombre:"Apt. Académica y Humanidades · 2026-2", st:aa, maxT:null});
+    if(voc && voc.puntajes) pruebas.push({nombre:"Apt. Vocacional (Arq.) · 2026-2", st:voc, maxT:null});
     const d1c = (hist.examen_por_dia||{}).dia1;
     if(d1c && d1c.histograma) pruebas.push({nombre:"Prueba 1 · Aptitud Académica · 2026-1", st:d1c, maxT:745});
     const d2c = (hist.examen_por_dia||{}).dia2;
@@ -1036,7 +1044,7 @@ function render(stats){
             series:[{name:"CEPRE 2026", color:css("--s1")},{name:"CEPRE anterior", color:css("--s2")}],
             aria:"Comparación CEPRE actual vs anterior",
             fmtVal: v => fmt1(v),
-            tip: it => `<div class="t-title">${it.name}</div>
+            tip: it => `<div class="t-title">${esc(it.name)}</div>
               <div class="t-row">CEPRE 2026: mediana ${fmt1(it.act.mediana)} (${fmt(it.act.ingresantes)} registros)</div>
               <div class="t-row">CEPRE anterior: mediana ${fmt1(it.ant.mediana)} (${fmt(it.ant.ingresantes)} registros)</div>`
           }),
@@ -1065,14 +1073,14 @@ function render(stats){
     s2.appendChild(tiles2);
 
     const esp = lima.por_especialidad || {};
-    const espItems = Object.entries(esp).sort((a,b)=>b[1].ingresantes-a[1].ingresantes);
+    const espItems = Object.entries(esp).filter(([,d])=>d.min!=null).sort((a,b)=>b[1].ingresantes-a[1].ingresantes);
     if(espItems.length){
       const topVac = espItems[0];
       const topCierre = [...espItems].sort((a,b)=>b[1].min-a[1].min)[0];
       s2.appendChild(nota("--s2","--wash-s2",
         `Solo <b>${fmt1(100*vacLima/lima.total)}%</b> de los alumnos CEPRE Lima alcanzó vacante de ingreso directo. ` +
-        `<b>${topVac[0]}</b> asignó más vacantes (${topVac[1].ingresantes}) y ` +
-        `<b>${topCierre[0]}</b> tuvo el cierre más exigente (${fmt1(topCierre[1].min)} pts).`));
+        `<b>${esc(topVac[0])}</b> asignó más vacantes (${topVac[1].ingresantes}) y ` +
+        `<b>${esc(topCierre[0])}</b> tuvo el cierre más exigente (${fmt1(topCierre[1].min)} pts).`));
 
       const cards2 = document.createElement("div"); cards2.className = "cards";
       cards2.appendChild(facFilterCard("Vacantes asignadas por especialidad — CEPRE Lima",
@@ -1082,7 +1090,7 @@ function render(stats){
           W: fullW,
           series:[{name:"Vacantes", color}],
           aria:"Vacantes CEPRE por especialidad",
-          tip: it => `<div class="t-title">${it.name} · ${facultadDe(it.name)}</div>
+          tip: it => `<div class="t-title">${esc(it.name)} · ${facultadDe(it.name)}</div>
             <div class="t-row">${fmt(it.d.ingresantes)} vacantes asignadas</div>
             <div class="t-row">Puntaje: mín ${fmt1(it.d.min)} · mediana ${fmt1(it.d.mediana)} · máx ${fmt1(it.d.max)}</div>`
         }),
@@ -1128,7 +1136,7 @@ function render(stats){
         const cn = norm(carrera).replace(/ingenieria\s+(de\s+)?/,"");
         for(const [k,v] of Object.entries(mercado.por_carrera)){
           const kn = norm(k);
-          if(kn.includes(cn) || cn.split(" ").some(w => w.length > 4 && kn.includes(w))) return {nombre:k, ...v};
+          if(kn === cn || kn.includes(cn) || cn.includes(kn)) return {nombre:k, ...v};
         }
         return null;
       }
@@ -1152,7 +1160,7 @@ function render(stats){
           t.appendChild(tile("Vacantes CEPRE 2026", fmt(c.ingresantes), "ingreso directo · Lima", "var(--s2)"));
         }
         if(sal && sal.salario){
-          t.appendChild(tile("Salario CAS (mediana)", "S/ " + fmt(sal.salario.mediana),
+          t.appendChild(tile("Salario CAS · " + ESP_SHORT(sal.nombre), "S/ " + fmt(sal.salario.mediana),
             sal.convocatorias + " convocatorias · " + sal.plazas + " plazas", "var(--a-yellow)"));
         }
         perfil.appendChild(t);
@@ -1205,9 +1213,9 @@ function render(stats){
       const masExigente = exig[0];
       const masVacAdm = Object.entries(espAdm).sort((a,b)=>b[1].ingresantes-a[1].ingresantes)[0];
       s3.appendChild(nota("--a-violet","--wash-violet",
-        `La carrera más competitiva por examen fue <b>${masExigente.name}</b>: para ingresar necesitabas al menos el ` +
+        `La carrera más competitiva por examen fue <b>${esc(masExigente.name)}</b>: para ingresar necesitabas al menos el ` +
         `<b>${fmt1(masExigente.values[0])}%</b> del puntaje máximo del proceso. ` +
-        `Por volumen, <b>${masVacAdm[0]}</b> recibió más ingresantes por examen (${masVacAdm[1].ingresantes}).`));
+        `Por volumen, <b>${esc(masVacAdm[0])}</b> recibió más ingresantes por examen (${masVacAdm[1].ingresantes}).`));
 
       const cards3 = document.createElement("div"); cards3.className = "cards";
 
@@ -1236,7 +1244,7 @@ function render(stats){
           series:[{name:"Admisión 2026-1", color:css("--s1")},{name:"CEPRE 2026", color:css("--s2")}],
           aria:"Exigencia relativa por especialidad",
           fmtVal: v => fmt1(v) + "%",
-          tip: it => `<div class="t-title">${it.name}</div>
+          tip: it => `<div class="t-title">${esc(it.name)}</div>
             <div class="t-row">Admisión 2026-1: cierre ${fmt1(it.adm.min)} pts (${fmt1(it.values[0])}% del máx)</div>
             <div class="t-row">CEPRE 2026: cierre ${fmt1(it.cep.min)} pts (${fmt1(it.values[1])}% del máx)</div>`
         }),
@@ -1254,7 +1262,7 @@ function render(stats){
           W: fullW,
           series:[{name:"Examen 2026-1", color:css("--s1")},{name:"CEPRE 2026", color:css("--s2")}],
           aria:"Ingresantes por vía de ingreso",
-          tip: it => `<div class="t-title">${it.name}</div>
+          tip: it => `<div class="t-title">${esc(it.name)}</div>
             <div class="t-row">Examen 2026-1: ${fmt(it.values[0])} ingresantes</div>
             <div class="t-row">CEPRE 2026: ${fmt(it.values[1])} vacantes</div>`
         }),
@@ -1281,8 +1289,8 @@ function render(stats){
     s4.appendChild(nota("--s3","--wash-s3",
       `En 2026-1 ingresó <b>1 de cada ${Math.round(adm.total_postulantes/adm.total_ingresantes)}</b> postulantes por examen ordinario. ` +
       (hist.ausentismo_por_dia && hist.ausentismo_por_dia.dia3 ?
-        `El día 3 del examen faltaron <b>${fmt(hist.ausentismo_por_dia.dia3.ausentes)}</b> postulantes (${hist.ausentismo_por_dia.dia3.pct}%), ` +
-        `más del cuádruple que el día 1 (${fmt(hist.ausentismo_por_dia.dia1.ausentes)}).` : ""),));
+        `El día 3 del examen faltaron <b>${fmt(hist.ausentismo_por_dia.dia3.ausentes)}</b> postulantes (${hist.ausentismo_por_dia.dia3.pct}%)` +
+        (hist.ausentismo_por_dia.dia1 ? `, más del cuádruple que el día 1 (${fmt(hist.ausentismo_por_dia.dia1.ausentes)})` : ``) + `.` : ""),));
 
     const cards4 = document.createElement("div"); cards4.className = "cards";
     if(adm.histograma_final && adm.histograma_final.length){
@@ -1299,7 +1307,7 @@ function render(stats){
           W: fullW,
           series:[{name:"Postulantes", color:css("--s1")},{name:"Ingresantes", color:css("--s3")}],
           aria:"Postulantes e ingresantes por modalidad",
-          tip: it => `<div class="t-title">${it.name}</div>
+          tip: it => `<div class="t-title">${esc(it.name)}</div>
             <div class="t-row">Postulantes: ${fmt(it.d.postulantes)}</div>
             <div class="t-row">Ingresantes: ${fmt(it.d.ingresantes)}</div>`
         }),
@@ -1307,7 +1315,7 @@ function render(stats){
           mods.map(([name,d])=>[name, fmt(d.postulantes), fmt(d.ingresantes)])),
         [{label:"Postulantes", color:css("--s1")},{label:"Ingresantes", color:css("--s3")}]));
     }
-    const espH = Object.entries(adm.ingresantes_por_especialidad || {});
+    const espH = Object.entries(adm.ingresantes_por_especialidad || {}).filter(([,d])=>d.min!=null);
     if(espH.length){
       const rangos = espH
         .map(([name,d])=>({label:ESP_SHORT(name), min:d.min, med:d.mediana, max:d.max, n:d.ingresantes}))
@@ -1337,8 +1345,8 @@ function render(stats){
       const top = items[0];
       const masDemanda = [...items].sort((a,b)=>b[1].convocatorias-a[1].convocatorias)[0];
       s5.appendChild(nota("--a-yellow","--wash-yellow",
-        `<b>${top[0]}</b> muestra la mediana salarial más alta en convocatorias CAS (S/ ${fmt(top[1].salario.mediana)}), ` +
-        `mientras que <b>${masDemanda[0]}</b> es la más demandada por el Estado ` +
+        `<b>${esc(top[0])}</b> muestra la mediana salarial más alta en convocatorias CAS (S/ ${fmt(top[1].salario.mediana)}), ` +
+        `mientras que <b>${esc(masDemanda[0])}</b> es la más demandada por el Estado ` +
         `(${masDemanda[1].convocatorias} convocatorias, ${masDemanda[1].plazas} plazas). ` +
         `Ojo: es sector público CAS; el mercado privado puede diferir.`));
       const link5 = document.createElement("p");
@@ -1353,7 +1361,7 @@ function render(stats){
           series:[{name:"Mediana S/", color:css("--s1")}],
           aria:"Mediana salarial por carrera",
           fmtVal: v => "S/ " + fmt(v),
-          tip: it => `<div class="t-title">${it.name}</div>
+          tip: it => `<div class="t-title">${esc(it.name)}</div>
             <div class="t-row">Mediana: S/ ${fmt(it.d.salario.mediana)} · Rango: S/ ${fmt(it.d.salario.min)}–${fmt(it.d.salario.max)}</div>
             <div class="t-row">${fmt(it.d.convocatorias)} convocatorias · ${fmt(it.d.plazas)} plazas</div>`
         }),
@@ -1380,10 +1388,10 @@ function render(stats){
       "asignacion-vacantes-lima":"CEPRE Lima",
       "asignacion-vacantes-juliaca":"CEPRE Juliaca"
     };
-    const palette = [css("--s1"), css("--s2"), css("--s3")];
-    const seriesList = keys.slice(0,3).map((k,i)=>({
-      name: nice[k] || k, color: palette[i],
-      values: evo.map(e=>(e.publicaciones[k]||{}).total || 0)
+    const palette = [css("--s1"), css("--s2"), css("--s3"), css("--a-violet"), css("--a-yellow"), css("--a-magenta"), css("--guinda"), css("--a-red")];
+    const seriesList = keys.map((k,i)=>({
+      name: nice[k] || k, color: palette[i % palette.length],
+      values: evo.map(e=>{ const p=e.publicaciones[k]; return p ? p.total : null; })
     }));
     const cards6 = document.createElement("div"); cards6.className = "cards";
     cards6.appendChild(card("Registros publicados por verificación",
