@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+*{box-sizing:border-box; margin:0}
+html,body{width:100%; height:100%; background:#4a0f1f; overflow:hidden}
+body{display:flex; align-items:center; justify-content:center;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.og{
+  width:1200px; height:630px; position:relative; overflow:hidden;
+  background:linear-gradient(135deg, #5d1226 0%, #7d1c35 55%, #9a2a45 100%);
+  color:#fff; padding:64px 72px; display:flex; flex-direction:column;
+}
+.grid{position:absolute; inset:0; opacity:.14;
+  background-image:linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px);
+  background-size:56px 56px}
+.kicker{font-size:24px; letter-spacing:.14em; font-weight:700; opacity:.85; text-transform:uppercase}
+h1{font-size:84px; font-weight:800; line-height:1.06; margin-top:14px}
+h1 .light{opacity:.85; font-weight:650}
+.sub{font-size:29px; opacity:.88; margin-top:18px; max-width:900px; line-height:1.4}
+.stats{display:flex; gap:26px; margin-top:auto}
+.stat{background:rgba(255,255,255,.10); border:1.5px solid rgba(255,255,255,.28);
+  border-radius:18px; padding:20px 30px; backdrop-filter:blur(2px)}
+.stat .v{font-size:46px; font-weight:750}
+.stat .l{font-size:20px; opacity:.85; margin-top:2px}
+.bars{position:absolute; right:64px; top:70px; display:flex; align-items:flex-end; gap:14px; height:150px; opacity:.95}
+.bars div{width:34px; background:#fff; border-radius:8px 8px 0 0}
+</style>
+</head>
+<body>
+  <div class="og">
+    <div class="grid"></div>
+    <div class="bars">
+      <div style="height:34%; opacity:.55"></div>
+      <div style="height:62%; opacity:.75"></div>
+      <div style="height:100%"></div>
+      <div style="height:78%; opacity:.85"></div>
+      <div style="height:47%; opacity:.65"></div>
+    </div>
+    <div class="kicker">Estadísticas abiertas · sin datos personales</div>
+    <h1>Admisión UNI<br><span class="light">en cifras</span></h1>
+    <p class="sub">Postulantes, ausentismo, puntajes de cierre por carrera, vacantes CEPRE y salarios — actualizado cada 12 horas.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">4,642</div><div class="l">postulantes 2026-2</div></div>
+      <div class="stat"><div class="v">34</div><div class="l">especialidades</div></div>
+      <div class="stat"><div class="v">12 h</div><div class="l">actualización</div></div>
+    </div>
+  </div>
+</body>
+</html>

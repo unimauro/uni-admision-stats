@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Admisión UNI en cifras</title>
 <meta name="description" content="Estadísticas agregadas y anónimas de los procesos de admisión de la Universidad Nacional de Ingeniería (UNI): postulantes, ausentismo, puntajes por prueba, especialidad y modalidad, comparativas entre carreras y mercado laboral.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Admisión UNI en cifras">
+<meta property="og:description" content="Postulantes, ausentismo, puntajes de cierre por carrera, vacantes CEPRE y salarios referenciales del proceso de admisión UNI. Estadísticas agregadas, sin datos personales, actualizadas cada 12 horas.">
+<meta property="og:url" content="https://unimauro.github.io/uni-admision-stats/">
+<meta property="og:image" content="https://unimauro.github.io/uni-admision-stats/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_PE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Admisión UNI en cifras">
+<meta name="twitter:description" content="Estadísticas abiertas del proceso de admisión UNI: ausentismo, cierres por carrera, vacantes CEPRE y más. Sin datos personales.">
+<meta name="twitter:image" content="https://unimauro.github.io/uni-admision-stats/og.png">
 <style>
 :root{
   color-scheme: light;
@@ -12,7 +25,7 @@
   --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
   --grid:#e1e0d9; --axis:#c3c2b7; --ring:rgba(11,11,11,.10);
   --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
-  --a-violet:#4a3aa7; --a-yellow:#eda100; --a-magenta:#e87ba4; --a-red:#e34948;
+  --a-violet:#4a3aa7; --a-yellow:#eda100; --a-magenta:#e87ba4; --a-red:#e34948; --guinda:#7d1c35;
   --wash-s1:rgba(42,120,214,.08); --wash-s2:rgba(235,104,52,.08); --wash-s3:rgba(27,175,122,.08);
   --wash-violet:rgba(74,58,167,.08); --wash-yellow:rgba(237,161,0,.10); --wash-magenta:rgba(232,123,164,.10);
 }
@@ -49,12 +62,13 @@ a{color:var(--s1)}
 /* ---------- layout con sidebar ---------- */
 .layout{display:block}
 .sidebar{
+  border-top:4px solid var(--guinda);
   display:none; position:fixed; top:0; left:0; bottom:0; width:236px;
   background:var(--surface); border-right:1px solid var(--grid);
   padding:26px 18px 18px; flex-direction:column; gap:4px; z-index:5; overflow-y:auto;
 }
 .brand{font-weight:800; font-size:20px; line-height:1.2; margin-bottom:2px}
-.brand .uni{color:var(--s1)}
+.brand .uni{color:var(--guinda)}
 .brand-sub{font-size:12.5px; color:var(--muted); margin-bottom:18px}
 .nav-link{
   display:flex; align-items:center; gap:9px; padding:8px 10px; border-radius:8px;
@@ -89,7 +103,7 @@ main{display:block; min-width:0}
 /* ---------- encabezado ---------- */
 header.site{padding:34px 0 6px}
 header.site h1{font-size:clamp(26px,5vw,38px); line-height:1.15; margin:0 0 6px}
-header.site h1 .uni{color:var(--s1)}
+header.site h1 .uni{color:var(--guinda)}
 header.site .sub{color:var(--ink-2); max-width:62ch; margin:0}
 .updated{color:var(--muted); font-size:13px; margin-top:10px}
 
@@ -547,6 +561,51 @@ function lineChart(seriesList, labels, opts){
   return svg;
 }
 
+
+/* ---------- sankey 2x2: embudo del ingreso ---------- */
+function sankeyIngreso(left, right, flows, opts){
+  const W = opts.W || 920, H = 330, padT = 14, padB = 14, nodeW = 14, gap = 22;
+  const labelSp = Math.min(190, Math.round(W*0.24));
+  const leftX = labelSp, rightX = W - labelSp - nodeW;
+  const total = left.reduce((a,n)=>a+n.v,0);
+  const scaleH = (H - padT - padB - gap*(left.length-1)) / total;
+  const svg = el("svg",{viewBox:`0 0 ${W} ${H}`, role:"img", "aria-label":opts.aria});
+  // posiciones de nodos
+  let y = padT;
+  left.forEach(n => { n.y0 = y; n.y1 = y + n.v*scaleH; n.off = n.y0; y = n.y1 + gap; });
+  y = padT;
+  right.forEach(n => { n.y0 = y; n.y1 = y + n.v*scaleH; n.off = n.y0; y = n.y1 + gap; });
+  // cintas
+  const midL = leftX + nodeW + (rightX - leftX - nodeW)*0.45;
+  const midR = leftX + nodeW + (rightX - leftX - nodeW)*0.55;
+  flows.forEach(([si, ti, v])=>{
+    const s = left[si], t = right[ti], h = v*scaleH;
+    const sy0 = s.off, sy1 = s.off + h; s.off = sy1;
+    const ty0 = t.off, ty1 = t.off + h; t.off = ty1;
+    const d = `M${leftX+nodeW},${sy0} C${midL},${sy0} ${midR},${ty0} ${rightX},${ty0}`+
+              ` L${rightX},${ty1} C${midR},${ty1} ${midL},${sy1} ${leftX+nodeW},${sy1} Z`;
+    const ribbon = el("path",{d, fill:s.color, opacity:"0.30",
+      onmousemove:e=>{ e.target.setAttribute("opacity","0.5");
+        showTip(e,`<div class="t-title">${s.name} → ${t.name}</div><div class="t-row">${fmt(v)} postulantes (${fmt1(100*v/s.v)}% de ${s.name})</div>`); },
+      onmouseleave:e=>{ e.target.setAttribute("opacity","0.30"); hideTip(); }});
+    svg.appendChild(ribbon);
+  });
+  // nodos y etiquetas
+  left.forEach(n=>{
+    svg.appendChild(el("rect",{x:leftX, y:n.y0, width:nodeW, height:Math.max(n.y1-n.y0,2), rx:3, fill:n.color}));
+    const cy = (n.y0+n.y1)/2;
+    svg.appendChild(el("text",{x:leftX-8, y:cy-3, "text-anchor":"end", class:"cattext", text:n.name}));
+    svg.appendChild(el("text",{x:leftX-8, y:cy+13, "text-anchor":"end", class:"dlabel", text:fmt(n.v)}));
+  });
+  right.forEach(n=>{
+    svg.appendChild(el("rect",{x:rightX, y:n.y0, width:nodeW, height:Math.max(n.y1-n.y0,2), rx:3, fill:n.color}));
+    const cy = (n.y0+n.y1)/2;
+    svg.appendChild(el("text",{x:rightX+nodeW+8, y:cy-3, class:"cattext", text:n.name}));
+    svg.appendChild(el("text",{x:rightX+nodeW+8, y:cy+13, class:"dlabel", text:fmt(n.v)}));
+  });
+  return svg;
+}
+
 function tile(label, value, detail, accent){
   const t = document.createElement("div");
   t.className = "tile";
@@ -833,6 +892,25 @@ function render(stats){
         `Por volumen, <b>${masVacAdm[0]}</b> recibió más ingresantes por examen (${masVacAdm[1].ingresantes}).`));
 
       const cards3 = document.createElement("div"); cards3.className = "cards";
+
+      // Embudo del ingreso (sankey)
+      const vacL = Object.values(espCep).reduce((a,d)=>a+d.ingresantes, 0);
+      const ingExamen = adm.total_ingresantes, noExamen = adm.total_postulantes - ingExamen;
+      const noCep = lima.total - vacL;
+      cards3.appendChild(card("El embudo del ingreso — dos vías, un objetivo",
+        "Flujo de postulantes por cada vía (Admisión 2026-1 y CEPRE 2026) hacia el ingreso. El grosor es proporcional a las personas.",
+        sankeyIngreso(
+          [{name:"Examen 2026-1", v:adm.total_postulantes, color:css("--s1")},
+           {name:"CEPRE 2026", v:lima.total, color:css("--s2")}],
+          [{name:"Ingresaron", v:ingExamen+vacL, color:css("--s3")},
+           {name:"No ingresaron", v:noExamen+noCep, color:css("--axis")}],
+          [[0,0,ingExamen],[0,1,noExamen],[1,0,vacL],[1,1,noCep]],
+          {W: fullW, aria:"Embudo del ingreso por vía"}),
+        tableView(["Vía","Postulantes","Ingresaron","No ingresaron","% éxito"],
+          [["Examen 2026-1", fmt(adm.total_postulantes), fmt(ingExamen), fmt(noExamen), fmt1(100*ingExamen/adm.total_postulantes)+"%"],
+           ["CEPRE 2026", fmt(lima.total), fmt(vacL), fmt(noCep), fmt1(100*vacL/lima.total)+"%"]]),
+        [{label:"Examen 2026-1", color:css("--s1")},{label:"CEPRE 2026", color:css("--s2")},{label:"Ingresaron", color:css("--s3")}]));
+
       cards3.appendChild(card("Exigencia relativa por especialidad — cierre como % del puntaje máximo",
         "Mientras más alto el porcentaje, más difícil fue entrar. Azul: Admisión 2026-1 · Naranja: CEPRE 2026.",
         hBars(exig, {
