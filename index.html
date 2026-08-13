@@ -822,6 +822,7 @@ function facFilterCard(title, sub, espEntries, buildChart, table){
 /* ---------- render principal ---------- */
 let lastStats = null;
 
+const BASE_PRUEBA_2026_2 = 600;   // examen 2026-2: cada prueba se califica sobre 600 pts (1,800 total = nota 20)
 function render(stats){
   const app = $("#app");
   hideTip();
@@ -849,23 +850,24 @@ function render(stats){
 
   /* ===== Examen en curso ===== */
   const s1 = section("examen", "Examen 2026-2", "--s1", "Examen de Admisión 2026-2 (en curso)",
-    "Resultados publicados hasta ahora: Prueba de Aptitud Vocacional (Arquitectura, 8 de agosto) y " +
-    "Prueba de Aptitud Académica y Humanidades (10 de agosto). Faltan Matemática, Física y Química, " +
-    "y los resultados finales por especialidad.");
+    "Resultados publicados hasta ahora: Aptitud Vocacional (Arquitectura, 8 ago), Aptitud Académica y " +
+    "Humanidades (10 ago) y Matemática (12 ago). Falta la prueba de Física y Química y los resultados " +
+    "finales por especialidad.");
   const tiles1 = document.createElement("div"); tiles1.className = "tiles";
   if(aa){
     tiles1.appendChild(tile("Postulantes · Apt. Académica", fmt(aa.total), "prueba del 10 de agosto", "var(--s1)"));
     tiles1.appendChild(tile("Ausentes · Apt. Académica", fmt(aa.ausentes), aa.pct_ausentismo + "% de ausentismo", "var(--s2)"));
-    if(aa.puntajes) tiles1.appendChild(tile("Puntaje máximo", fmt1(aa.puntajes.max), "mediana " + fmt1(aa.puntajes.mediana) + " pts", "var(--s1)"));
+    if(aa.puntajes) tiles1.appendChild(tile("Puntaje máximo", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,BASE_PRUEBA_2026_2) + "/20", "mediana " + fmt1(aa.puntajes.mediana) + " (" + vig(aa.puntajes.mediana,BASE_PRUEBA_2026_2) + "/20) · sobre 600 = 20", "var(--s1)"));
   }
   if(voc) tiles1.appendChild(tile("Postulantes · Vocacional", fmt(voc.total), fmt(voc.ausentes) + " ausentes (" + voc.pct_ausentismo + "%)", "var(--s3)"));
   s1.appendChild(tiles1);
 
   s1.appendChild(nota("--a-yellow","--wash-yellow",
-    `<b>¿Cómo se califica?</b> El examen de admisión UNI se puntúa sobre <b>1,845 puntos = nota 20</b> ` +
-    `(Aptitud Académica 745 + Matemática 600 + Física-Química 500). La nota vigesimal es ` +
-    `<b>N = puntaje ÷ 1,845 × 20</b>. Nadie saca el máximo: el mejor puntaje final de 2026-1 fue 1,692 pts ≈ 18.3/20. ` +
-    `El CEPRE usa su propia escala consolidada (máximo observado ~2,774) sin conversión oficial publicada a 20.`));
+    `<b>¿Cómo se califica el examen 2026-2?</b> Cada prueba se puntúa sobre <b>600 puntos</b>; las tres ` +
+    `(Aptitud Académica y Humanidades, Matemática, y Física-Química) suman <b>1,800 = nota 20</b>. ` +
+    `La nota vigesimal por prueba es <b>N = puntaje ÷ 600 × 20</b>. ` +
+    `(El ciclo 2026-1 usó otra escala: 745 + 600 + 500 = 1,845. El CEPRE tiene su propia escala consolidada, ` +
+    `máximo observado ~2,774, sin conversión oficial publicada a 20.)`));
 
   if(aa && hist.ausentismo_por_dia){
     const d = hist.ausentismo_por_dia;
@@ -878,13 +880,13 @@ function render(stats){
   const cards1 = document.createElement("div"); cards1.className = "cards two";
   if(aa && aa.histograma.length){
     cards1.appendChild(card("Distribución de puntajes — Aptitud Académica y Humanidades",
-      fmt(aa.presentes) + " presentes · máximo " + fmt1(aa.puntajes.max) + " pts",
+      fmt(aa.presentes) + " presentes · máximo " + fmt1(aa.puntajes.max) + " pts (" + vig(aa.puntajes.max,BASE_PRUEBA_2026_2) + "/20)",
       histogram(aa.histograma, {W: halfW, aria:"Histograma de puntajes de aptitud académica"}),
       tableView(["Rango (pts)","Postulantes"], aa.histograma.filter(b=>b.n>0).map(b=>[`${b.desde}–${b.hasta}`, fmt(b.n)]))));
   }
   if(voc && voc.histograma.length){
     cards1.appendChild(card("Distribución de puntajes — Aptitud Vocacional (Arquitectura)",
-      fmt(voc.presentes) + " presentes · máximo " + fmt1(voc.puntajes.max) + " pts",
+      fmt(voc.presentes) + " presentes · máximo " + fmt1(voc.puntajes.max) + " pts (" + vig(voc.puntajes.max,BASE_PRUEBA_2026_2) + "/20)",
       histogram(voc.histograma, {W: halfW, aria:"Histograma de puntajes de aptitud vocacional"}),
       tableView(["Rango (pts)","Postulantes"], voc.histograma.filter(b=>b.n>0).map(b=>[`${b.desde}–${b.hasta}`, fmt(b.n)]))));
   }
@@ -896,19 +898,22 @@ function render(stats){
     const conocidas = new Set(["resultados-admision-aptitud-academica-humanidades",
       "resultados-admision-vocacional","asignacion-vacantes-lima","asignacion-vacantes-juliaca"]);
     const nombresEsp = {
+      "resultados-admision-prueba-matematica":"Matemática",
       "resultados-admision-matematica":"Matemática",
       "resultados-admision-fisica-quimica":"Física y Química",
+      "resultados-admision-prueba-fisica-quimica":"Física y Química",
       "resultados-admision-fisica":"Física",
       "resultados-admision-quimica":"Química",
+      "resultados-admision-examen-especial":"Examen especial",
     };
     const nuevas = Object.entries(pubs).filter(([k,p]) =>
-      !conocidas.has(k) && k.startsWith("resultados-admision") && p.histograma && p.histograma.length);
+      !conocidas.has(k) && k.startsWith("resultados-admision") && !k.includes("sin-derecho") && p.histograma && p.histograma.length);
     if(nuevas.length){
       const cardsN = document.createElement("div"); cardsN.className = "cards two";
       nuevas.forEach(([k,p])=>{
         const bonito = nombresEsp[k] || (p.nombre_oficial || k.replace("resultados-admision-","").replace(/-/g," "));
         cardsN.appendChild(card("Distribución de puntajes — " + bonito,
-          fmt(p.presentes) + " presentes · " + (p.puntajes ? "máximo " + fmt1(p.puntajes.max) + " pts" : ""),
+          fmt(p.presentes) + " presentes · " + (p.puntajes ? "máximo " + fmt1(p.puntajes.max) + " pts (" + vig(p.puntajes.max,BASE_PRUEBA_2026_2) + "/20)" : ""),
           histogram(p.histograma, {W: halfW, color:css("--a-violet"), aria:"Histograma de " + bonito}),
           tableView(["Rango (pts)","Postulantes"], p.histograma.filter(b=>b.n>0).map(b=>[`${b.desde}–${b.hasta}`, fmt(b.n)]))));
         if(p.ausentes != null) ausExtra.push({label:"2026-2 · " + bonito, values:[p.pct_ausentismo], raw:p});
@@ -950,8 +955,10 @@ function render(stats){
     // Aptitud Académica 745 + Matemática 600 + Física-Química 500 = 1,845.
     // maxT presente = conversión oficial; ausente = escala propia sin conversión oficial a 20.
     const pruebas = [];
-    if(aa && aa.puntajes) pruebas.push({nombre:"Apt. Académica y Humanidades · 2026-2", st:aa, maxT:null});
-    if(voc && voc.puntajes) pruebas.push({nombre:"Apt. Vocacional (Arq.) · 2026-2", st:voc, maxT:null});
+    if(aa && aa.puntajes) pruebas.push({nombre:"Apt. Académica y Humanidades · 2026-2", st:aa, maxT:600});
+    const mate2 = pubs["resultados-admision-prueba-matematica"] || pubs["resultados-admision-matematica"];
+    if(mate2 && mate2.puntajes && mate2.histograma) pruebas.push({nombre:"Matemática · 2026-2", st:mate2, maxT:600});
+    if(voc && voc.puntajes) pruebas.push({nombre:"Apt. Vocacional (Arq.) · 2026-2", st:voc, maxT:600});
     const d1c = (hist.examen_por_dia||{}).dia1;
     if(d1c && d1c.histograma) pruebas.push({nombre:"Prueba 1 · Aptitud Académica · 2026-1", st:d1c, maxT:745});
     const d2c = (hist.examen_por_dia||{}).dia2;
@@ -962,7 +969,7 @@ function render(stats){
     if(pruebas.length){
       const cCalc = document.createElement("div"); cCalc.className = "card";
       cCalc.appendChild(el("h3",{text:"¿Cómo me fue? — puntaje, percentil y nota vigesimal"}));
-      cCalc.appendChild(el("p",{class:"sub",text:"Ingresa tu puntaje: a cuántos superas y tu nota sobre 20. El examen de admisión UNI se califica sobre 1,845 puntos = nota 20 (Aptitud Académica 745 + Matemática 600 + Física-Química 500)."}));
+      cCalc.appendChild(el("p",{class:"sub",text:"Ingresa tu puntaje: a cuántos superas y tu nota sobre 20. En el examen 2026-2 cada prueba se califica sobre 600 puntos (1,800 en total = nota 20). El ciclo 2026-1 usó 745 + 600 + 500 = 1,845."}));
       const form = document.createElement("div"); form.className = "calc";
       const sel = document.createElement("select");
       pruebas.forEach((p,i)=>{ const o=document.createElement("option"); o.value=i; o.textContent=p.nombre + (p.maxT ? ` (máx ${fmt(p.maxT)} = 20)` : ""); sel.appendChild(o); });
@@ -1011,9 +1018,9 @@ function render(stats){
       const tilesV = document.createElement("div"); tilesV.className = "tiles";
       tilesV.appendChild(tile("Postulantes · prueba 1", fmt(aa.total),
         `2026-1: ${fmt(d1.total)} (${dPost>=0?"+":""}${fmt1(dPost)}%)`, "var(--guinda)"));
-      tilesV.appendChild(tile("Mediana · prueba 1", fmt1(aa.puntajes.mediana) + " · " + vig(aa.puntajes.mediana,745) + "/20",
+      tilesV.appendChild(tile("Mediana · prueba 1", fmt1(aa.puntajes.mediana) + " · " + vig(aa.puntajes.mediana,BASE_PRUEBA_2026_2) + "/20",
         `2026-1: ${fmt1(d1.puntajes.mediana)} (${dMed>=0?"+":""}${fmt1(dMed)} pts)`, "var(--guinda)"));
-      tilesV.appendChild(tile("Máximo · prueba 1", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,745) + "/20",
+      tilesV.appendChild(tile("Máximo · prueba 1", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,BASE_PRUEBA_2026_2) + "/20",
         `2026-1: ${fmt1(d1.puntajes.max)}`, "var(--guinda)"));
       tilesV.appendChild(tile("Ausentismo · prueba 1", aa.pct_ausentismo + "%",
         `2026-1: ${fmt1(100*d1.ausentes/d1.total)}%`, "var(--guinda)"));
