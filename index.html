@@ -853,13 +853,17 @@ function render(stats){
     "Resultados publicados hasta ahora: Aptitud Vocacional (Arquitectura, 8 ago), Aptitud Académica y " +
     "Humanidades (10 ago) y Matemática (12 ago). Falta la prueba de Física y Química y los resultados " +
     "finales por especialidad.");
+  const mate = pubs["resultados-admision-prueba-matematica"] || pubs["resultados-admision-matematica"];
   const tiles1 = document.createElement("div"); tiles1.className = "tiles";
   if(aa){
     tiles1.appendChild(tile("Postulantes · Apt. Académica", fmt(aa.total), "prueba del 10 de agosto", "var(--s1)"));
-    tiles1.appendChild(tile("Ausentes · Apt. Académica", fmt(aa.ausentes), aa.pct_ausentismo + "% de ausentismo", "var(--s2)"));
-    if(aa.puntajes) tiles1.appendChild(tile("Puntaje máximo", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,BASE_PRUEBA_2026_2) + "/20", "mediana " + fmt1(aa.puntajes.mediana) + " (" + vig(aa.puntajes.mediana,BASE_PRUEBA_2026_2) + "/20) · sobre 600 = 20", "var(--s1)"));
+    if(aa.puntajes) tiles1.appendChild(tile("Máximo · Apt. Académica", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(aa.ausentes) + " ausentes (" + aa.pct_ausentismo + "%)", "var(--s1)"));
   }
-  if(voc) tiles1.appendChild(tile("Postulantes · Vocacional", fmt(voc.total), fmt(voc.ausentes) + " ausentes (" + voc.pct_ausentismo + "%)", "var(--s3)"));
+  if(mate && mate.puntajes){
+    tiles1.appendChild(tile("Postulantes · Matemática", fmt(mate.total), "prueba del 12 de agosto", "var(--a-violet)"));
+    tiles1.appendChild(tile("Máximo · Matemática", fmt1(mate.puntajes.max) + " · " + vig(mate.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(mate.ausentes) + " ausentes (" + mate.pct_ausentismo + "%)", "var(--a-violet)"));
+  }
+  if(voc) tiles1.appendChild(tile("Postulantes · Vocacional", fmt(voc.total), fmt1(voc.puntajes.max) + " máx · " + fmt(voc.ausentes) + " ausentes", "var(--s3)"));
   s1.appendChild(tiles1);
 
   s1.appendChild(nota("--a-yellow","--wash-yellow",
