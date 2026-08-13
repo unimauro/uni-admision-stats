@@ -9,7 +9,8 @@
 - [x] 2026-08-12 — Auditoría adversarial (15 hallazgos): corregidos colores de facultad (FIM/FIP), monitoreo mostraba solo 3 publicaciones, XSS escape, tooltip huérfano, rangePlot div-cero, salario CAS con match espurio, guards de calculadora, huecos en serie temporal. Bot resiste jailbreaks.
 - [x] 2026-08-13 — **Escala de nota corregida**: examen 2026-2 = **600 pts por prueba** (1,800 total = nota 20), confirmado con Matemática (máx exacto 600). Ciclo 2026-1 usó 745+600+500=1,845. Nota vigesimal en TODAS las secciones (oficial en examen, referencial en CEPRE).
 - [x] 2026-08-13 — **Segundo examen publicado**: Matemática (12 ago, 4,458 registros, máx 600, ausentismo 1.14%) auto-renderizado con tiles + histograma. También examen especial (47).
-- [x] 2026-08-13 — **Top 10 puntajes por prueba 2026-2**: tarjeta con los 10 mejores puntajes de cada prueba (ordenadas por fecha, la última marcada como "último examen"), con nota vigesimal. En Matemática hubo puntaje perfecto (600 = 20/20). Sin nombres (sin PII).
+- [x] 2026-08-13 — **Top 10 por prueba 2026-2 con nombres**: una tarjeta por prueba (# / postulante / puntaje / nota, ordenadas por fecha, la última marcada "último examen"). Nombres tomados de la publicación oficial UNI (decisión del usuario); el scraper emite `top10` [{puntaje, nombre}] y la guardia anti-PII sigue bloqueando `nombres`/`codigo` (padrones crudos). En Matemática hubo DOS puntajes perfectos (600 = 20/20).
+- [x] 2026-08-13 — **Tooltips explicativos en todos los tiles** (16): `tile()` acepta texto de ayuda, muestra ⓘ y usa el tooltip compartido (hover; en táctil, tap y se cierra tocando fuera). Incluye aria-label.
 
 ## Pendiente
 - [ ] **Física y Química** (3.ª prueba 2026-2): cuando la UNI la publique, el scraper la capta sola; verificar que el auto-render la muestre bien (base 600).

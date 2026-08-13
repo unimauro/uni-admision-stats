@@ -149,6 +149,8 @@ h2{font-size:clamp(20px,3.5vw,26px); margin:0 0 4px}
 .tile .label{font-size:13px; color:var(--ink-2)}
 .tile .value{font-size:clamp(23px,4vw,31px); font-weight:650; line-height:1.2; margin-top:2px}
 .tile .detail{font-size:12.5px; color:var(--muted); margin-top:2px}
+.tile.has-help{cursor:help}
+.tile .info{margin-left:5px; color:var(--muted); font-size:12px; user-select:none}
 
 /* ---------- cards ---------- */
 .cards{display:grid; grid-template-columns:1fr; gap:16px}
@@ -720,15 +722,26 @@ function sankeyIngreso(left, right, flows, opts){
   return svg;
 }
 
-function tile(label, value, detail, accent){
+function tile(label, value, detail, accent, help){
   const t = document.createElement("div");
   t.className = "tile";
   if(accent) t.style.setProperty("--tile-accent", accent);
-  t.appendChild(el("div",{class:"label",text:label}));
+  const lab = el("div",{class:"label",text:label});
+  if(help){
+    t.classList.add("has-help");
+    lab.appendChild(el("span",{class:"info", text:"ⓘ", "aria-hidden":"true"}));
+    t.setAttribute("aria-label", label + ". " + help);
+    const html = `<div class="t-title">${esc(label)}</div><div class="t-row">${esc(help)}</div>`;
+    t.addEventListener("mousemove", e=>showTip(e, html));
+    t.addEventListener("mouseleave", hideTip);
+  }
+  t.appendChild(lab);
   t.appendChild(el("div",{class:"value",text:value}));
   if(detail) t.appendChild(el("div",{class:"detail",text:detail}));
   return t;
 }
+/* en táctil el tooltip queda pegado tras el tap: ocultarlo al tocar fuera de un tile */
+document.addEventListener("click", e=>{ if(!e.target.closest(".tile.has-help")) hideTip(); });
 
 const KICKER_WASH = {"--s1":"--wash-s1","--s2":"--wash-s2","--s3":"--wash-s3","--a-violet":"--wash-violet",
   "--a-yellow":"--wash-yellow","--a-magenta":"--wash-magenta","--a-red":"--wash-s2","--guinda":"--wash-guinda"};
@@ -856,14 +869,19 @@ function render(stats){
   const mate = pubs["resultados-admision-prueba-matematica"] || pubs["resultados-admision-matematica"];
   const tiles1 = document.createElement("div"); tiles1.className = "tiles";
   if(aa){
-    tiles1.appendChild(tile("Postulantes · Apt. Académica", fmt(aa.total), "prueba del 10 de agosto", "var(--s1)"));
-    if(aa.puntajes) tiles1.appendChild(tile("Máximo · Apt. Académica", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(aa.ausentes) + " ausentes (" + aa.pct_ausentismo + "%)", "var(--s1)"));
+    tiles1.appendChild(tile("Postulantes · Apt. Académica", fmt(aa.total), "prueba del 10 de agosto", "var(--s1)",
+      "Cuántos postulantes estaban registrados para la prueba de Aptitud Académica y Humanidades del 10 de agosto (incluye a los que no asistieron)."));
+    if(aa.puntajes) tiles1.appendChild(tile("Máximo · Apt. Académica", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(aa.ausentes) + " ausentes (" + aa.pct_ausentismo + "%)", "var(--s1)",
+      "El puntaje más alto obtenido en esta prueba, sobre 600 puntos, y su equivalente como nota de 0 a 20 (puntaje ÷ 600 × 20). Debajo: cuántos registrados no se presentaron y qué porcentaje representan."));
   }
   if(mate && mate.puntajes){
-    tiles1.appendChild(tile("Postulantes · Matemática", fmt(mate.total), "prueba del 12 de agosto", "var(--a-violet)"));
-    tiles1.appendChild(tile("Máximo · Matemática", fmt1(mate.puntajes.max) + " · " + vig(mate.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(mate.ausentes) + " ausentes (" + mate.pct_ausentismo + "%)", "var(--a-violet)"));
+    tiles1.appendChild(tile("Postulantes · Matemática", fmt(mate.total), "prueba del 12 de agosto", "var(--a-violet)",
+      "Cuántos postulantes estaban registrados para la prueba de Matemática del 12 de agosto (incluye a los que no asistieron)."));
+    tiles1.appendChild(tile("Máximo · Matemática", fmt1(mate.puntajes.max) + " · " + vig(mate.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(mate.ausentes) + " ausentes (" + mate.pct_ausentismo + "%)", "var(--a-violet)",
+      "El puntaje más alto obtenido en Matemática, sobre 600 puntos, y su nota de 0 a 20 (puntaje ÷ 600 × 20). Debajo: ausentes y su porcentaje."));
   }
-  if(voc) tiles1.appendChild(tile("Postulantes · Vocacional", fmt(voc.total), fmt1(voc.puntajes.max) + " máx · " + fmt(voc.ausentes) + " ausentes", "var(--s3)"));
+  if(voc) tiles1.appendChild(tile("Postulantes · Vocacional", fmt(voc.total), fmt1(voc.puntajes.max) + " máx · " + fmt(voc.ausentes) + " ausentes", "var(--s3)",
+    "Postulantes a Arquitectura que rindieron la prueba de Aptitud Vocacional (8 de agosto), obligatoria solo para esa carrera. Debajo: el puntaje máximo y los ausentes."));
   s1.appendChild(tiles1);
 
   s1.appendChild(nota("--a-yellow","--wash-yellow",
@@ -936,32 +954,38 @@ function render(stats){
       "resultados-admision-prueba-fisica-quimica":"Física y Química",
       "resultados-admision-fisica-quimica":"Física y Química",
     };
-    const cols = Object.entries(pubs)
+    const colsT = Object.entries(pubs)
       .filter(([k,p]) => k.startsWith("resultados-admision") && !k.includes("sin-derecho") && !k.includes("examen-especial")
-        && p.top_puntajes && p.top_puntajes.length)
+        && ((p.top10 && p.top10.length) || (p.top_puntajes && p.top_puntajes.length)))
       .map(([k,p]) => {
         const m = String(p.archivo_fuente||"").match(/20\d{6}/);
-        return {nombre:(nombresTop[k] || p.nombre_oficial || k), top:p.top_puntajes, fecha: m ? m[0] : ""};
+        return {nombre:(nombresTop[k] || p.nombre_oficial || k), p, fecha: m ? m[0] : ""};
       })
       .sort((a,b) => a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0);
-    if(cols.length){
-      if(cols.length > 1) cols[cols.length-1].ultimo = true;
-      const nFilas = Math.max(...cols.map(c=>c.top.length));
-      const headers = ["#"].concat(cols.map(c=>c.nombre + (c.ultimo ? " (último examen)" : "")));
-      const thead = el("tr", null, headers.map((h,i)=>el("th",{class:i? "num":"", text:h})));
-      const tb = [];
-      for(let i=0;i<nFilas;i++){
-        tb.push(el("tr", null, [el("td",{text:String(i+1)})].concat(cols.map(c =>
-          el("td",{class:"num", text: c.top[i]!=null ? fmt1(c.top[i]) + " · " + vig(c.top[i],BASE_PRUEBA_2026_2) + "/20" : "–"})))));
-      }
-      const tbl = document.createElement("table");
-      tbl.appendChild(el("thead",null,[thead]));
-      tbl.appendChild(el("tbody",null,tb));
-      const cardsT = document.createElement("div"); cardsT.className = "cards";
-      cardsT.appendChild(card("Top 10 puntajes por prueba — 2026-2",
-        "Los 10 mejores puntajes publicados en cada prueba (puntos sobre 600 y su nota vigesimal). Sin nombres: solo estadísticas agregadas. " +
-        "El top por carrera se podrá construir cuando la UNI publique los resultados finales con la especialidad de ingreso.",
-        tbl));
+    if(colsT.length){
+      if(colsT.length > 1) colsT[colsT.length-1].ultimo = true;
+      const cardsT = document.createElement("div"); cardsT.className = "cards two";
+      colsT.forEach(c => {
+        const top10 = (c.p.top10 && c.p.top10.length) ? c.p.top10 : (c.p.top_puntajes||[]).map(v=>({puntaje:v, nombre:null}));
+        const conNombre = top10.some(t=>t.nombre);
+        const hdefs = conNombre ? [{t:"#"},{t:"Postulante"},{t:"Puntaje",n:1},{t:"Nota /20",n:1}]
+                                : [{t:"#"},{t:"Puntaje",n:1},{t:"Nota /20",n:1}];
+        const thead = el("tr", null, hdefs.map(h=>el("th",{class:h.n?"num":"", text:h.t})));
+        const tb = top10.map((t,i)=>{
+          const cells = [el("td",{text:String(i+1)})];
+          if(conNombre) cells.push(el("td",{text:t.nombre||"–"}));
+          cells.push(el("td",{class:"num", text:fmt1(t.puntaje)}));
+          cells.push(el("td",{class:"num", text:vig(t.puntaje,BASE_PRUEBA_2026_2)}));
+          return el("tr",null,cells);
+        });
+        const tbl = document.createElement("table");
+        tbl.appendChild(el("thead",null,[thead]));
+        tbl.appendChild(el("tbody",null,tb));
+        cardsT.appendChild(card("Top 10 — " + c.nombre + (c.ultimo ? " (último examen)" : ""),
+          "Los 10 mejores puntajes de la prueba, sobre 600 pts. Nombres tal como aparecen en la publicación oficial de la UNI. " +
+          "El top por carrera se podrá construir cuando salgan los resultados finales con especialidad de ingreso.",
+          tbl));
+      });
       s1.appendChild(cardsT);
     }
   }
@@ -1061,13 +1085,17 @@ function render(stats){
       const dMed = aa.puntajes.mediana - d1.puntajes.mediana;
       const tilesV = document.createElement("div"); tilesV.className = "tiles";
       tilesV.appendChild(tile("Postulantes · prueba 1", fmt(aa.total),
-        `2026-1: ${fmt(d1.total)} (${dPost>=0?"+":""}${fmt1(dPost)}%)`, "var(--guinda)"));
+        `2026-1: ${fmt(d1.total)} (${dPost>=0?"+":""}${fmt1(dPost)}%)`, "var(--guinda)",
+        "Postulantes registrados en la primera prueba (Aptitud Académica y Humanidades) del ciclo actual 2026-2. Debajo: cuántos hubo en 2026-1 y la variación porcentual entre ciclos."));
       tilesV.appendChild(tile("Mediana · prueba 1", fmt1(aa.puntajes.mediana) + " · " + vig(aa.puntajes.mediana,BASE_PRUEBA_2026_2) + "/20",
-        `2026-1: ${fmt1(d1.puntajes.mediana)} (${dMed>=0?"+":""}${fmt1(dMed)} pts)`, "var(--guinda)"));
+        `2026-1: ${fmt1(d1.puntajes.mediana)} (${dMed>=0?"+":""}${fmt1(dMed)} pts)`, "var(--guinda)",
+        "El puntaje 'del medio': la mitad de los presentes sacó menos y la otra mitad más. Con su nota sobre 20. Debajo: la mediana del ciclo 2026-1 y la diferencia en puntos."));
       tilesV.appendChild(tile("Máximo · prueba 1", fmt1(aa.puntajes.max) + " · " + vig(aa.puntajes.max,BASE_PRUEBA_2026_2) + "/20",
-        `2026-1: ${fmt1(d1.puntajes.max)}`, "var(--guinda)"));
+        `2026-1: ${fmt1(d1.puntajes.max)}`, "var(--guinda)",
+        "El mejor puntaje de la primera prueba en 2026-2 (sobre 600 pts) y su nota sobre 20. Debajo: el máximo del ciclo 2026-1 (que usó escala de 745 pts en esta prueba)."));
       tilesV.appendChild(tile("Ausentismo · prueba 1", aa.pct_ausentismo + "%",
-        `2026-1: ${fmt1(100*d1.ausentes/d1.total)}%`, "var(--guinda)"));
+        `2026-1: ${fmt1(100*d1.ausentes/d1.total)}%`, "var(--guinda)",
+        "Porcentaje de registrados que no se presentaron a la primera prueba en 2026-2. Debajo: el ausentismo equivalente del ciclo 2026-1."));
       sV.appendChild(tilesV);
       sV.appendChild(nota("--guinda","--wash-guinda",
         `Se presentaron <b>${fmt(Math.abs(Math.round(d1.total - aa.total)))} postulantes ${dPost<0?"menos":"más"}</b> que en la primera prueba del ciclo pasado ` +
@@ -1120,10 +1148,14 @@ function render(stats){
       "Publicación oficial del 3 de agosto: alumnos de la CEPRE con puntaje final y las vacantes de ingreso directo " +
       "asignadas por especialidad en Lima y Juliaca.");
     const tiles2 = document.createElement("div"); tiles2.className = "tiles";
-    tiles2.appendChild(tile("Alumnos CEPRE · Lima", fmt(lima.total), "con puntaje publicado", "var(--s2)"));
-    tiles2.appendChild(tile("Alcanzaron vacante · Lima", fmt(vacLima), fmt1(100*vacLima/lima.total) + "% de los alumnos", "var(--s2)"));
-    if(juli) tiles2.appendChild(tile("Juliaca", fmt(juli.total), fmt(vacJuli) + " alcanzaron vacante", "var(--s2)"));
-    if(lima.puntajes) tiles2.appendChild(tile("Puntaje máximo · Lima", fmt1(lima.puntajes.max), "mediana " + fmt1(lima.puntajes.mediana) + " · nota ref. hasta " + vig(lima.puntajes.max,cepreBase) + "/20", "var(--s2)"));
+    tiles2.appendChild(tile("Alumnos CEPRE · Lima", fmt(lima.total), "con puntaje publicado", "var(--s2)",
+      "Alumnos del ciclo CEPRE-UNI Lima que figuran con puntaje final en la publicación oficial de asignación de vacantes del 3 de agosto."));
+    tiles2.appendChild(tile("Alcanzaron vacante · Lima", fmt(vacLima), fmt1(100*vacLima/lima.total) + "% de los alumnos", "var(--s2)",
+      "Cuántos de esos alumnos lograron una vacante de ingreso directo a la UNI (sin dar el examen ordinario) y qué porcentaje del total representan."));
+    if(juli) tiles2.appendChild(tile("Juliaca", fmt(juli.total), fmt(vacJuli) + " alcanzaron vacante", "var(--s2)",
+      "Alumnos de la sede CEPRE-UNI Juliaca con puntaje publicado. Debajo: cuántos de ellos alcanzaron vacante de ingreso directo."));
+    if(lima.puntajes) tiles2.appendChild(tile("Puntaje máximo · Lima", fmt1(lima.puntajes.max), "mediana " + fmt1(lima.puntajes.mediana) + " · nota ref. hasta " + vig(lima.puntajes.max,cepreBase) + "/20", "var(--s2)",
+      "El puntaje CEPRE más alto en Lima. La escala CEPRE es acumulada del ciclo y no tiene conversión oficial a nota 20: la nota mostrada es referencial, calculada sobre el máximo observado. Debajo: la mediana."));
     s2.appendChild(tiles2);
 
     const esp = lima.por_especialidad || {};
@@ -1208,16 +1240,21 @@ function render(stats){
         perfil.appendChild(el("p",{class:"perfil-sub", text: subParts.join(" · ") || "Sin ranking disponible"}));
         const t = document.createElement("div"); t.className = "tiles";
         if(a){
-          t.appendChild(tile("Cierre examen 2026-1", fmt1(a.min) + " · " + vig(a.min,1845) + "/20", "mediana " + fmt1(a.mediana) + " · máx " + fmt1(a.max) + " (nota sobre 1,845=20)", "var(--s1)"));
-          t.appendChild(tile("Ingresantes 2026-1", fmt(a.ingresantes), "por examen ordinario", "var(--s1)"));
+          t.appendChild(tile("Cierre examen 2026-1", fmt1(a.min) + " · " + vig(a.min,1845) + "/20", "mediana " + fmt1(a.mediana) + " · máx " + fmt1(a.max) + " (nota sobre 1,845=20)", "var(--s1)",
+            "El puntaje del último ingresante ('cierre') de esta carrera en el examen 2026-1: el mínimo que bastó para entrar. Con su nota sobre 20 (1,845 pts = 20). Debajo: mediana y máximo de sus ingresantes."));
+          t.appendChild(tile("Ingresantes 2026-1", fmt(a.ingresantes), "por examen ordinario", "var(--s1)",
+            "Cuántos postulantes ingresaron a esta carrera por el examen de admisión ordinario del ciclo 2026-1."));
         }
         if(c){
-          t.appendChild(tile("Cierre CEPRE 2026", fmt1(c.min) + " · " + (cepreMax?vig(c.min,cepreMax)+"/20 ref.":""), "mediana " + fmt1(c.mediana) + " · máx " + fmt1(c.max), "var(--s2)"));
-          t.appendChild(tile("Vacantes CEPRE 2026", fmt(c.ingresantes), "ingreso directo · Lima", "var(--s2)"));
+          t.appendChild(tile("Cierre CEPRE 2026", fmt1(c.min) + " · " + (cepreMax?vig(c.min,cepreMax)+"/20 ref.":""), "mediana " + fmt1(c.mediana) + " · máx " + fmt1(c.max), "var(--s2)",
+            "El puntaje del último alumno que alcanzó vacante por CEPRE en esta carrera. La nota /20 es referencial (la escala CEPRE no tiene conversión oficial). Debajo: mediana y máximo."));
+          t.appendChild(tile("Vacantes CEPRE 2026", fmt(c.ingresantes), "ingreso directo · Lima", "var(--s2)",
+            "Cuántos alumnos de la CEPRE-UNI Lima obtuvieron vacante de ingreso directo en esta carrera en la asignación de agosto 2026."));
         }
         if(sal && sal.salario){
           t.appendChild(tile("Salario CAS · " + ESP_SHORT(sal.nombre), "S/ " + fmt(sal.salario.mediana),
-            sal.convocatorias + " convocatorias · " + sal.plazas + " plazas", "var(--a-yellow)"));
+            sal.convocatorias + " convocatorias · " + sal.plazas + " plazas", "var(--a-yellow)",
+            "Salario mensual mediano de las convocatorias públicas CAS que piden esta carrera (fuente: SalariosPerú). Referencial: la carrera CAS se empareja por nombre y puede no coincidir exactamente con la especialidad UNI."));
         }
         perfil.appendChild(t);
         if(!a && !c) perfil.appendChild(el("p",{class:"perfil-sub", text:"No hay datos de esta especialidad en las publicaciones actuales."}));
@@ -1335,11 +1372,15 @@ function render(stats){
     const s4 = section("historico", "Ciclo anterior", "--s3", "Admisión 2026-1 — el ciclo completo",
       "Referencia del proceso anterior: postulantes, ingresantes, modalidades y puntajes de cierre por especialidad.");
     const tiles3 = document.createElement("div"); tiles3.className = "tiles";
-    tiles3.appendChild(tile("Postulantes", fmt(adm.total_postulantes), "", "var(--s3)"));
+    tiles3.appendChild(tile("Postulantes", fmt(adm.total_postulantes), "", "var(--s3)",
+      "Total de postulantes al examen de admisión ordinario del ciclo anterior (2026-1)."));
     tiles3.appendChild(tile("Ingresantes", fmt(adm.total_ingresantes),
-      fmt1(100*adm.total_ingresantes/adm.total_postulantes) + "% de admisión", "var(--s3)"));
-    if(adm.puntaje_final) tiles3.appendChild(tile("Puntaje final máximo", fmt1(adm.puntaje_final.max) + " · " + vig(adm.puntaje_final.max,1845) + "/20", "mediana " + fmt1(adm.puntaje_final.mediana) + " (" + vig(adm.puntaje_final.mediana,1845) + "/20) · sobre 1,845 = 20", "var(--s3)"));
-    if(hist.cepre) tiles3.appendChild(tile("Ingreso directo CEPRE", fmt(hist.cepre.total_ingresantes), "ciclo anterior", "var(--s3)"));
+      fmt1(100*adm.total_ingresantes/adm.total_postulantes) + "% de admisión", "var(--s3)",
+      "Cuántos lograron vacante por examen ordinario en 2026-1. El porcentaje de admisión es ingresantes ÷ postulantes."));
+    if(adm.puntaje_final) tiles3.appendChild(tile("Puntaje final máximo", fmt1(adm.puntaje_final.max) + " · " + vig(adm.puntaje_final.max,1845) + "/20", "mediana " + fmt1(adm.puntaje_final.mediana) + " (" + vig(adm.puntaje_final.mediana,1845) + "/20) · sobre 1,845 = 20", "var(--s3)",
+      "El mejor puntaje final del examen 2026-1 (suma de las 3 pruebas, sobre 1,845 pts = nota 20) y su nota sobre 20. Debajo: la mediana de los puntajes finales."));
+    if(hist.cepre) tiles3.appendChild(tile("Ingreso directo CEPRE", fmt(hist.cepre.total_ingresantes), "ciclo anterior", "var(--s3)",
+      "Alumnos que ingresaron a la UNI directamente por la CEPRE en el ciclo anterior, sin rendir el examen ordinario."));
     s4.appendChild(tiles3);
 
     s4.appendChild(nota("--s3","--wash-s3",

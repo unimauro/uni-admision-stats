@@ -1,7 +1,7 @@
 {
- "generado_utc": "2026-08-13T18:00:00.061878+00:00",
+ "generado_utc": "2026-08-13T19:30:57.932400+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
- "nota": "Solo estadísticas agregadas. No contiene datos personales.",
+ "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
   "ciclo": "2026-2",
   "ultima_fecha": "2026-08-13_17Z",
@@ -153,6 +153,48 @@
      1670.645,
      1645.55,
      1521.74
+    ],
+    "top10": [
+     {
+      "puntaje": 2203.795,
+      "nombre": "NEIRA BELISARIO LUIS RICARDO GALO"
+     },
+     {
+      "puntaje": 1883.805,
+      "nombre": "MAMANI SUMIRE VILLANUEVA PIERO"
+     },
+     {
+      "puntaje": 1848.765,
+      "nombre": "VASQUEZ QUISPE JOEL GABRIEL"
+     },
+     {
+      "puntaje": 1809.175,
+      "nombre": "DEL CARPIO TUMI JOSSUE GABRIEL"
+     },
+     {
+      "puntaje": 1808.53,
+      "nombre": "MAMANI FLORES FRANK ANTHONY"
+     },
+     {
+      "puntaje": 1752.65,
+      "nombre": "COILA RODRÍGUEZ FABRIZIO BENJAMIN"
+     },
+     {
+      "puntaje": 1681.52,
+      "nombre": "VASQUEZ ROBLES ANGEL GABRIEL"
+     },
+     {
+      "puntaje": 1670.645,
+      "nombre": "TITO COILA ERICK STIF"
+     },
+     {
+      "puntaje": 1645.55,
+      "nombre": "BLANCO HUAMANI ANGELY MARCELA"
+     },
+     {
+      "puntaje": 1521.74,
+      "nombre": "ZEA VILCA JHOSEF RAFAEL"
+     }
     ],
     "por_especialidad": {
      "ARQUITECTURA": {
@@ -449,6 +491,48 @@
      2601.423,
      2585.195,
      2573.187
+    ],
+    "top10": [
+     {
+      "puntaje": 2773.976,
+      "nombre": "PAJUELO AREVALO BRAYAN TRIBET"
+     },
+     {
+      "puntaje": 2690.058,
+      "nombre": "CALDERÓN GOMEZ JAIRI SIOMARA"
+     },
+     {
+      "puntaje": 2659.631,
+      "nombre": "HUAMAN ESPILLCO JIMENA ROSALIA"
+     },
+     {
+      "puntaje": 2646.174,
+      "nombre": "AMADO MILLONES ROBERT VALENTINO"
+     },
+     {
+      "puntaje": 2628.548,
+      "nombre": "DEL SOLAR ROJAS BILMA MELINA"
+     },
+     {
+      "puntaje": 2607.511,
+      "nombre": "ZEVALLOS CAMPOS LUCÍA GABRIELA"
+     },
+     {
+      "puntaje": 2605.381,
+      "nombre": "GARCIA BARZOLA LEONOR GABRIELA"
+     },
+     {
+      "puntaje": 2601.423,
+      "nombre": "TRUJILLO QUINTIMARI JOSE SEBASTIAN"
+     },
+     {
+      "puntaje": 2585.195,
+      "nombre": "PALOMINO CHAVEZ KATHERINE DENISSE"
+     },
+     {
+      "puntaje": 2573.187,
+      "nombre": "CAMPOS SOTO JOSHUA SHAIEL"
+     }
     ],
     "por_especialidad": {
      "ARQUITECTURA": {
@@ -978,6 +1062,48 @@
      468.0,
      465.6,
      463.2
+    ],
+    "top10": [
+     {
+      "puntaje": 492.0,
+      "nombre": "PALOMINO HUAPAYA GUSTAVO ALEJANDRO"
+     },
+     {
+      "puntaje": 488.4,
+      "nombre": "ALEJOS LAPA MAIKEL FABRIZIO"
+     },
+     {
+      "puntaje": 477.6,
+      "nombre": "MORA ORELLANA DIDHIE BARESSI"
+     },
+     {
+      "puntaje": 472.8,
+      "nombre": "REYES ZEVALLOS JAVIER FRANCISCO"
+     },
+     {
+      "puntaje": 470.4,
+      "nombre": "PEREZ MAMANI ARIAN ZAIDTH"
+     },
+     {
+      "puntaje": 470.4,
+      "nombre": "SOTO MENDOZA RODRIGO ALONSO"
+     },
+     {
+      "puntaje": 468.0,
+      "nombre": "CUADROS ROJAS EVAN CLARK"
+     },
+     {
+      "puntaje": 468.0,
+      "nombre": "MARCOS ROBLES ALEXANDER RAUL"
+     },
+     {
+      "puntaje": 465.6,
+      "nombre": "CUTIPA ACHIC PAULO SERGIO FABIANO"
+     },
+     {
+      "puntaje": 463.2,
+      "nombre": "WARTHON GONZA JULISSA"
+     }
     ]
    },
    "resultados-admision-examen-especial": {
@@ -1087,6 +1213,48 @@
      268.0,
      268.0,
      264.0
+    ],
+    "top10": [
+     {
+      "puntaje": 432.0,
+      "nombre": "FLORES APAZA JOEL JOSUE"
+     },
+     {
+      "puntaje": 360.0,
+      "nombre": "ORDOÑEZ CHIPANA DAYANNE MICHELL"
+     },
+     {
+      "puntaje": 304.0,
+      "nombre": "ÑAHUI LAURENTE RAFAEL EUGENIO"
+     },
+     {
+      "puntaje": 292.0,
+      "nombre": "CHOQUE OCHOA RICARDO"
+     },
+     {
+      "puntaje": 288.0,
+      "nombre": "AYALA HUASHUAYO RICHARD ANDERSON"
+     },
+     {
+      "puntaje": 276.0,
+      "nombre": "CHUNG SANCHEZ KENJI"
+     },
+     {
+      "puntaje": 276.0,
+      "nombre": "RAMOS QUISPE HAMID JHOSEP"
+     },
+     {
+      "puntaje": 268.0,
+      "nombre": "CORDOVA ZUMBA DAN ISAIAS"
+     },
+     {
+      "puntaje": 268.0,
+      "nombre": "CCANA PALOMINO ROSA MARIA"
+     },
+     {
+      "puntaje": 264.0,
+      "nombre": "SÁNCHEZ GARCÍA ALEX FABIAN"
+     }
     ]
    },
    "resultados-admision-participante-sin-derecho-vacante-matematica": {
@@ -1226,6 +1394,48 @@
      486.0,
      483.0,
      468.0
+    ],
+    "top10": [
+     {
+      "puntaje": 600.0,
+      "nombre": "PALOMINO HUAPAYA GUSTAVO ALEJANDRO"
+     },
+     {
+      "puntaje": 582.0,
+      "nombre": "COQUELET ARROYO SANTIAGO CRISTOPHER"
+     },
+     {
+      "puntaje": 564.0,
+      "nombre": "SANCHEZ CADILLO MIGUEL ANGEL"
+     },
+     {
+      "puntaje": 549.0,
+      "nombre": "GOICOCHEA GIRON DAVID YAMIR"
+     },
+     {
+      "puntaje": 516.0,
+      "nombre": "ARRASCUE LOYOLA MAURICIO DAVID"
+     },
+     {
+      "puntaje": 498.0,
+      "nombre": "CHÁVEZ COSME LUIS ANTONIO"
+     },
+     {
+      "puntaje": 495.0,
+      "nombre": "LUIS LEDESMA MARIANO ELIAS"
+     },
+     {
+      "puntaje": 486.0,
+      "nombre": "BALBOA YUPANQUI FERNANDO JOAQUIN"
+     },
+     {
+      "puntaje": 483.0,
+      "nombre": "CAMARGO FLOREZ EMILY AILIN"
+     },
+     {
+      "puntaje": 468.0,
+      "nombre": "LEON NIETO CHRISTIAN ALEXANDER"
+     }
     ]
    },
    "resultados-admision-prueba-matematica": {
@@ -1365,6 +1575,48 @@
      564.0,
      564.0,
      564.0
+    ],
+    "top10": [
+     {
+      "puntaje": 600.0,
+      "nombre": "CARBAJAL MENDOZA ANGEL LUIS"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "CHOQUE CHAUCA SEBASTIAN CRISTOPHER MIGUEL"
+     },
+     {
+      "puntaje": 585.0,
+      "nombre": "GAMARRA GUERRA DIEGO FERNANDO"
+     },
+     {
+      "puntaje": 582.0,
+      "nombre": "ALEJOS LAPA MAIKEL FABRIZIO"
+     },
+     {
+      "puntaje": 582.0,
+      "nombre": "INGA VELASQUEZ DOMINICK ADONIZ"
+     },
+     {
+      "puntaje": 570.0,
+      "nombre": "PUENTE CARRANZA JOAQUÍN ALONSO"
+     },
+     {
+      "puntaje": 567.0,
+      "nombre": "HUAMAN AUQUI ITAMAR MATEO"
+     },
+     {
+      "puntaje": 564.0,
+      "nombre": "REYES ZEVALLOS JAVIER FRANCISCO"
+     },
+     {
+      "puntaje": 564.0,
+      "nombre": "MARCOS ROBLES ALEXANDER RAUL"
+     },
+     {
+      "puntaje": 564.0,
+      "nombre": "BALTODANO MEJIA ESTEFANO LINCOL"
+     }
     ]
    },
    "resultados-admision-vocacional": {
@@ -1494,6 +1746,48 @@
      528.0,
      526.8,
      526.8
+    ],
+    "top10": [
+     {
+      "puntaje": 558.0,
+      "nombre": "NUÑEZ SOCO ALEKSANDER ANTHONY"
+     },
+     {
+      "puntaje": 552.0,
+      "nombre": "TOLEDO GARCÍA MARIA ALEXANDRA"
+     },
+     {
+      "puntaje": 546.0,
+      "nombre": "CHAFLOQUE CHAVESTA DAYANA NATIVIDAD"
+     },
+     {
+      "puntaje": 540.0,
+      "nombre": "SANCHEZ HERNANDEZ ALMENDRA MICAELA"
+     },
+     {
+      "puntaje": 538.8,
+      "nombre": "GALINDO TAYPE MALENA KEYRA"
+     },
+     {
+      "puntaje": 534.0,
+      "nombre": "PUENTE GUEVARA ALMENDRA ANGELICA"
+     },
+     {
+      "puntaje": 534.0,
+      "nombre": "NIÑO MENDOZA NILTON ALEJANDRO"
+     },
+     {
+      "puntaje": 528.0,
+      "nombre": "LAZO CUEVA ALEJANDRA DANIELA"
+     },
+     {
+      "puntaje": 526.8,
+      "nombre": "ESPINOZA HUERTA KELLY DANIELA"
+     },
+     {
+      "puntaje": 526.8,
+      "nombre": "ROBLES VEGA ANA ISABEL PATRICIA"
+     }
     ]
    }
   },
