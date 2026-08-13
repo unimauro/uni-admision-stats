@@ -1,19 +1,21 @@
 # Backlog — uni-admision-stats
 
 ## Hecho
-- [x] 2026-08-12 — Repo público creado; solo estadísticas agregadas, sin PII.
-- [x] 2026-08-12 — Dashboard v1: examen 2026-2 (ausentismo, histogramas), CEPRE por especialidad (rango de puntajes), histórico 2026-1 (modalidades, cierre por especialidad), monitoreo de snapshots.
-- [x] 2026-08-12 — Pipeline: repo privado `uniexamen` scrapea cada 12 h (GitHub Actions) y empuja `data/stats.json` aquí vía deploy key.
+- [x] 2026-08-12 — Repo público; solo estadísticas agregadas, sin PII. Repos origen (uniexamen, uni-cepre) pasados a PRIVATE.
+- [x] 2026-08-12 — Dashboard v1: examen 2026-2, CEPRE por especialidad, histórico 2026-1, monitoreo.
+- [x] 2026-08-12 — Pipeline: `uniexamen` scrapea cada 12 h (GitHub Actions) y empuja `data/stats.json` vía deploy key.
+- [x] 2026-08-12 — Sidebar, buscador de carrera, comparativas (sankey), mercado laboral CAS, FAQ, bot IA (ai.tunky), OG + favicon con escudo UNI, GA4, Yape + Buy Me a Coffee.
+- [x] 2026-08-12 — Variación 2026-1 vs 2026-2, filtros por facultad, toggle claro/oscuro.
+- [x] 2026-08-12 — Auditoría adversarial (15 hallazgos): corregidos colores de facultad (FIM/FIP), monitoreo mostraba solo 3 publicaciones, XSS escape, tooltip huérfano, rangePlot div-cero, salario CAS con match espurio, guards de calculadora, huecos en serie temporal. Bot resiste jailbreaks.
+- [x] 2026-08-13 — **Escala de nota corregida**: examen 2026-2 = **600 pts por prueba** (1,800 total = nota 20), confirmado con Matemática (máx exacto 600). Ciclo 2026-1 usó 745+600+500=1,845. Nota vigesimal en TODAS las secciones (oficial en examen, referencial en CEPRE).
+- [x] 2026-08-13 — **Segundo examen publicado**: Matemática (12 ago, 4,458 registros, máx 600, ausentismo 1.14%) auto-renderizado con tiles + histograma. También examen especial (47).
 
 ## Pendiente
-- [ ] Cuando se publiquen Matemática y Física-Química (2026-2): verificar que aparezcan automáticamente en el dashboard.
-- [ ] Cuando salgan resultados finales 2026-2: sección de ingresantes por especialidad y comparativa 2026-1 vs 2026-2.
-- [ ] Comparar ausentismo final 2026-2 (3 días) contra 2026-1.
-- [ ] Considerar dominio propio si el sitio gana tracción.
-
-## Iteración 2 (12-ago-2026 tarde)
-- [x] Sección "Variación 2026-1 → 2026-2" (prueba 1 y CEPRE vs CEPRE).
-- [x] Filtros por facultad con colores (CEPRE vacantes + cierre 2026-1) y facultad en la ficha de carrera.
-- [x] Calculadora de percentil + nota equivalente sobre 20 (referencial).
-- [x] Toggle claro/oscuro persistente, escudo UNI en favicon/OG, GA4 (G-NMFHSDRJD6).
-- [x] Link a SalariosPerú y bloque de apoyo (Yape QR + Buy Me a Coffee).
+- [ ] **Física y Química** (3.ª prueba 2026-2): cuando la UNI la publique, el scraper la capta sola; verificar que el auto-render la muestre bien (base 600).
+- [ ] **Resultados finales 2026-2** por especialidad: nueva sección de ingresantes + comparativa con 2026-1. Ojo esquema: solo ingresantes traerán `especialidad_ingreso`.
+- [ ] Nota vigesimal del TOTAL 2026-2 (suma de 3 pruebas /1,800) cuando estén las 3.
+- [ ] Comparar ausentismo final 2026-2 (3 pruebas) vs 2026-1.
+- [ ] Al cerrar el proceso: bajar la frecuencia del cron.
+- [ ] Refrescar snapshot CAS de SalariosPerú y regenerar mercado laboral.
+- [ ] (Menor) `salarioDe` empareja por substring — revisar casos borde; hoy muestra la carrera CAS emparejada en el tile.
+- [ ] (Menor) Especialidades con 1 ingresante publican min=max=puntaje individual; la fuente UNI ya es pública, pero evaluar umbral de n.
