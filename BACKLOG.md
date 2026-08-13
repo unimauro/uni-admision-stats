@@ -9,10 +9,11 @@
 - [x] 2026-08-12 — Auditoría adversarial (15 hallazgos): corregidos colores de facultad (FIM/FIP), monitoreo mostraba solo 3 publicaciones, XSS escape, tooltip huérfano, rangePlot div-cero, salario CAS con match espurio, guards de calculadora, huecos en serie temporal. Bot resiste jailbreaks.
 - [x] 2026-08-13 — **Escala de nota corregida**: examen 2026-2 = **600 pts por prueba** (1,800 total = nota 20), confirmado con Matemática (máx exacto 600). Ciclo 2026-1 usó 745+600+500=1,845. Nota vigesimal en TODAS las secciones (oficial en examen, referencial en CEPRE).
 - [x] 2026-08-13 — **Segundo examen publicado**: Matemática (12 ago, 4,458 registros, máx 600, ausentismo 1.14%) auto-renderizado con tiles + histograma. También examen especial (47).
+- [x] 2026-08-13 — **Top 10 puntajes por prueba 2026-2**: tarjeta con los 10 mejores puntajes de cada prueba (ordenadas por fecha, la última marcada como "último examen"), con nota vigesimal. En Matemática hubo puntaje perfecto (600 = 20/20). Sin nombres (sin PII).
 
 ## Pendiente
 - [ ] **Física y Química** (3.ª prueba 2026-2): cuando la UNI la publique, el scraper la capta sola; verificar que el auto-render la muestre bien (base 600).
-- [ ] **Resultados finales 2026-2** por especialidad: nueva sección de ingresantes + comparativa con 2026-1. Ojo esquema: solo ingresantes traerán `especialidad_ingreso`.
+- [ ] **Resultados finales 2026-2** por especialidad: nueva sección de ingresantes + comparativa con 2026-1. Ojo esquema: solo ingresantes traerán `especialidad_ingreso`. Incluir ahí el **top por carrera** (hoy imposible: las publicaciones de examen solo traen código/nombres/puntaje, sin especialidad).
 - [ ] Nota vigesimal del TOTAL 2026-2 (suma de 3 pruebas /1,800) cuando estén las 3.
 - [ ] Comparar ausentismo final 2026-2 (3 pruebas) vs 2026-1.
 - [ ] Al cerrar el proceso: bajar la frecuencia del cron.

@@ -926,6 +926,46 @@ function render(stats){
     }
   }
 
+  /* top 10 puntajes por prueba (2026-2) */
+  {
+    const nombresTop = {
+      "resultados-admision-vocacional":"Vocacional (Arq.)",
+      "resultados-admision-aptitud-academica-humanidades":"Apt. Académica y Hum.",
+      "resultados-admision-prueba-matematica":"Matemática",
+      "resultados-admision-matematica":"Matemática",
+      "resultados-admision-prueba-fisica-quimica":"Física y Química",
+      "resultados-admision-fisica-quimica":"Física y Química",
+    };
+    const cols = Object.entries(pubs)
+      .filter(([k,p]) => k.startsWith("resultados-admision") && !k.includes("sin-derecho") && !k.includes("examen-especial")
+        && p.top_puntajes && p.top_puntajes.length)
+      .map(([k,p]) => {
+        const m = String(p.archivo_fuente||"").match(/20\d{6}/);
+        return {nombre:(nombresTop[k] || p.nombre_oficial || k), top:p.top_puntajes, fecha: m ? m[0] : ""};
+      })
+      .sort((a,b) => a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0);
+    if(cols.length){
+      if(cols.length > 1) cols[cols.length-1].ultimo = true;
+      const nFilas = Math.max(...cols.map(c=>c.top.length));
+      const headers = ["#"].concat(cols.map(c=>c.nombre + (c.ultimo ? " (último examen)" : "")));
+      const thead = el("tr", null, headers.map((h,i)=>el("th",{class:i? "num":"", text:h})));
+      const tb = [];
+      for(let i=0;i<nFilas;i++){
+        tb.push(el("tr", null, [el("td",{text:String(i+1)})].concat(cols.map(c =>
+          el("td",{class:"num", text: c.top[i]!=null ? fmt1(c.top[i]) + " · " + vig(c.top[i],BASE_PRUEBA_2026_2) + "/20" : "–"})))));
+      }
+      const tbl = document.createElement("table");
+      tbl.appendChild(el("thead",null,[thead]));
+      tbl.appendChild(el("tbody",null,tb));
+      const cardsT = document.createElement("div"); cardsT.className = "cards";
+      cardsT.appendChild(card("Top 10 puntajes por prueba — 2026-2",
+        "Los 10 mejores puntajes publicados en cada prueba (puntos sobre 600 y su nota vigesimal). Sin nombres: solo estadísticas agregadas. " +
+        "El top por carrera se podrá construir cuando la UNI publique los resultados finales con la especialidad de ingreso.",
+        tbl));
+      s1.appendChild(cardsT);
+    }
+  }
+
   /* ausentismo comparado */
   const ausItems = [];
   const ausHist = hist.ausentismo_por_dia || {};
