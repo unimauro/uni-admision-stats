@@ -17,9 +17,14 @@
 - [x] 2026-08-15 — **Sección "Resultados finales" nueva**: tiles, TOP POR CARRERA (cierre y máximo /1,800 por especialidad), top 10 total con nombres, tabla Arquitectura/Urbanismo, comparativa de cierres 2026-2 vs 2026-1 en nota vigesimal, modalidades. Nav (sidebar + topnav), FAQ y textos de privacidad actualizados ("solo el top 10 oficial lleva nombre").
 - [x] 2026-08-15 — **Bot con inteligencia actualizada**: contexto ampliado con las 3 pruebas, resultados finales (cierres altos/bajos, modalidades, 1eros puestos), Arquitectura/Urbanismo y la escala /1,800.
 
+- [x] 2026-08-15 — **Ausentes de Física y Química**: la publicación no usa la marca AUSENTE; los ausentes figuran con 0,000 (161 ceros exactos = 3.61%, calza con el patrón del día 3 en 2026-1: 2.98%). build_stats los cuenta como ausentes solo cuando el padrón no trae ninguna marca AUSENTE (hipótesis del usuario, verificada contra las otras pruebas que sí marcan y no tienen ceros).
+- [x] 2026-08-15 — **Confeti de celebración** al ver la sección Resultados finales (una vez por visita, respeta prefers-reduced-motion) + felicitación a los ingresantes en la nota.
+- [x] 2026-08-15 — **Tablas visibles estilizadas** (`tablaBonita`): zebra, medallas 🥇🥈🥉, fila 1 resaltada, cabeceras uppercase, números tabulares, scroll horizontal. Aplicada a los Top 10 por prueba, Top 10 del concurso y Arquitectura/Urbanismo.
+
 ## Pendiente
 - [ ] **Proceso 2026-2 cerrado** (resultados finales publicados 15-ago): bajar la frecuencia del cron de uniexamen (hoy cada 12 h).
-- [ ] Verificar visualmente la sección "Resultados finales" en el sitio publicado (desplegado sin revisión en navegador).
+- [ ] Verificar visualmente en navegador: sección "Resultados finales", tablas nuevas y confeti (desplegado sin revisión visual).
+- [ ] Pregunta de usuarios (Diego): "tardanzas" no se publican, solo ausencias; el dato ya está en la tarjeta Ausentismo por prueba.
 - [ ] Refrescar snapshot CAS de SalariosPerú y regenerar mercado laboral.
 - [ ] (Menor) `salarioDe` empareja por substring — revisar casos borde; hoy muestra la carrera CAS emparejada en el tile.
 - [ ] (Menor) Especialidades con 1 ingresante publican min=max=puntaje individual; la fuente UNI ya es pública, pero evaluar umbral de n.

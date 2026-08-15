@@ -38,6 +38,7 @@
   --a-violet:#4a3aa7; --a-yellow:#eda100; --a-magenta:#e87ba4; --a-red:#e34948; --guinda:#7d1c35;
   --wash-s1:rgba(42,120,214,.08); --wash-s2:rgba(235,104,52,.08); --wash-s3:rgba(27,175,122,.08);
   --wash-violet:rgba(74,58,167,.08); --wash-yellow:rgba(237,161,0,.10); --wash-magenta:rgba(232,123,164,.10); --wash-guinda:rgba(125,28,53,.09);
+  --zebra:rgba(11,11,11,.028); --oro:rgba(237,161,0,.14);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -50,6 +51,7 @@
     --a-violet:#9085e9; --a-yellow:#c98500; --a-magenta:#d55181;
     --wash-s1:rgba(57,135,229,.13); --wash-s2:rgba(217,89,38,.13); --wash-s3:rgba(25,158,112,.13);
     --wash-violet:rgba(144,133,233,.13); --wash-yellow:rgba(201,133,0,.14); --wash-magenta:rgba(213,81,129,.14); --wash-guinda:rgba(217,113,140,.15);
+    --zebra:rgba(255,255,255,.035); --oro:rgba(201,133,0,.16);
   }
 }
 :root[data-theme="dark"]{
@@ -62,6 +64,7 @@
   --a-violet:#9085e9; --a-yellow:#c98500; --a-magenta:#d55181;
   --wash-s1:rgba(57,135,229,.13); --wash-s2:rgba(217,89,38,.13); --wash-s3:rgba(25,158,112,.13);
   --wash-violet:rgba(144,133,233,.13); --wash-yellow:rgba(201,133,0,.14); --wash-magenta:rgba(213,81,129,.14); --wash-guinda:rgba(217,113,140,.15);
+  --zebra:rgba(255,255,255,.035); --oro:rgba(201,133,0,.16);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth; scroll-padding-top:64px}
@@ -201,6 +204,20 @@ details.tablev td.num,details.tablev th.num{text-align:right; font-variant-numer
 .perfil{margin-top:16px}
 .perfil h3{margin:0 0 2px; font-size:19px}
 .perfil .perfil-sub{color:var(--ink-2); font-size:13.5px; margin:0 0 10px}
+
+/* ---------- tablas visibles (top 10, finales) ---------- */
+.tabla-scroll{overflow-x:auto; margin-top:4px}
+.tabla-top{width:100%; border-collapse:collapse; font-size:14px}
+.tabla-top th{font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--muted);
+  text-align:left; padding:9px 10px; border-bottom:2px solid var(--axis); white-space:nowrap}
+.tabla-top th.num{text-align:right}
+.tabla-top td{padding:8.5px 10px; border-bottom:1px solid var(--grid); line-height:1.35}
+.tabla-top td.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:600}
+.tabla-top td.rank{width:36px; text-align:center; color:var(--muted); font-variant-numeric:tabular-nums; padding-left:4px; padding-right:4px}
+.tabla-top tbody tr:nth-child(even){background:var(--zebra)}
+.tabla-top tbody tr:last-child td{border-bottom:none}
+.tabla-top tr.primero{background:var(--oro)}
+.tabla-top tr.primero td{font-weight:650}
 
 /* ---------- confeti ---------- */
 .confeti-piece{position:fixed; top:-14px; z-index:60; pointer-events:none; will-change:transform,opacity}
@@ -501,6 +518,29 @@ function tableView(headers, rows){
   sum.textContent = "Ver tabla de datos";
   det.appendChild(sum); det.appendChild(table);
   return det;
+}
+
+/* tabla visible y estilizada; hdefs = [{t:"título", n:esNumérica}], medallas = 🥇🥈🥉 en la 1.ª columna */
+function tablaBonita(hdefs, filas, medallas){
+  const MEDAL = ["🥇","🥈","🥉"];
+  const thead = el("tr", null, hdefs.map(h=>el("th",{class:h.n?"num":"", text:h.t})));
+  const tb = filas.map((r,i)=>{
+    const tr = el("tr", null, r.map((c,j)=>{
+      const esRank = medallas && j===0;
+      return el("td",{class:(hdefs[j].n?"num":"") + (esRank?" rank":""),
+        text: esRank ? (MEDAL[i]||String(c)) : (c==null?"–":String(c))});
+    }));
+    if(medallas && i===0) tr.className = "primero";
+    return tr;
+  });
+  const t = document.createElement("table");
+  t.className = "tabla-top";
+  t.appendChild(el("thead",null,[thead]));
+  t.appendChild(el("tbody",null,tb));
+  const wrap = document.createElement("div");
+  wrap.className = "tabla-scroll";
+  wrap.appendChild(t);
+  return wrap;
 }
 
 function card(title, sub, chartNode, table, legendItems){
@@ -917,7 +957,7 @@ function render(stats){
     tiles1.appendChild(tile("Postulantes · Física y Química", fmt(fq.total), "prueba del 14 de agosto", "var(--a-magenta)",
       "Cuántos postulantes estaban registrados para la prueba de Física y Química del 14 de agosto (incluye a los que no asistieron)."));
     tiles1.appendChild(tile("Máximo · Física y Química", fmt1(fq.puntajes.max) + " · " + vig(fq.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(fq.ausentes) + " ausentes (" + fq.pct_ausentismo + "%)", "var(--a-magenta)",
-      "El puntaje más alto obtenido en Física y Química, sobre 600 puntos, y su nota de 0 a 20 (puntaje ÷ 600 × 20). Debajo: ausentes y su porcentaje."));
+      "El puntaje más alto obtenido en Física y Química, sobre 600 puntos, y su nota de 0 a 20 (puntaje ÷ 600 × 20). Debajo: ausentes y su porcentaje. Ojo: en esta publicación la UNI no usó la marca AUSENTE; los ausentes figuran con 0,000 y aquí se cuentan como ausentes."));
   }
   if(voc) tiles1.appendChild(tile("Postulantes · Vocacional", fmt(voc.total), fmt1(voc.puntajes.max) + " máx · " + fmt(voc.ausentes) + " ausentes", "var(--s3)",
     "Postulantes a Arquitectura que rindieron la prueba de Aptitud Vocacional (8 de agosto), obligatoria solo para esa carrera. Debajo: el puntaje máximo y los ausentes."));
@@ -1009,21 +1049,16 @@ function render(stats){
         const conNombre = top10.some(t=>t.nombre);
         const hdefs = conNombre ? [{t:"#"},{t:"Postulante"},{t:"Puntaje",n:1},{t:"Nota /20",n:1}]
                                 : [{t:"#"},{t:"Puntaje",n:1},{t:"Nota /20",n:1}];
-        const thead = el("tr", null, hdefs.map(h=>el("th",{class:h.n?"num":"", text:h.t})));
-        const tb = top10.map((t,i)=>{
-          const cells = [el("td",{text:String(i+1)})];
-          if(conNombre) cells.push(el("td",{text:t.nombre||"–"}));
-          cells.push(el("td",{class:"num", text:fmt1(t.puntaje)}));
-          cells.push(el("td",{class:"num", text:vig(t.puntaje,BASE_PRUEBA_2026_2)}));
-          return el("tr",null,cells);
+        const filas = top10.map((t,i)=>{
+          const r = [i+1];
+          if(conNombre) r.push(t.nombre||"–");
+          r.push(fmt1(t.puntaje), vig(t.puntaje,BASE_PRUEBA_2026_2));
+          return r;
         });
-        const tbl = document.createElement("table");
-        tbl.appendChild(el("thead",null,[thead]));
-        tbl.appendChild(el("tbody",null,tb));
         cardsT.appendChild(card("Top 10 — " + c.nombre + (c.ultimo ? " (último examen)" : ""),
           "Los 10 mejores puntajes de la prueba, sobre 600 pts. Nombres tal como aparecen en la publicación oficial de la UNI. " +
-          "El top por carrera se podrá construir cuando salgan los resultados finales con especialidad de ingreso.",
-          tbl));
+          "El top por carrera está en la sección Resultados finales.",
+          tablaBonita(hdefs, filas, true)));
       });
       s1.appendChild(cardsT);
     }
@@ -1165,26 +1200,18 @@ function render(stats){
 
     const cardsR2 = document.createElement("div"); cardsR2.className = "cards two";
     if(conc.top10 && conc.top10.length){
-      const thead = el("tr",null,[el("th",{text:"#"}),el("th",{text:"Postulante"}),el("th",{class:"num",text:"Puntaje total"}),el("th",{class:"num",text:"Nota /20"})]);
-      const tb = conc.top10.map((t,i)=>el("tr",null,[
-        el("td",{text:String(i+1)}), el("td",{text:t.nombre||"–"}),
-        el("td",{class:"num",text:fmt1(t.puntaje)}), el("td",{class:"num",text:vig(t.puntaje,BASE_TOTAL_2026_2)})]));
-      const tbl = document.createElement("table"); tbl.appendChild(el("thead",null,[thead])); tbl.appendChild(el("tbody",null,tb));
       cardsR2.appendChild(card("Top 10 — puntaje total del concurso 2026-2",
         "Los 10 mejores puntajes totales (suma de las tres pruebas). Nombres tal como aparecen en la publicación oficial de la UNI.",
-        tbl));
+        tablaBonita([{t:"#"},{t:"Postulante"},{t:"Puntaje total",n:1},{t:"Nota /20",n:1}],
+          conc.top10.map((t,i)=>[i+1, t.nombre||"–", fmt1(t.puntaje), vig(t.puntaje,BASE_TOTAL_2026_2)]), true)));
     }
     if(concArq && concArq.por_especialidad){
       const ea = concArq.por_especialidad;
-      const thead2 = el("tr",null,["Especialidad","Ingresantes","Cierre","Mediana","Máximo","Escala"].map((h,i)=>el("th",{class:(i>0&&i<5)?"num":"",text:h})));
-      const tb2 = Object.entries(ea).map(([k,d])=>el("tr",null,[
-        el("td",{text:k}), el("td",{class:"num",text:fmt(d.ingresantes)}),
-        el("td",{class:"num",text:fmt1(d.min)}), el("td",{class:"num",text:fmt1(d.mediana)}), el("td",{class:"num",text:fmt1(d.max)}),
-        el("td",{text: k==="ARQUITECTURA" ? "incluye Apt. Vocacional (máx 2,400)" : "3 pruebas (máx 1,800)"})]));
-      const tbl2 = document.createElement("table"); tbl2.appendChild(el("thead",null,[thead2])); tbl2.appendChild(el("tbody",null,tb2));
       cardsR2.appendChild(card("Arquitectura y Urbanismo — resultados finales",
         fmt(concArq.total) + " postulantes · " + fmt(ingArq) + " ingresantes. Arquitectura ingresa con su puntaje final que incluye la Prueba de Aptitud Vocacional; Urbanismo con el total de las tres pruebas.",
-        tbl2));
+        tablaBonita([{t:"Especialidad"},{t:"Ingresantes",n:1},{t:"Cierre",n:1},{t:"Mediana",n:1},{t:"Máximo",n:1},{t:"Escala"}],
+          Object.entries(ea).map(([k,d])=>[k, fmt(d.ingresantes), fmt1(d.min), fmt1(d.mediana), fmt1(d.max),
+            k==="ARQUITECTURA" ? "incluye Apt. Vocacional (máx 2,400)" : "3 pruebas (máx 1,800)"]), false)));
     }
     if(cardsR2.children.length) cardsR.appendChild(cardsR2);
 

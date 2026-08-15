@@ -1,5 +1,5 @@
 {
- "generado_utc": "2026-08-15T15:08:35.667824+00:00",
+ "generado_utc": "2026-08-15T15:25:56.668332+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
@@ -1442,26 +1442,26 @@
     "nombre_oficial": "RESULTADOS DE LA PRUEBA DE FÍSICA Y QUÍMICA – ADMISIÓN UNI",
     "archivo_fuente": "resultados-admision-prueba-fisica-quimica-20260815.json",
     "total": 4454,
-    "presentes": 4454,
-    "ausentes": 0,
-    "pct_ausentismo": 0.0,
+    "presentes": 4293,
+    "ausentes": 161,
+    "pct_ausentismo": 3.61,
     "puntajes": {
-     "n": 4454,
-     "min": 0.0,
+     "n": 4293,
+     "min": 1.0,
      "max": 549.0,
-     "media": 214.824,
-     "mediana": 204.0,
-     "desv": 144.065,
-     "p10": 24.0,
-     "p25": 87.0,
-     "p75": 330.0,
-     "p90": 420.0
+     "media": 222.88,
+     "mediana": 213.0,
+     "desv": 140.489,
+     "p10": 42.0,
+     "p25": 96.0,
+     "p75": 336.0,
+     "p90": 423.0
     },
     "histograma": [
      {
       "desde": 0,
       "hasta": 30,
-      "n": 469
+      "n": 308
      },
      {
       "desde": 30,
