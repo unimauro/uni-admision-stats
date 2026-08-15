@@ -13,7 +13,7 @@
 - [x] 2026-08-13 — **Tooltips explicativos en todos los tiles** (16): `tile()` acepta texto de ayuda, muestra ⓘ y usa el tooltip compartido (hover; en táctil, tap y se cierra tocando fuera). Incluye aria-label.
 
 ## Pendiente
-- [ ] **Física y Química** (3.ª prueba 2026-2): cuando la UNI la publique, el scraper la capta sola; verificar que el auto-render la muestre bien (base 600).
+- [ ] **Física y Química** (3.ª prueba 2026-2): al 14-ago (18:15 UTC) AÚN NO publicada (verificado en fuente oficial y snapshot 17Z). El scraper la captará solo (cron 05/17 UTC). Frontend ya 100% listo para que aparezca sola: tiles fila principal, texto de sección dinámico, calculadora, top10 con nombres, histograma y ausentismo. Al llegar, solo verificar visualmente.
 - [ ] **Resultados finales 2026-2** por especialidad: nueva sección de ingresantes + comparativa con 2026-1. Ojo esquema: solo ingresantes traerán `especialidad_ingreso`. Incluir ahí el **top por carrera** (hoy imposible: las publicaciones de examen solo traen código/nombres/puntaje, sin especialidad).
 - [ ] Nota vigesimal del TOTAL 2026-2 (suma de 3 pruebas /1,800) cuando estén las 3.
 - [ ] Comparar ausentismo final 2026-2 (3 pruebas) vs 2026-1.

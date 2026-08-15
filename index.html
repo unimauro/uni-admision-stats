@@ -862,11 +862,13 @@ function render(stats){
   const mercado = stats.mercado_laboral_cas;
 
   /* ===== Examen en curso ===== */
+  const mate = pubs["resultados-admision-prueba-matematica"] || pubs["resultados-admision-matematica"];
+  const fq = pubs["resultados-admision-prueba-fisica-quimica"] || pubs["resultados-admision-fisica-quimica"];
   const s1 = section("examen", "Examen 2026-2", "--s1", "Examen de Admisión 2026-2 (en curso)",
     "Resultados publicados hasta ahora: Aptitud Vocacional (Arquitectura, 8 ago), Aptitud Académica y " +
-    "Humanidades (10 ago) y Matemática (12 ago). Falta la prueba de Física y Química y los resultados " +
-    "finales por especialidad.");
-  const mate = pubs["resultados-admision-prueba-matematica"] || pubs["resultados-admision-matematica"];
+    "Humanidades (10 ago), Matemática (12 ago)" +
+    (fq ? " y Física y Química (14 ago). Faltan los resultados finales por especialidad."
+        : ". Falta la prueba de Física y Química y los resultados finales por especialidad."));
   const tiles1 = document.createElement("div"); tiles1.className = "tiles";
   if(aa){
     tiles1.appendChild(tile("Postulantes · Apt. Académica", fmt(aa.total), "prueba del 10 de agosto", "var(--s1)",
@@ -879,6 +881,12 @@ function render(stats){
       "Cuántos postulantes estaban registrados para la prueba de Matemática del 12 de agosto (incluye a los que no asistieron)."));
     tiles1.appendChild(tile("Máximo · Matemática", fmt1(mate.puntajes.max) + " · " + vig(mate.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(mate.ausentes) + " ausentes (" + mate.pct_ausentismo + "%)", "var(--a-violet)",
       "El puntaje más alto obtenido en Matemática, sobre 600 puntos, y su nota de 0 a 20 (puntaje ÷ 600 × 20). Debajo: ausentes y su porcentaje."));
+  }
+  if(fq && fq.puntajes){
+    tiles1.appendChild(tile("Postulantes · Física y Química", fmt(fq.total), "prueba del 14 de agosto", "var(--a-magenta)",
+      "Cuántos postulantes estaban registrados para la prueba de Física y Química del 14 de agosto (incluye a los que no asistieron)."));
+    tiles1.appendChild(tile("Máximo · Física y Química", fmt1(fq.puntajes.max) + " · " + vig(fq.puntajes.max,BASE_PRUEBA_2026_2) + "/20", fmt(fq.ausentes) + " ausentes (" + fq.pct_ausentismo + "%)", "var(--a-magenta)",
+      "El puntaje más alto obtenido en Física y Química, sobre 600 puntos, y su nota de 0 a 20 (puntaje ÷ 600 × 20). Debajo: ausentes y su porcentaje."));
   }
   if(voc) tiles1.appendChild(tile("Postulantes · Vocacional", fmt(voc.total), fmt1(voc.puntajes.max) + " máx · " + fmt(voc.ausentes) + " ausentes", "var(--s3)",
     "Postulantes a Arquitectura que rindieron la prueba de Aptitud Vocacional (8 de agosto), obligatoria solo para esa carrera. Debajo: el puntaje máximo y los ausentes."));
@@ -1026,6 +1034,7 @@ function render(stats){
     if(aa && aa.puntajes) pruebas.push({nombre:"Apt. Académica y Humanidades · 2026-2", st:aa, maxT:600});
     const mate2 = pubs["resultados-admision-prueba-matematica"] || pubs["resultados-admision-matematica"];
     if(mate2 && mate2.puntajes && mate2.histograma) pruebas.push({nombre:"Matemática · 2026-2", st:mate2, maxT:600});
+    if(fq && fq.puntajes && fq.histograma) pruebas.push({nombre:"Física y Química · 2026-2", st:fq, maxT:600});
     if(voc && voc.puntajes) pruebas.push({nombre:"Apt. Vocacional (Arq.) · 2026-2", st:voc, maxT:600});
     const d1c = (hist.examen_por_dia||{}).dia1;
     if(d1c && d1c.histograma) pruebas.push({nombre:"Prueba 1 · Aptitud Académica · 2026-1", st:d1c, maxT:745});
