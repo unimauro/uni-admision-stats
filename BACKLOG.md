@@ -12,12 +12,14 @@
 - [x] 2026-08-13 — **Top 10 por prueba 2026-2 con nombres**: una tarjeta por prueba (# / postulante / puntaje / nota, ordenadas por fecha, la última marcada "último examen"). Nombres tomados de la publicación oficial UNI (decisión del usuario); el scraper emite `top10` [{puntaje, nombre}] y la guardia anti-PII sigue bloqueando `nombres`/`codigo` (padrones crudos). En Matemática hubo DOS puntajes perfectos (600 = 20/20).
 - [x] 2026-08-13 — **Tooltips explicativos en todos los tiles** (16): `tile()` acepta texto de ayuda, muestra ⓘ y usa el tooltip compartido (hover; en táctil, tap y se cierra tocando fuera). Incluye aria-label.
 
+- [x] 2026-08-15 — **Física y Química publicada** (4,454 registros, máx 549): captada con scraper manual (el cron 05:30 UTC corrió antes de la publicación). Auto-render funcionó: tiles, histograma, top10, ausentismo, calculadora.
+- [x] 2026-08-15 — **Resultados finales 2026-2**: la UNI publicó `resultados-concurso-admision-2026-2` (4,120 postulantes, 860 ingresantes) y `-arquitectura` (334/64) con **esquema nuevo**: `resultado` = especialidad de ingreso ('' = no ingresó), `modalidad`, y en Arquitectura `puntaje_final` + `puntaje_final_arquitectura` (/2,400 con vocacional). build_stats adaptado (`puntaje_de`, `especialidad_de`, `ingresantes`, `por_modalidad`).
+- [x] 2026-08-15 — **Sección "Resultados finales" nueva**: tiles, TOP POR CARRERA (cierre y máximo /1,800 por especialidad), top 10 total con nombres, tabla Arquitectura/Urbanismo, comparativa de cierres 2026-2 vs 2026-1 en nota vigesimal, modalidades. Nav (sidebar + topnav), FAQ y textos de privacidad actualizados ("solo el top 10 oficial lleva nombre").
+- [x] 2026-08-15 — **Bot con inteligencia actualizada**: contexto ampliado con las 3 pruebas, resultados finales (cierres altos/bajos, modalidades, 1eros puestos), Arquitectura/Urbanismo y la escala /1,800.
+
 ## Pendiente
-- [ ] **Física y Química** (3.ª prueba 2026-2): al 14-ago (18:15 UTC) AÚN NO publicada (verificado en fuente oficial y snapshot 17Z). El scraper la captará solo (cron 05/17 UTC). Frontend ya 100% listo para que aparezca sola: tiles fila principal, texto de sección dinámico, calculadora, top10 con nombres, histograma y ausentismo. Al llegar, solo verificar visualmente.
-- [ ] **Resultados finales 2026-2** por especialidad: nueva sección de ingresantes + comparativa con 2026-1. Ojo esquema: solo ingresantes traerán `especialidad_ingreso`. Incluir ahí el **top por carrera** (hoy imposible: las publicaciones de examen solo traen código/nombres/puntaje, sin especialidad).
-- [ ] Nota vigesimal del TOTAL 2026-2 (suma de 3 pruebas /1,800) cuando estén las 3.
-- [ ] Comparar ausentismo final 2026-2 (3 pruebas) vs 2026-1.
-- [ ] Al cerrar el proceso: bajar la frecuencia del cron.
+- [ ] **Proceso 2026-2 cerrado** (resultados finales publicados 15-ago): bajar la frecuencia del cron de uniexamen (hoy cada 12 h).
+- [ ] Verificar visualmente la sección "Resultados finales" en el sitio publicado (desplegado sin revisión en navegador).
 - [ ] Refrescar snapshot CAS de SalariosPerú y regenerar mercado laboral.
 - [ ] (Menor) `salarioDe` empareja por substring — revisar casos borde; hoy muestra la carrera CAS emparejada en el tile.
 - [ ] (Menor) Especialidades con 1 ingresante publican min=max=puntaje individual; la fuente UNI ya es pública, pero evaluar umbral de n.

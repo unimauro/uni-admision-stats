@@ -1,10 +1,10 @@
 {
- "generado_utc": "2026-08-15T05:30:25.152940+00:00",
+ "generado_utc": "2026-08-15T15:08:35.667824+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
   "ciclo": "2026-2",
-  "ultima_fecha": "2026-08-15_05Z",
+  "ultima_fecha": "2026-08-15_15Z",
   "publicaciones": {
    "asignacion-vacantes-juliaca": {
     "nombre_oficial": "ASIGNACIÓN DE VACANTES CEPRE-UNI JULIACA",
@@ -1438,6 +1438,177 @@
      }
     ]
    },
+   "resultados-admision-prueba-fisica-quimica": {
+    "nombre_oficial": "RESULTADOS DE LA PRUEBA DE FÍSICA Y QUÍMICA – ADMISIÓN UNI",
+    "archivo_fuente": "resultados-admision-prueba-fisica-quimica-20260815.json",
+    "total": 4454,
+    "presentes": 4454,
+    "ausentes": 0,
+    "pct_ausentismo": 0.0,
+    "puntajes": {
+     "n": 4454,
+     "min": 0.0,
+     "max": 549.0,
+     "media": 214.824,
+     "mediana": 204.0,
+     "desv": 144.065,
+     "p10": 24.0,
+     "p25": 87.0,
+     "p75": 330.0,
+     "p90": 420.0
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 30,
+      "n": 469
+     },
+     {
+      "desde": 30,
+      "hasta": 60,
+      "n": 289
+     },
+     {
+      "desde": 60,
+      "hasta": 90,
+      "n": 365
+     },
+     {
+      "desde": 90,
+      "hasta": 120,
+      "n": 297
+     },
+     {
+      "desde": 120,
+      "hasta": 150,
+      "n": 264
+     },
+     {
+      "desde": 150,
+      "hasta": 180,
+      "n": 273
+     },
+     {
+      "desde": 180,
+      "hasta": 210,
+      "n": 309
+     },
+     {
+      "desde": 210,
+      "hasta": 240,
+      "n": 270
+     },
+     {
+      "desde": 240,
+      "hasta": 270,
+      "n": 280
+     },
+     {
+      "desde": 270,
+      "hasta": 300,
+      "n": 243
+     },
+     {
+      "desde": 300,
+      "hasta": 330,
+      "n": 245
+     },
+     {
+      "desde": 330,
+      "hasta": 360,
+      "n": 258
+     },
+     {
+      "desde": 360,
+      "hasta": 390,
+      "n": 217
+     },
+     {
+      "desde": 390,
+      "hasta": 420,
+      "n": 196
+     },
+     {
+      "desde": 420,
+      "hasta": 450,
+      "n": 222
+     },
+     {
+      "desde": 450,
+      "hasta": 480,
+      "n": 129
+     },
+     {
+      "desde": 480,
+      "hasta": 510,
+      "n": 75
+     },
+     {
+      "desde": 510,
+      "hasta": 540,
+      "n": 49
+     },
+     {
+      "desde": 540,
+      "hasta": 570,
+      "n": 4
+     }
+    ],
+    "top_puntajes": [
+     549.0,
+     546.0,
+     546.0,
+     546.0,
+     534.0,
+     534.0,
+     534.0,
+     531.0,
+     531.0,
+     531.0
+    ],
+    "top10": [
+     {
+      "puntaje": 549.0,
+      "nombre": "VASQUEZ ZAVALETA LEONARDO ALEXANDER"
+     },
+     {
+      "puntaje": 546.0,
+      "nombre": "HUARINGA CASTRO PABLO JOSÉ"
+     },
+     {
+      "puntaje": 546.0,
+      "nombre": "GAMARRA GUERRA DIEGO FERNANDO"
+     },
+     {
+      "puntaje": 546.0,
+      "nombre": "MENDOZA NUÑEZ JHORK JANDER"
+     },
+     {
+      "puntaje": 534.0,
+      "nombre": "VELA ESTUPIÑAN ANDRÉ SEBASTIAN"
+     },
+     {
+      "puntaje": 534.0,
+      "nombre": "SANCHEZ PAREDES DAVID SANTIAGO"
+     },
+     {
+      "puntaje": 534.0,
+      "nombre": "HUAMAN MONTOYA FRAN MAICOL"
+     },
+     {
+      "puntaje": 531.0,
+      "nombre": "NOLASCO CHAUCA SEBASTIAN ABEL"
+     },
+     {
+      "puntaje": 531.0,
+      "nombre": "POMA MARTINEZ JHAN CARLOS"
+     },
+     {
+      "puntaje": 531.0,
+      "nombre": "ALEJOS LAPA MAIKEL FABRIZIO"
+     }
+    ]
+   },
    "resultados-admision-prueba-matematica": {
     "nombre_oficial": "RESULTADOS DE LA PRUEBA DE MATEMÁTICA – ADMISIÓN UNI",
     "archivo_fuente": "resultados-admision-prueba-matematica-20260812.json",
@@ -1789,6 +1960,766 @@
       "nombre": "ROBLES VEGA ANA ISABEL PATRICIA"
      }
     ]
+   },
+   "resultados-concurso-admision-2026-2": {
+    "nombre_oficial": "RESULTADOS DEL CONCURSO DE ADMISIÓN 2026-2",
+    "archivo_fuente": "resultados-concurso-admision-2026-2-20260814.json",
+    "total": 4120,
+    "presentes": 4120,
+    "ausentes": 0,
+    "pct_ausentismo": 0.0,
+    "puntajes": {
+     "n": 4120,
+     "min": 0.0,
+     "max": 1601.4,
+     "media": 698.802,
+     "mediana": 687.6,
+     "desv": 311.884,
+     "p10": 293.4,
+     "p25": 445.95,
+     "p75": 936.6,
+     "p90": 1131.48
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 100,
+      "n": 36
+     },
+     {
+      "desde": 100,
+      "hasta": 200,
+      "n": 116
+     },
+     {
+      "desde": 200,
+      "hasta": 300,
+      "n": 293
+     },
+     {
+      "desde": 300,
+      "hasta": 400,
+      "n": 366
+     },
+     {
+      "desde": 400,
+      "hasta": 500,
+      "n": 449
+     },
+     {
+      "desde": 500,
+      "hasta": 600,
+      "n": 424
+     },
+     {
+      "desde": 600,
+      "hasta": 700,
+      "n": 421
+     },
+     {
+      "desde": 700,
+      "hasta": 800,
+      "n": 420
+     },
+     {
+      "desde": 800,
+      "hasta": 900,
+      "n": 443
+     },
+     {
+      "desde": 900,
+      "hasta": 1000,
+      "n": 356
+     },
+     {
+      "desde": 1000,
+      "hasta": 1100,
+      "n": 299
+     },
+     {
+      "desde": 1100,
+      "hasta": 1200,
+      "n": 249
+     },
+     {
+      "desde": 1200,
+      "hasta": 1300,
+      "n": 166
+     },
+     {
+      "desde": 1300,
+      "hasta": 1400,
+      "n": 64
+     },
+     {
+      "desde": 1400,
+      "hasta": 1500,
+      "n": 15
+     },
+     {
+      "desde": 1500,
+      "hasta": 1600,
+      "n": 2
+     },
+     {
+      "desde": 1600,
+      "hasta": 1700,
+      "n": 1
+     }
+    ],
+    "top_puntajes": [
+     1601.4,
+     1564.8,
+     1538.4,
+     1493.4,
+     1470.6,
+     1461.6,
+     1454.4,
+     1452.0,
+     1435.2,
+     1425.0
+    ],
+    "top10": [
+     {
+      "puntaje": 1601.4,
+      "nombre": "ALEJOS LAPA MAIKEL FABRIZIO"
+     },
+     {
+      "puntaje": 1564.8,
+      "nombre": "REYES ZEVALLOS JAVIER FRANCISCO"
+     },
+     {
+      "puntaje": 1538.4,
+      "nombre": "INGA VELASQUEZ DOMINICK ADONIZ"
+     },
+     {
+      "puntaje": 1493.4,
+      "nombre": "GAMARRA GUERRA DIEGO FERNANDO"
+     },
+     {
+      "puntaje": 1470.6,
+      "nombre": "PUENTE CARRANZA JOAQUÍN ALONSO"
+     },
+     {
+      "puntaje": 1461.6,
+      "nombre": "HUAMAN AUQUI ITAMAR MATEO"
+     },
+     {
+      "puntaje": 1454.4,
+      "nombre": "CARBAJAL MENDOZA ANGEL LUIS"
+     },
+     {
+      "puntaje": 1452.0,
+      "nombre": "CUADROS ROJAS EVAN CLARK"
+     },
+     {
+      "puntaje": 1435.2,
+      "nombre": "QUISPE FLORES LUIS JAHIR"
+     },
+     {
+      "puntaje": 1425.0,
+      "nombre": "MORENO LOMBARDI FRANCO ARMANDO"
+     }
+    ],
+    "ingresantes": 860,
+    "por_modalidad": {
+     "ORDINARIO": {
+      "postulantes": 4059,
+      "ingresantes": 799
+     },
+     "EXTRAORDINARIO 1 - PERSONAS CON DISCAPACIDAD (iniciar estudios)": {
+      "postulantes": 4,
+      "ingresantes": 4
+     },
+     "EXTRAORDINARIO 1 - PRIMEROS PUESTOS": {
+      "postulantes": 43,
+      "ingresantes": 43
+     },
+     "EXTRAORDINARIO 1 - DIPLOMADOS CON BACHILLERATO INTERNACIONAL": {
+      "postulantes": 8,
+      "ingresantes": 8
+     },
+     "EXTRAORDINARIO 1 - DEPORTISTAS CALIFICADOS DE ALTO NIVEL (iniciar estudios)": {
+      "postulantes": 1,
+      "ingresantes": 1
+     },
+     "EXTRAORDINARIO 1 - PLAN INTEGRAL DE REPARACIONES (iniciar estudios)": {
+      "postulantes": 5,
+      "ingresantes": 5
+     }
+    },
+    "por_especialidad": {
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "ingresantes": 16,
+      "min": 993.6,
+      "max": 1254.0,
+      "media": 1127.213,
+      "mediana": 1130.4,
+      "desv": 77.925,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "FÍSICA": {
+      "ingresantes": 16,
+      "min": 816.0,
+      "max": 1154.4,
+      "media": 949.462,
+      "mediana": 929.7,
+      "desv": 110.28,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "INGENIERÍA AEROESPACIAL": {
+      "ingresantes": 22,
+      "min": 1166.4,
+      "max": 1422.0,
+      "media": 1249.964,
+      "mediana": 1249.8,
+      "desv": 62.226,
+      "p10": 1167.66,
+      "p25": 1199.85,
+      "p75": 1292.25,
+      "p90": 1322.94
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "ingresantes": 23,
+      "min": 849.0,
+      "max": 1166.4,
+      "media": 953.53,
+      "mediana": 937.8,
+      "desv": 85.35,
+      "p10": 855.12,
+      "p25": 884.4,
+      "p75": 1020.6,
+      "p90": 1082.88
+     },
+     "INGENIERÍA BIOMÉDICA": {
+      "ingresantes": 30,
+      "min": 838.2,
+      "max": 1263.0,
+      "media": 989.74,
+      "mediana": 991.2,
+      "desv": 107.055,
+      "p10": 855.0,
+      "p25": 891.75,
+      "p75": 1060.95,
+      "p90": 1136.04
+     },
+     "INGENIERÍA CIVIL": {
+      "ingresantes": 78,
+      "min": 891.6,
+      "max": 1403.4,
+      "media": 1228.8,
+      "mediana": 1217.1,
+      "desv": 78.125,
+      "p10": 1159.62,
+      "p25": 1176.3,
+      "p75": 1295.25,
+      "p90": 1336.2
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "ingresantes": 30,
+      "min": 904.2,
+      "max": 1285.2,
+      "media": 1141.46,
+      "mediana": 1141.5,
+      "desv": 83.873,
+      "p10": 1056.66,
+      "p25": 1070.4,
+      "p75": 1218.3,
+      "p90": 1241.76
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "ingresantes": 11,
+      "min": 807.0,
+      "max": 1057.8,
+      "media": 875.073,
+      "mediana": 831.0,
+      "desv": 79.591,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "INGENIERÍA DE INTELIGENCIA ARTIFICIAL": {
+      "ingresantes": 19,
+      "min": 959.4,
+      "max": 1425.0,
+      "media": 1232.463,
+      "mediana": 1228.8,
+      "desv": 99.052,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "INGENIERÍA DE MINAS": {
+      "ingresantes": 25,
+      "min": 1009.2,
+      "max": 1253.4,
+      "media": 1114.92,
+      "mediana": 1101.0,
+      "desv": 80.822,
+      "p10": 1014.72,
+      "p25": 1031.7,
+      "p75": 1186.2,
+      "p90": 1230.84
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "ingresantes": 10,
+      "min": 816.0,
+      "max": 1168.2,
+      "media": 933.84,
+      "mediana": 868.8,
+      "desv": 126.78,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "ingresantes": 41,
+      "min": 987.6,
+      "max": 1422.6,
+      "media": 1285.902,
+      "mediana": 1278.6,
+      "desv": 78.36,
+      "p10": 1209.24,
+      "p25": 1235.4,
+      "p75": 1342.8,
+      "p90": 1389.24
+     },
+     "INGENIERÍA DE SOFTWARE": {
+      "ingresantes": 20,
+      "min": 1027.2,
+      "max": 1470.6,
+      "media": 1305.42,
+      "mediana": 1310.7,
+      "desv": 107.499,
+      "p10": 1179.96,
+      "p25": 1250.55,
+      "p75": 1386.3,
+      "p90": 1456.92
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "ingresantes": 30,
+      "min": 903.0,
+      "max": 1376.4,
+      "media": 1041.5,
+      "mediana": 1048.5,
+      "desv": 97.194,
+      "p10": 909.9,
+      "p25": 969.9,
+      "p75": 1083.45,
+      "p90": 1144.68
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "ingresantes": 33,
+      "min": 932.4,
+      "max": 1564.8,
+      "media": 1099.618,
+      "mediana": 1066.8,
+      "desv": 144.775,
+      "p10": 953.04,
+      "p25": 972.9,
+      "p75": 1201.5,
+      "p90": 1289.16
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "ingresantes": 31,
+      "min": 818.4,
+      "max": 1493.4,
+      "media": 1073.942,
+      "mediana": 1054.2,
+      "desv": 150.672,
+      "p10": 916.8,
+      "p25": 966.6,
+      "p75": 1164.6,
+      "p90": 1296.36
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "ingresantes": 30,
+      "min": 870.0,
+      "max": 1435.2,
+      "media": 1052.64,
+      "mediana": 1026.3,
+      "desv": 133.336,
+      "p10": 888.24,
+      "p25": 970.2,
+      "p75": 1137.0,
+      "p90": 1216.02
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "ingresantes": 36,
+      "min": 858.6,
+      "max": 1237.2,
+      "media": 971.05,
+      "mediana": 933.0,
+      "desv": 96.077,
+      "p10": 870.84,
+      "p25": 899.1,
+      "p75": 1030.65,
+      "p90": 1125.42
+     },
+     "INGENIERÍA FÍSICA": {
+      "ingresantes": 16,
+      "min": 829.8,
+      "max": 1179.6,
+      "media": 956.513,
+      "mediana": 945.0,
+      "desv": 107.903,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "ingresantes": 32,
+      "min": 818.4,
+      "max": 1048.8,
+      "media": 900.337,
+      "mediana": 879.6,
+      "desv": 67.375,
+      "p10": 826.56,
+      "p25": 842.55,
+      "p75": 949.2,
+      "p90": 1011.42
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "ingresantes": 40,
+      "min": 871.8,
+      "max": 1601.4,
+      "media": 1193.16,
+      "mediana": 1187.1,
+      "desv": 120.574,
+      "p10": 1071.9,
+      "p25": 1110.3,
+      "p75": 1274.85,
+      "p90": 1330.56
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "ingresantes": 38,
+      "min": 886.2,
+      "max": 1538.4,
+      "media": 1276.926,
+      "mediana": 1296.3,
+      "desv": 131.028,
+      "p10": 1059.12,
+      "p25": 1205.4,
+      "p75": 1354.95,
+      "p90": 1412.04
+     },
+     "INGENIERÍA MECÁNICA": {
+      "ingresantes": 35,
+      "min": 820.2,
+      "max": 1403.4,
+      "media": 1159.063,
+      "mediana": 1167.0,
+      "desv": 127.815,
+      "p10": 938.88,
+      "p25": 1117.8,
+      "p75": 1240.8,
+      "p90": 1287.72
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "ingresantes": 38,
+      "min": 890.4,
+      "max": 1308.6,
+      "media": 1131.016,
+      "mediana": 1132.2,
+      "desv": 79.671,
+      "p10": 1045.92,
+      "p25": 1079.55,
+      "p75": 1174.2,
+      "p90": 1235.22
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "ingresantes": 30,
+      "min": 832.8,
+      "max": 1141.2,
+      "media": 945.62,
+      "mediana": 949.2,
+      "desv": 84.406,
+      "p10": 835.44,
+      "p25": 865.2,
+      "p75": 979.35,
+      "p90": 1082.94
+     },
+     "INGENIERÍA NAVAL": {
+      "ingresantes": 21,
+      "min": 803.4,
+      "max": 1189.2,
+      "media": 990.286,
+      "mediana": 1006.8,
+      "desv": 109.142,
+      "p10": 838.08,
+      "p25": 886.8,
+      "p75": 1080.0,
+      "p90": 1115.28
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "ingresantes": 8,
+      "min": 826.8,
+      "max": 1057.2,
+      "media": 916.95,
+      "mediana": 909.6,
+      "desv": 81.199,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "INGENIERÍA QUÍMICA": {
+      "ingresantes": 55,
+      "min": 802.8,
+      "max": 1279.2,
+      "media": 937.015,
+      "mediana": 886.8,
+      "desv": 121.019,
+      "p10": 822.6,
+      "p25": 852.6,
+      "p75": 1011.0,
+      "p90": 1140.84
+     },
+     "INGENIERÍA SANITARIA": {
+      "ingresantes": 23,
+      "min": 808.2,
+      "max": 1147.2,
+      "media": 932.843,
+      "mediana": 916.8,
+      "desv": 100.343,
+      "p10": 813.48,
+      "p25": 840.6,
+      "p75": 1017.6,
+      "p90": 1092.48
+     },
+     "INGENIERÍA TEXTIL": {
+      "ingresantes": 2,
+      "min": 897.6,
+      "max": 1135.2,
+      "media": 1016.4,
+      "mediana": 1016.4,
+      "desv": 168.009,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "MATEMÁTICA": {
+      "ingresantes": 16,
+      "min": 828.6,
+      "max": 1111.2,
+      "media": 927.675,
+      "mediana": 929.4,
+      "desv": 86.499,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     },
+     "QUÍMICA": {
+      "ingresantes": 5,
+      "min": 801.0,
+      "max": 881.4,
+      "media": 839.64,
+      "mediana": 852.0,
+      "desv": 33.623,
+      "p10": null,
+      "p25": null,
+      "p75": null,
+      "p90": null
+     }
+    }
+   },
+   "resultados-concurso-admision-2026-2-arquitectura": {
+    "nombre_oficial": "RESULTADOS FACULTAD DE ARQUITECTURA – CONCURSO DE ADMISIÓN 2026-2",
+    "archivo_fuente": "resultados-concurso-admision-2026-2-arquitectura-20260815.json",
+    "total": 334,
+    "presentes": 334,
+    "ausentes": 0,
+    "pct_ausentismo": 0.0,
+    "puntajes": {
+     "n": 334,
+     "min": 0.0,
+     "max": 1235.4,
+     "media": 601.484,
+     "mediana": 565.8,
+     "desv": 260.785,
+     "p10": 273.9,
+     "p25": 407.4,
+     "p75": 811.35,
+     "p90": 966.0
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 100,
+      "n": 1
+     },
+     {
+      "desde": 100,
+      "hasta": 200,
+      "n": 13
+     },
+     {
+      "desde": 200,
+      "hasta": 300,
+      "n": 26
+     },
+     {
+      "desde": 300,
+      "hasta": 400,
+      "n": 39
+     },
+     {
+      "desde": 400,
+      "hasta": 500,
+      "n": 57
+     },
+     {
+      "desde": 500,
+      "hasta": 600,
+      "n": 46
+     },
+     {
+      "desde": 600,
+      "hasta": 700,
+      "n": 38
+     },
+     {
+      "desde": 700,
+      "hasta": 800,
+      "n": 28
+     },
+     {
+      "desde": 800,
+      "hasta": 900,
+      "n": 30
+     },
+     {
+      "desde": 900,
+      "hasta": 1000,
+      "n": 33
+     },
+     {
+      "desde": 1000,
+      "hasta": 1100,
+      "n": 13
+     },
+     {
+      "desde": 1100,
+      "hasta": 1200,
+      "n": 7
+     },
+     {
+      "desde": 1200,
+      "hasta": 1300,
+      "n": 3
+     }
+    ],
+    "top_puntajes": [
+     1235.4,
+     1230.6,
+     1217.4,
+     1187.4,
+     1179.0,
+     1175.4,
+     1170.6,
+     1125.6,
+     1110.0,
+     1102.8
+    ],
+    "top10": [
+     {
+      "puntaje": 1235.4,
+      "nombre": "YAURIMAN SALDAÑA NATHALIA ANDREA"
+     },
+     {
+      "puntaje": 1230.6,
+      "nombre": "LEONARDO HERRERA CÉSAR JOAQUIN"
+     },
+     {
+      "puntaje": 1217.4,
+      "nombre": "FLORES LINARES MIGUEL ALEJANDRO"
+     },
+     {
+      "puntaje": 1187.4,
+      "nombre": "QUISPE MAMANI JOSE SAMUEL MAURO"
+     },
+     {
+      "puntaje": 1179.0,
+      "nombre": "GALINDO TAYPE MALENA KEYRA"
+     },
+     {
+      "puntaje": 1175.4,
+      "nombre": "ROGUANE FLOREZ MARILIN ANGIE"
+     },
+     {
+      "puntaje": 1170.6,
+      "nombre": "ANGELES LOAYZA JUAN AUGUSTO"
+     },
+     {
+      "puntaje": 1125.6,
+      "nombre": "CCASA POCCO FLOR MELANIA"
+     },
+     {
+      "puntaje": 1110.0,
+      "nombre": "BERROA ESPINOZA JOAN FABRIZZIO RAFAEL"
+     },
+     {
+      "puntaje": 1102.8,
+      "nombre": "MENDOZA MALLMA ABRIL ANDREA"
+     }
+    ],
+    "ingresantes": 64,
+    "por_modalidad": {
+     "ORDINARIO": {
+      "postulantes": 328,
+      "ingresantes": 58
+     },
+     "EXTRAORDINARIO 1 - DIPLOMADOS CON BACHILLERATO INTERNACIONAL": {
+      "postulantes": 1,
+      "ingresantes": 1
+     },
+     "EXTRAORDINARIO 1 - PRIMEROS PUESTOS": {
+      "postulantes": 4,
+      "ingresantes": 4
+     },
+     "EXTRAORDINARIO 1 - PERSONAS CON DISCAPACIDAD (iniciar estudios)": {
+      "postulantes": 1,
+      "ingresantes": 1
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "ingresantes": 38,
+      "min": 960.6,
+      "max": 1717.8,
+      "media": 1480.926,
+      "mediana": 1473.3,
+      "desv": 139.221,
+      "p10": 1387.44,
+      "p25": 1437.15,
+      "p75": 1562.85,
+      "p90": 1603.92
+     },
+     "URBANISMO": {
+      "ingresantes": 26,
+      "min": 829.2,
+      "max": 1020.0,
+      "media": 915.923,
+      "mediana": 920.1,
+      "desv": 47.398,
+      "p10": 846.48,
+      "p25": 874.95,
+      "p75": 957.0,
+      "p90": 967.92
+     }
+    }
    }
   },
   "evolucion": [
@@ -2054,6 +2985,61 @@
       "total": 309,
       "presentes": 303,
       "ausentes": 6
+     }
+    }
+   },
+   {
+    "fecha": "2026-08-15_15Z",
+    "publicaciones": {
+     "asignacion-vacantes-juliaca": {
+      "total": 48,
+      "presentes": 48,
+      "ausentes": 0
+     },
+     "asignacion-vacantes-lima": {
+      "total": 2242,
+      "presentes": 2242,
+      "ausentes": 0
+     },
+     "resultados-admision-aptitud-academica-humanidades": {
+      "total": 4642,
+      "presentes": 4605,
+      "ausentes": 37
+     },
+     "resultados-admision-examen-especial": {
+      "total": 47,
+      "presentes": 44,
+      "ausentes": 3
+     },
+     "resultados-admision-participante-sin-derecho-vacante-matematica": {
+      "total": 184,
+      "presentes": 169,
+      "ausentes": 15
+     },
+     "resultados-admision-prueba-fisica-quimica": {
+      "total": 4454,
+      "presentes": 4454,
+      "ausentes": 0
+     },
+     "resultados-admision-prueba-matematica": {
+      "total": 4458,
+      "presentes": 4407,
+      "ausentes": 51
+     },
+     "resultados-admision-vocacional": {
+      "total": 309,
+      "presentes": 303,
+      "ausentes": 6
+     },
+     "resultados-concurso-admision-2026-2": {
+      "total": 4120,
+      "presentes": 4120,
+      "ausentes": 0
+     },
+     "resultados-concurso-admision-2026-2-arquitectura": {
+      "total": 334,
+      "presentes": 334,
+      "ausentes": 0
      }
     }
    }

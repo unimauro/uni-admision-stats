@@ -310,6 +310,7 @@ footer.page-foot p{max-width:75ch}
     <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro">🌙</button>
     <nav id="side-nav">
       <a class="nav-link" href="#examen"><span class="dot" style="background:var(--s1)"></span>Examen 2026-2</a>
+      <a class="nav-link" href="#finales"><span class="dot" style="background:var(--a-magenta)"></span>Resultados finales</a>
       <a class="nav-link" href="#variacion"><span class="dot" style="background:var(--guinda)"></span>Variación 2026-1 → 2</a>
       <a class="nav-link" href="#cepre"><span class="dot" style="background:var(--s2)"></span>CEPRE · vacantes</a>
       <a class="nav-link" href="#buscador"><span class="dot" style="background:var(--a-red)"></span>Buscar carrera</a>
@@ -322,7 +323,7 @@ footer.page-foot p{max-width:75ch}
     <div class="side-foot">
       <span id="side-updated"></span><br>
       Fuente: <a href="https://puntajes.admision.uni.edu.pe/" rel="noopener">Admisión UNI</a><br>
-      Sin datos personales.
+      Estadísticas agregadas; solo el top 10 oficial lleva nombre.
     </div>
   </aside>
 
@@ -330,6 +331,7 @@ footer.page-foot p{max-width:75ch}
     <nav class="topnav" aria-label="Secciones">
       <button class="theme-toggle" id="theme-toggle-m" aria-label="Cambiar tema claro/oscuro">🌙</button>
       <a href="#examen"><span class="dot" style="background:var(--s1)"></span>Examen 2026-2</a>
+      <a href="#finales"><span class="dot" style="background:var(--a-magenta)"></span>Finales</a>
       <a href="#variacion"><span class="dot" style="background:var(--guinda)"></span>Variación</a>
       <a href="#cepre"><span class="dot" style="background:var(--s2)"></span>CEPRE</a>
       <a href="#buscador"><span class="dot" style="background:var(--a-red)"></span>Buscar</a>
@@ -345,7 +347,7 @@ footer.page-foot p{max-width:75ch}
         <h1>Admisión <span class="uni">UNI</span> en cifras</h1>
         <p class="sub">Estadísticas agregadas y anónimas de los procesos de admisión de la
         Universidad Nacional de Ingeniería: postulantes, ausentismo, puntajes por prueba y especialidad,
-        comparativas entre carreras y su mercado laboral. Sin datos personales.</p>
+        comparativas entre carreras y su mercado laboral. Estadísticas agregadas; solo el top 10 oficial lleva nombre.</p>
         <p class="updated" id="updated">Cargando datos…</p>
       </header>
 
@@ -864,11 +866,14 @@ function render(stats){
   /* ===== Examen en curso ===== */
   const mate = pubs["resultados-admision-prueba-matematica"] || pubs["resultados-admision-matematica"];
   const fq = pubs["resultados-admision-prueba-fisica-quimica"] || pubs["resultados-admision-fisica-quimica"];
-  const s1 = section("examen", "Examen 2026-2", "--s1", "Examen de Admisión 2026-2 (en curso)",
-    "Resultados publicados hasta ahora: Aptitud Vocacional (Arquitectura, 8 ago), Aptitud Académica y " +
+  const conc = pubs["resultados-concurso-admision-2026-2"];
+  const concArq = pubs["resultados-concurso-admision-2026-2-arquitectura"];
+  const s1 = section("examen", "Examen 2026-2", "--s1", conc ? "Examen de Admisión 2026-2 — pruebas" : "Examen de Admisión 2026-2 (en curso)",
+    "Resultados publicados: Aptitud Vocacional (Arquitectura, 8 ago), Aptitud Académica y " +
     "Humanidades (10 ago), Matemática (12 ago)" +
-    (fq ? " y Física y Química (14 ago). Faltan los resultados finales por especialidad."
-        : ". Falta la prueba de Física y Química y los resultados finales por especialidad."));
+    (fq ? " y Física y Química (14 ago)." : ". Falta la prueba de Física y Química.") +
+    (conc ? " Los resultados finales por especialidad ya están publicados: ver la sección Resultados finales."
+          : " Faltan los resultados finales por especialidad."));
   const tiles1 = document.createElement("div"); tiles1.className = "tiles";
   if(aa){
     tiles1.appendChild(tile("Postulantes · Apt. Académica", fmt(aa.total), "prueba del 10 de agosto", "var(--s1)",
@@ -1082,6 +1087,102 @@ function render(stats){
   }
   app.appendChild(s1);
 
+  /* ===== Resultados finales 2026-2 ===== */
+  if(conc && conc.por_especialidad){
+    const BASE_TOTAL_2026_2 = 1800;
+    const ingConc = conc.ingresantes || 0, ingArq = (concArq && concArq.ingresantes) || 0;
+    const totConc = conc.total + (concArq ? concArq.total : 0);
+    const ingTot = ingConc + ingArq;
+    const sR = section("finales", "Resultados finales", "--a-magenta", "Resultados finales 2026-2 — ingresantes por especialidad",
+      "Publicación oficial del concurso de admisión 2026-2: puntaje total (suma de las tres pruebas, sobre 1,800 pts) y " +
+      "especialidad asignada a quienes alcanzaron vacante. Arquitectura y Urbanismo se publican aparte porque su ingreso " +
+      "considera además la Prueba de Aptitud Vocacional.");
+    const tilesR = document.createElement("div"); tilesR.className = "tiles";
+    tilesR.appendChild(tile("Postulantes al concurso", fmt(totConc), fmt(conc.total) + " general + " + fmt(concArq?concArq.total:0) + " Arq./Urb.", "var(--a-magenta)",
+      "Postulantes que figuran en las publicaciones de resultados finales del 2026-2: el concurso general más la publicación separada de Arquitectura y Urbanismo."));
+    tilesR.appendChild(tile("Ingresantes 2026-2", fmt(ingTot), fmt1(100*ingTot/totConc) + "% de admisión", "var(--a-magenta)",
+      "Postulantes que alcanzaron vacante (tienen especialidad asignada en los resultados finales). El porcentaje de admisión es ingresantes ÷ postulantes."));
+    if(conc.puntajes) tilesR.appendChild(tile("Puntaje máximo total", fmt1(conc.puntajes.max) + " · " + vig(conc.puntajes.max,BASE_TOTAL_2026_2) + "/20", "suma de 3 pruebas · sobre 1,800 = 20", "var(--a-magenta)",
+      "El mejor puntaje total del concurso general: suma de Aptitud Académica y Humanidades, Matemática, y Física y Química (máximo 1,800 puntos = nota 20)."));
+    const espC = conc.por_especialidad;
+    const cierresF = Object.entries(espC).filter(([,d])=>d.min!=null);
+    if(cierresF.length){
+      const topC = [...cierresF].sort((a,b)=>b[1].min-a[1].min)[0];
+      tilesR.appendChild(tile("Cierre más alto", fmt1(topC[1].min) + " · " + vig(topC[1].min,BASE_TOTAL_2026_2) + "/20", ESP_SHORT(topC[0]), "var(--a-magenta)",
+        "La carrera más competitiva del 2026-2: la especialidad cuyo último ingresante ('cierre') necesitó el puntaje más alto para alcanzar vacante."));
+    }
+    sR.appendChild(tilesR);
+
+    const ordinario = (conc.por_modalidad||{})["ORDINARIO"];
+    sR.appendChild(nota("--a-magenta","--wash-magenta",
+      `Ingresó <b>1 de cada ${Math.round(totConc/ingTot)}</b> postulantes (${fmt(ingTot)} de ${fmt(totConc)}). ` +
+      (ordinario ? `En la modalidad ordinaria: ${fmt(ordinario.ingresantes)} de ${fmt(ordinario.postulantes)} (${fmt1(100*ordinario.ingresantes/ordinario.postulantes)}%). ` : "") +
+      `El puntaje total es la suma de las tres pruebas (máx 1,800 = nota 20); Arquitectura suma además su Aptitud Vocacional (máx 2,400).`));
+
+    const cardsR = document.createElement("div"); cardsR.className = "cards";
+    const itemsF = cierresF.map(([k,d])=>({name:k, label:ESP_SHORT(k), values:[d.max, d.min], d}))
+      .sort((a,b)=>b.values[1]-a.values[1]);
+    cardsR.appendChild(card("Top por carrera — cierre y máximo del examen 2026-2",
+      "Puntaje total del mejor y del último ingresante de cada especialidad (sobre 1,800 pts). Ordenado por cierre: mientras más alto, más competitiva la carrera.",
+      hBars(itemsF, {W: fullW,
+        series:[{name:"Máximo", color:css("--a-violet")},{name:"Cierre (último ingresante)", color:css("--a-magenta")}],
+        aria:"Cierre y máximo por especialidad 2026-2",
+        fmtVal: v=>fmt1(v),
+        tip: it=>`<div class="t-title">${esc(it.name)}</div>
+          <div class="t-row">Ingresantes: ${fmt(it.d.ingresantes)}</div>
+          <div class="t-row">Cierre: ${fmt1(it.d.min)} (${vig(it.d.min,BASE_TOTAL_2026_2)}/20) · Máximo: ${fmt1(it.d.max)} (${vig(it.d.max,BASE_TOTAL_2026_2)}/20)</div>
+          <div class="t-row">Mediana de ingresantes: ${fmt1(it.d.mediana)}</div>`}),
+      tableView(["Especialidad","Ingresantes","Cierre","Nota cierre","Mediana","Máximo","Nota máx"],
+        itemsF.map(it=>[it.name, fmt(it.d.ingresantes), fmt1(it.d.min), vig(it.d.min,BASE_TOTAL_2026_2)+"/20", fmt1(it.d.mediana), fmt1(it.d.max), vig(it.d.max,BASE_TOTAL_2026_2)+"/20"])),
+      [{label:"Máximo", color:css("--a-violet")},{label:"Cierre", color:css("--a-magenta")}]));
+
+    const cardsR2 = document.createElement("div"); cardsR2.className = "cards two";
+    if(conc.top10 && conc.top10.length){
+      const thead = el("tr",null,[el("th",{text:"#"}),el("th",{text:"Postulante"}),el("th",{class:"num",text:"Puntaje total"}),el("th",{class:"num",text:"Nota /20"})]);
+      const tb = conc.top10.map((t,i)=>el("tr",null,[
+        el("td",{text:String(i+1)}), el("td",{text:t.nombre||"–"}),
+        el("td",{class:"num",text:fmt1(t.puntaje)}), el("td",{class:"num",text:vig(t.puntaje,BASE_TOTAL_2026_2)})]));
+      const tbl = document.createElement("table"); tbl.appendChild(el("thead",null,[thead])); tbl.appendChild(el("tbody",null,tb));
+      cardsR2.appendChild(card("Top 10 — puntaje total del concurso 2026-2",
+        "Los 10 mejores puntajes totales (suma de las tres pruebas). Nombres tal como aparecen en la publicación oficial de la UNI.",
+        tbl));
+    }
+    if(concArq && concArq.por_especialidad){
+      const ea = concArq.por_especialidad;
+      const thead2 = el("tr",null,["Especialidad","Ingresantes","Cierre","Mediana","Máximo","Escala"].map((h,i)=>el("th",{class:(i>0&&i<5)?"num":"",text:h})));
+      const tb2 = Object.entries(ea).map(([k,d])=>el("tr",null,[
+        el("td",{text:k}), el("td",{class:"num",text:fmt(d.ingresantes)}),
+        el("td",{class:"num",text:fmt1(d.min)}), el("td",{class:"num",text:fmt1(d.mediana)}), el("td",{class:"num",text:fmt1(d.max)}),
+        el("td",{text: k==="ARQUITECTURA" ? "incluye Apt. Vocacional (máx 2,400)" : "3 pruebas (máx 1,800)"})]));
+      const tbl2 = document.createElement("table"); tbl2.appendChild(el("thead",null,[thead2])); tbl2.appendChild(el("tbody",null,tb2));
+      cardsR2.appendChild(card("Arquitectura y Urbanismo — resultados finales",
+        fmt(concArq.total) + " postulantes · " + fmt(ingArq) + " ingresantes. Arquitectura ingresa con su puntaje final que incluye la Prueba de Aptitud Vocacional; Urbanismo con el total de las tres pruebas.",
+        tbl2));
+    }
+    if(cardsR2.children.length) cardsR.appendChild(cardsR2);
+
+    const espA1 = (adm && adm.ingresantes_por_especialidad) || {};
+    const comunesF = Object.keys(espC).filter(k=>espA1[k] && espC[k].min!=null && espA1[k].min!=null);
+    if(comunesF.length){
+      const itemsC = comunesF.map(k=>({name:k, label:ESP_SHORT(k),
+        values:[20*espC[k].min/1800, 20*espA1[k].min/1845], a:espC[k], b:espA1[k]}))
+        .sort((x,y)=>y.values[0]-x.values[0]);
+      cardsR.appendChild(card("Cierre por carrera — 2026-2 vs 2026-1 (nota sobre 20)",
+        "Los dos ciclos usan escalas distintas (1,800 y 1,845 pts), así que el cierre se expresa como nota vigesimal para poder compararlos.",
+        hBars(itemsC, {W: fullW,
+          series:[{name:"2026-2", color:css("--a-magenta")},{name:"2026-1", color:css("--s3")}],
+          aria:"Cierre 2026-2 vs 2026-1 por especialidad",
+          fmtVal:v=>fmt1(v),
+          tip: it=>`<div class="t-title">${esc(it.name)}</div>
+            <div class="t-row">2026-2: cierre ${fmt1(it.a.min)}/1,800 → ${fmt1(it.values[0])}/20 (${fmt(it.a.ingresantes)} ingresantes)</div>
+            <div class="t-row">2026-1: cierre ${fmt1(it.b.min)}/1,845 → ${fmt1(it.values[1])}/20 (${fmt(it.b.ingresantes)} ingresantes)</div>`}),
+        tableView(["Especialidad","Cierre 2026-2 (/20)","Cierre 2026-1 (/20)"],
+          itemsC.map(it=>[it.name, fmt1(it.values[0]), fmt1(it.values[1])])),
+        [{label:"2026-2", color:css("--a-magenta")},{label:"2026-1", color:css("--s3")}]));
+    }
+    sR.appendChild(cardsR);
+    app.appendChild(sR);
+  }
 
   /* ===== Variacion entre ciclos ===== */
   {
@@ -1517,15 +1618,15 @@ function render(stats){
     ["¿De dónde salen los datos?",
      "De las publicaciones oficiales de la Dirección de Admisión de la UNI (puntajes.admision.uni.edu.pe) y, para los salarios referenciales, de convocatorias CAS públicas del Estado peruano. Este sitio solo agrega y resume; los resultados oficiales siempre son los de la UNI."],
     ["¿Aparecen nombres o códigos de postulantes?",
-     "No. Este sitio publica únicamente estadísticas agregadas: conteos, porcentajes, histogramas y resúmenes (mínimo, máximo, media, mediana). Ningún dato personal sale de aquí."],
+     "Solo los nombres del top 10 de cada prueba y del concurso, tal como ya figuran en la publicación oficial de la UNI. Todo lo demás son estadísticas agregadas: conteos, porcentajes, histogramas y resúmenes (mínimo, máximo, media, mediana). No se publican padrones completos ni códigos."],
     ["¿Cada cuánto se actualiza?",
      "Un proceso automático revisa las publicaciones oficiales cada 12 horas mientras dura el proceso de admisión. La fecha de la última actualización aparece en la cabecera."],
     ["¿Qué significa 'ausentismo'?",
      "El porcentaje de postulantes registrados que figuran como AUSENTE en la publicación oficial de una prueba, es decir, que no rindieron el examen ese día."],
     ["¿Qué es el 'puntaje de cierre'?",
      "El puntaje del último ingresante de cada especialidad: el mínimo con el que alguien alcanzó vacante. Mientras más alto el cierre, más competitiva la carrera en ese proceso."],
-    ["¿Qué falta publicar del examen 2026-2?",
-     "A la fecha se han publicado la Prueba de Aptitud Vocacional (Arquitectura) y la de Aptitud Académica y Humanidades. Faltan Matemática, Física y Química, y los resultados finales con asignación de especialidad."],
+    ["¿Ya está todo publicado del examen 2026-2?",
+     "Sí, lo principal: las tres pruebas (Aptitud Académica y Humanidades, Matemática, y Física y Química), la Aptitud Vocacional de Arquitectura y los resultados finales con asignación de especialidad (incluida la publicación separada de Arquitectura y Urbanismo). El monitoreo seguirá captando cualquier publicación complementaria."],
     ["¿Los salarios son de egresados de la UNI?",
      "No. Son sueldos ofrecidos en convocatorias CAS del Estado que piden esas profesiones (de cualquier universidad). Sirven como referencia del mercado público, no como promesa salarial."],
     ["¿Este sitio es oficial de la UNI?",
@@ -1573,13 +1674,34 @@ function botContext(stats){
     const p = (stats.ciclo_actual||{}).publicaciones || {};
     const aa = p["resultados-admision-aptitud-academica-humanidades"];
     const voc = p["resultados-admision-vocacional"];
+    const mateB = p["resultados-admision-prueba-matematica"];
+    const fqB = p["resultados-admision-prueba-fisica-quimica"];
+    const concB = p["resultados-concurso-admision-2026-2"];
+    const concArqB = p["resultados-concurso-admision-2026-2-arquitectura"];
     const lima = p["asignacion-vacantes-lima"];
     const adm = (stats.historico_2026_1||{}).admision;
     const aus = (stats.historico_2026_1||{}).ausentismo_por_dia;
     const mer = stats.mercado_laboral_cas;
     const parts = [];
+    parts.push("Escala 2026-2: cada prueba /600, total 3 pruebas /1800 = nota 20 (N = puntaje÷1800×20; por prueba ÷600×20).");
     if(aa) parts.push(`Examen 2026-2 Apt.Académica(10ago): ${aa.total} postulantes, ${aa.ausentes} ausentes (${aa.pct_ausentismo}%), max ${aa.puntajes?.max}, mediana ${aa.puntajes?.mediana}.`);
+    if(mateB) parts.push(`Matemática(12ago): ${mateB.total} postulantes, max ${mateB.puntajes?.max}, mediana ${mateB.puntajes?.mediana}, ausentismo ${mateB.pct_ausentismo}%${(mateB.top10&&mateB.top10[0])?`, 1er puesto ${mateB.top10[0].nombre} (${mateB.top10[0].puntaje})`:""}.`);
+    if(fqB) parts.push(`Física y Química(14ago): ${fqB.total} postulantes, max ${fqB.puntajes?.max}, mediana ${fqB.puntajes?.mediana}, ausentismo ${fqB.pct_ausentismo}%${(fqB.top10&&fqB.top10[0])?`, 1er puesto ${fqB.top10[0].nombre} (${fqB.top10[0].puntaje})`:""}.`);
     if(voc) parts.push(`Vocacional Arq(8ago): ${voc.total} postulantes, ${voc.ausentes} ausentes.`);
+    if(concB){
+      const espF = concB.por_especialidad||{};
+      const cier = Object.entries(espF).filter(([,d])=>d.min!=null).sort((a,b)=>b[1].min-a[1].min);
+      const top5 = cier.slice(0,5).map(([k,d])=>`${k} cierre ${Math.round(d.min)}`).join(", ");
+      const low3 = cier.slice(-3).map(([k,d])=>`${k} ${Math.round(d.min)}`).join(", ");
+      parts.push(`RESULTADOS FINALES 2026-2 (concurso general): ${concB.total} postulantes, ${concB.ingresantes} ingresantes, puntaje total max ${concB.puntajes?.max}/1800. Cierres más altos: ${top5}. Cierres más bajos: ${low3}.`);
+      if(concB.top10 && concB.top10[0]) parts.push(`1er puesto del concurso 2026-2: ${concB.top10[0].nombre} con ${concB.top10[0].puntaje}/1800.`);
+      const mods = Object.entries(concB.por_modalidad||{}).map(([m,d])=>`${m}: ${d.ingresantes}/${d.postulantes}`).join("; ");
+      if(mods) parts.push(`Por modalidad: ${mods}.`);
+    }
+    if(concArqB && concArqB.por_especialidad){
+      const A = concArqB.por_especialidad.ARQUITECTURA, U = concArqB.por_especialidad.URBANISMO;
+      parts.push(`Arquitectura 2026-2: ${A?A.ingresantes:0} ingresantes, cierre ${A?Math.round(A.min):"-"} (escala /2400 incluye vocacional). Urbanismo: ${U?U.ingresantes:0} ingresantes, cierre ${U?Math.round(U.min):"-"} (/1800).`);
+    }
     if(lima){
       const esp = lima.por_especialidad||{};
       const vac = Object.values(esp).reduce((a,d)=>a+d.ingresantes,0);
