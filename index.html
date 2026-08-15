@@ -202,6 +202,11 @@ details.tablev td.num,details.tablev th.num{text-align:right; font-variant-numer
 .perfil h3{margin:0 0 2px; font-size:19px}
 .perfil .perfil-sub{color:var(--ink-2); font-size:13.5px; margin:0 0 10px}
 
+/* ---------- confeti ---------- */
+.confeti-piece{position:fixed; top:-14px; z-index:60; pointer-events:none; will-change:transform,opacity}
+@keyframes confeti-fall{ to{ transform:translateY(105vh) rotate(720deg); opacity:.85 } }
+@media(prefers-reduced-motion:reduce){.confeti-piece{display:none}}
+
 /* ---------- tooltip ---------- */
 #tooltip{
   position:fixed; pointer-events:none; z-index:10; display:none;
@@ -745,6 +750,27 @@ function tile(label, value, detail, accent, help){
 /* en táctil el tooltip queda pegado tras el tap: ocultarlo al tocar fuera de un tile */
 document.addEventListener("click", e=>{ if(!e.target.closest(".tile.has-help")) hideTip(); });
 
+/* explosión de confeti para celebrar a los ingresantes */
+function confetiBurst(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const colors=["#e63946","#f4a261","#2a9d8f","#457b9d","#ffb703","#8338ec","#06d6a0","#d81159"];
+  const frag=document.createDocumentFragment();
+  for(let i=0;i<150;i++){
+    const d=document.createElement("div");
+    d.className="confeti-piece";
+    const s=6+Math.random()*7;
+    d.style.left=(Math.random()*100)+"vw";
+    d.style.width=s+"px"; d.style.height=(s*0.55)+"px";
+    d.style.background=colors[i%colors.length];
+    d.style.borderRadius=Math.random()<0.3?"50%":"2px";
+    d.style.transform=`translateY(-14px) rotate(${Math.random()*360}deg)`;
+    d.style.animation=`confeti-fall ${2.6+Math.random()*2.6}s cubic-bezier(.2,.6,.4,1) ${Math.random()*0.9}s forwards`;
+    frag.appendChild(d);
+    setTimeout(()=>d.remove(), 7000);
+  }
+  document.body.appendChild(frag);
+}
+
 const KICKER_WASH = {"--s1":"--wash-s1","--s2":"--wash-s2","--s3":"--wash-s3","--a-violet":"--wash-violet",
   "--a-yellow":"--wash-yellow","--a-magenta":"--wash-magenta","--a-red":"--wash-s2","--guinda":"--wash-guinda"};
 function section(id, kicker, accentVar, title, note){
@@ -1115,6 +1141,7 @@ function render(stats){
 
     const ordinario = (conc.por_modalidad||{})["ORDINARIO"];
     sR.appendChild(nota("--a-magenta","--wash-magenta",
+      `🎉 <b>¡Felicidades a los ${fmt(ingTot)} ingresantes 2026-2!</b> ` +
       `Ingresó <b>1 de cada ${Math.round(totConc/ingTot)}</b> postulantes (${fmt(ingTot)} de ${fmt(totConc)}). ` +
       (ordinario ? `En la modalidad ordinaria: ${fmt(ordinario.ingresantes)} de ${fmt(ordinario.postulantes)} (${fmt1(100*ordinario.ingresantes/ordinario.postulantes)}%). ` : "") +
       `El puntaje total es la suma de las tres pruebas (máx 1,800 = nota 20); Arquitectura suma además su Aptitud Vocacional (máx 2,400).`));
@@ -1182,6 +1209,13 @@ function render(stats){
     }
     sR.appendChild(cardsR);
     app.appendChild(sR);
+    /* confeti al ver la sección por primera vez (una sola vez por visita) */
+    if("IntersectionObserver" in window && !window.__confetiDone){
+      const io = new IntersectionObserver(es=>{
+        es.forEach(e=>{ if(e.isIntersecting && !window.__confetiDone){ window.__confetiDone=true; confetiBurst(); io.disconnect(); } });
+      }, {threshold:0.25});
+      io.observe(sR);
+    }
   }
 
   /* ===== Variacion entre ciclos ===== */
