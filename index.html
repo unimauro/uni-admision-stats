@@ -841,18 +841,48 @@ const ESP_SHORT = s => s.replace("INGENIERÍA","ING.").replace("ARQUITECTURA","A
 
 /* ---------- facultades UNI ---------- */
 const FACULTADES = {
-  "FAUA":["ARQUITECTURA"],
+  "FAUA":["ARQUITECTURA","URBANISMO"],
   "FC":["FÍSICA","MATEMÁTICA","QUÍMICA","CIENCIA DE LA COMPUTACIÓN","INGENIERÍA FÍSICA"],
   "FIA":["INGENIERÍA AMBIENTAL","INGENIERÍA SANITARIA","INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL"],
   "FIC":["INGENIERÍA CIVIL"],
-  "FIEE":["INGENIERÍA ELÉCTRICA","INGENIERÍA ELECTRÓNICA","INGENIERÍA DE TELECOMUNICACIONES","INGENIERÍA DE CIBERSEGURIDAD"],
+  "FIEE":["INGENIERÍA ELÉCTRICA","INGENIERÍA ELECTRÓNICA","INGENIERÍA DE TELECOMUNICACIONES","INGENIERÍA DE CIBERSEGURIDAD","INGENIERÍA BIOMÉDICA"],
   "FIEECS":["INGENIERÍA ECONÓMICA","INGENIERÍA ESTADÍSTICA"],
   "FIGMM":["INGENIERÍA GEOLÓGICA","INGENIERÍA DE MINAS","INGENIERÍA METALÚRGICA"],
-  "FIIS":["INGENIERÍA INDUSTRIAL","INGENIERÍA DE SISTEMAS","INGENIERÍA DE SOFTWARE"],
+  "FIIS":["INGENIERÍA INDUSTRIAL","INGENIERÍA DE SISTEMAS","INGENIERÍA DE SOFTWARE","INGENIERÍA DE INTELIGENCIA ARTIFICIAL"],
   "FIM":["INGENIERÍA MECÁNICA","INGENIERÍA MECATRÓNICA","INGENIERÍA MECÁNICA-ELÉCTRICA","INGENIERÍA NAVAL","INGENIERÍA AEROESPACIAL"],
   "FIP":["INGENIERÍA DE PETRÓLEO Y GAS NATURAL","INGENIERÍA PETROQUÍMICA"],
   "FIQT":["INGENIERÍA QUÍMICA","INGENIERÍA TEXTIL"],
 };
+/* códigos oficiales de especialidad (flyer UNI 2026-2), en el orden del flyer */
+const ESP_COD = {
+  "ARQUITECTURA":["FAUA","A1"], "URBANISMO":["FAUA","A2"],
+  "INGENIERÍA CIVIL":["FIC","C1"],
+  "INGENIERÍA MECÁNICA":["FIM","M3"], "INGENIERÍA MECÁNICA-ELÉCTRICA":["FIM","M4"], "INGENIERÍA NAVAL":["FIM","M5"],
+  "INGENIERÍA MECATRÓNICA":["FIM","M6"], "INGENIERÍA AEROESPACIAL":["FIM","M7"],
+  "FÍSICA":["FC","N1"], "MATEMÁTICA":["FC","N2"], "QUÍMICA":["FC","N3"], "INGENIERÍA FÍSICA":["FC","N5"], "CIENCIA DE LA COMPUTACIÓN":["FC","N6"],
+  "INGENIERÍA ELÉCTRICA":["FIEE","L1"], "INGENIERÍA ELECTRÓNICA":["FIEE","L2"], "INGENIERÍA DE TELECOMUNICACIONES":["FIEE","L3"],
+  "INGENIERÍA DE CIBERSEGURIDAD":["FIEE","L4"], "INGENIERÍA BIOMÉDICA":["FIEE","L5"],
+  "INGENIERÍA INDUSTRIAL":["FIIS","I1"], "INGENIERÍA DE SISTEMAS":["FIIS","I2"], "INGENIERÍA DE SOFTWARE":["FIIS","I3"],
+  "INGENIERÍA DE INTELIGENCIA ARTIFICIAL":["FIIS","I4"],
+  "INGENIERÍA GEOLÓGICA":["FIGMM","G1"], "INGENIERÍA METALÚRGICA":["FIGMM","G2"], "INGENIERÍA DE MINAS":["FIGMM","G3"],
+  "INGENIERÍA SANITARIA":["FIA","S1"], "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL":["FIA","S2"], "INGENIERÍA AMBIENTAL":["FIA","S3"],
+  "INGENIERÍA ECONÓMICA":["FIEECS","E1"], "INGENIERÍA ESTADÍSTICA":["FIEECS","E3"],
+  "INGENIERÍA QUÍMICA":["FIQT","Q1"], "INGENIERÍA TEXTIL":["FIQT","Q2"],
+  "INGENIERÍA PETROQUÍMICA":["FIP","P2"], "INGENIERÍA DE PETRÓLEO Y GAS NATURAL":["FIP","P3"],
+};
+/* nota vigesimal con 2 decimales (como la difunde la UNI) */
+const vig2 = (v, base) => (base && v!=null) ? Number(Math.max(0, Math.min(20, 20*v/base))).toLocaleString("es-PE",{maximumFractionDigits:2}) : null;
+/* filas [facultad, código, especialidad, ...] en el orden del flyer; espData = {esp: {min,max,...}} */
+function filasNotasMinMax(espData, notaDe){
+  const filas = [];
+  Object.keys(ESP_COD).forEach(esp => {
+    if(espData[esp]) filas.push([ESP_COD[esp][0], ESP_COD[esp][1], esp].concat(notaDe(esp, espData[esp])));
+  });
+  Object.keys(espData).sort().forEach(esp => {
+    if(!ESP_COD[esp]) filas.push([facultadDe(esp), "–", esp].concat(notaDe(esp, espData[esp])));
+  });
+  return filas;
+}
 const FAC_ORDER = ["FAUA","FC","FIA","FIC","FIEE","FIEECS","FIGMM","FIIS","FIM","FIP","FIQT","Otras"];
 const FAC_VARS  = ["--guinda","--s1","--s3","--s2","--a-violet","--a-yellow","--a-magenta","--a-red","--seq-450","--seq-250","--axis","--muted"];
 function facultadDe(esp){
@@ -1198,12 +1228,59 @@ function render(stats){
         itemsF.map(it=>[it.name, fmt(it.d.ingresantes), fmt1(it.d.min), vig(it.d.min,BASE_TOTAL_2026_2)+"/20", fmt1(it.d.mediana), fmt1(it.d.max), vig(it.d.max,BASE_TOTAL_2026_2)+"/20"])),
       [{label:"Máximo", color:css("--a-violet")},{label:"Cierre", color:css("--a-magenta")}]));
 
+    /* notas mínimas y máximas por especialidad (modalidad ordinario, formato flyer UNI) */
+    const espOrd = Object.assign({}, conc.por_especialidad_ordinario || {});
+    if(concArq && concArq.por_especialidad_ordinario) Object.assign(espOrd, concArq.por_especialidad_ordinario);
+    if(Object.keys(espOrd).length){
+      const baseDe = esp => esp==="ARQUITECTURA" ? 2400 : 1800;
+      const filasO = filasNotasMinMax(espOrd, (esp,d)=>[fmt(d.ingresantes), vig2(d.min,baseDe(esp)), vig2(d.max,baseDe(esp))]);
+      cardsR.appendChild(card("Notas mínimas y máximas por especialidad — 2026-2 (modalidad ordinario)",
+        "Nota vigesimal del último y del mejor ingresante ordinario de cada especialidad (puntaje ÷ 1,800 × 20; Arquitectura ÷ 2,400 por incluir la Aptitud Vocacional). Mismo criterio que la tabla oficial que difunde la UNI.",
+        tablaBonita([{t:"Facultad"},{t:"Cód."},{t:"Especialidad"},{t:"Ingresantes",n:1},{t:"Nota mínima",n:1},{t:"Nota máxima",n:1}], filasO, false)));
+    }
+
+    /* comparación de notas mínimas y máximas por carrera: 2026-1 vs 2026-2 */
+    const esp1c = (adm && adm.ingresantes_por_especialidad) || {};
+    if(Object.keys(espOrd).length && Object.keys(esp1c).length){
+      const base1De = esp => esp==="ARQUITECTURA" ? 2445 : 1845;   // 2026-1: 1,845 (+600 vocacional en Arquitectura, referencial)
+      const baseDe2 = esp => esp==="ARQUITECTURA" ? 2400 : 1800;
+      const union = {};
+      Object.keys(espOrd).forEach(k=>union[k]=1);
+      Object.keys(esp1c).forEach(k=>{ if(esp1c[k].min!=null) union[k]=1; });
+      const num2 = v => v.toLocaleString("es-PE",{maximumFractionDigits:2});
+      const filasC = filasNotasMinMax(union, (esp)=>{
+        const a = esp1c[esp], b = espOrd[esp];
+        const m1 = (a && a.min!=null) ? 20*a.min/base1De(esp) : null;
+        const m2 = b ? 20*b.min/baseDe2(esp) : null;
+        return [
+          m1!=null ? num2(m1) : "–",
+          m2!=null ? num2(m2) : "–",
+          (m1!=null && m2!=null) ? ((m2-m1>=0?"+":"")+num2(m2-m1)) : "–",
+          (a && a.max!=null) ? num2(20*a.max/base1De(esp)) : "–",
+          b ? num2(20*b.max/baseDe2(esp)) : "–",
+        ];
+      });
+      cardsR.appendChild(card("Notas mínimas y máximas por carrera — 2026-1 vs 2026-2",
+        "Nota vigesimal de cierre (mínima) y máxima por especialidad en ambos ciclos. 2026-2: modalidad ordinario sobre 1,800 (Arquitectura 2,400). " +
+        "2026-1: sobre 1,845 (Arquitectura 2,445, referencial) e incluye modalidades extraordinarias, por eso algunos mínimos son atípicamente bajos. " +
+        "Δ mín positivo = la carrera se puso más exigente. '–' = sin datos en ese ciclo (carreras nuevas en 2026-2).",
+        tablaBonita([{t:"Facultad"},{t:"Cód."},{t:"Especialidad"},{t:"Mín 2026-1",n:1},{t:"Mín 2026-2",n:1},{t:"Δ mín",n:1},{t:"Máx 2026-1",n:1},{t:"Máx 2026-2",n:1}],
+          filasC, false)));
+    }
+
     const cardsR2 = document.createElement("div"); cardsR2.className = "cards two";
     if(conc.top10 && conc.top10.length){
+      const hayCarrera = conc.top10.some(t=>t.carrera);
       cardsR2.appendChild(card("Top 10 — puntaje total del concurso 2026-2",
-        "Los 10 mejores puntajes totales (suma de las tres pruebas). Nombres tal como aparecen en la publicación oficial de la UNI.",
-        tablaBonita([{t:"#"},{t:"Postulante"},{t:"Puntaje total",n:1},{t:"Nota /20",n:1}],
-          conc.top10.map((t,i)=>[i+1, t.nombre||"–", fmt1(t.puntaje), vig(t.puntaje,BASE_TOTAL_2026_2)]), true)));
+        "Los 10 mejores puntajes totales (suma de las tres pruebas). Nombres y carreras tal como aparecen en la publicación oficial de la UNI.",
+        tablaBonita(hayCarrera ? [{t:"#"},{t:"Postulante"},{t:"Carrera"},{t:"Puntaje total",n:1},{t:"Nota /20",n:1}]
+                               : [{t:"#"},{t:"Postulante"},{t:"Puntaje total",n:1},{t:"Nota /20",n:1}],
+          conc.top10.map((t,i)=>{
+            const r=[i+1, t.nombre||"–"];
+            if(hayCarrera) r.push(t.carrera ? ESP_SHORT(t.carrera) : "–");
+            r.push(fmt1(t.puntaje), vig(t.puntaje,BASE_TOTAL_2026_2));
+            return r;
+          }), true)));
     }
     if(concArq && concArq.por_especialidad){
       const ea = concArq.por_especialidad;
@@ -1755,7 +1832,13 @@ function botContext(stats){
       const top5 = cier.slice(0,5).map(([k,d])=>`${k} cierre ${Math.round(d.min)}`).join(", ");
       const low3 = cier.slice(-3).map(([k,d])=>`${k} ${Math.round(d.min)}`).join(", ");
       parts.push(`RESULTADOS FINALES 2026-2 (concurso general): ${concB.total} postulantes, ${concB.ingresantes} ingresantes, puntaje total max ${concB.puntajes?.max}/1800. Cierres más altos: ${top5}. Cierres más bajos: ${low3}.`);
-      if(concB.top10 && concB.top10[0]) parts.push(`1er puesto del concurso 2026-2: ${concB.top10[0].nombre} con ${concB.top10[0].puntaje}/1800.`);
+      if(concB.top10 && concB.top10[0]) parts.push(`1er puesto del concurso 2026-2: ${concB.top10[0].nombre} con ${concB.top10[0].puntaje}/1800${concB.top10[0].carrera?` (${concB.top10[0].carrera})`:""}.`);
+      const espO2 = concB.por_especialidad_ordinario;
+      if(espO2){
+        const nm = Object.entries(espO2).sort((a,b)=>b[1].min-a[1].min).slice(0,5)
+          .map(([k,d])=>`${k} ${(20*d.min/1800).toFixed(2)}`).join(", ");
+        parts.push(`Notas mínimas oficiales 2026-2 (modalidad ordinario, /20): ${nm}. Fórmula N=puntaje÷1800×20 (Arquitectura ÷2400).`);
+      }
       const mods = Object.entries(concB.por_modalidad||{}).map(([m,d])=>`${m}: ${d.ingresantes}/${d.postulantes}`).join("; ");
       if(mods) parts.push(`Por modalidad: ${mods}.`);
     }

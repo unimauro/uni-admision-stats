@@ -21,7 +21,10 @@
 - [x] 2026-08-15 — **Confeti de celebración** al ver la sección Resultados finales (una vez por visita, respeta prefers-reduced-motion) + felicitación a los ingresantes en la nota.
 - [x] 2026-08-15 — **Tablas visibles estilizadas** (`tablaBonita`): zebra, medallas 🥇🥈🥉, fila 1 resaltada, cabeceras uppercase, números tabulares, scroll horizontal. Aplicada a los Top 10 por prueba, Top 10 del concurso y Arquitectura/Urbanismo.
 
+- [x] 2026-08-16 — **Notas mínimas y máximas por especialidad** (formato flyer UNI): `por_especialidad_ordinario` en el scraper (verificado contra el flyer oficial: solo modalidad ORDINARIO; Arquitectura /2,400). Tabla 2026-2 con facultad + código oficial (mapa ESP_COD) y tabla comparativa **2026-1 vs 2026-2 por carrera** (Δ mín; 2026-1 /1,845 con caveat de extraordinarias, Arq. /2,445 referencial). Top 10 del concurso ahora con columna Carrera (+carrera/modalidad en `top10` del stats.json). Bot sabe las notas mínimas oficiales.
+
 ## Pendiente
+- [ ] **Datos abiertos históricos** (postulantes/ingresantes/puntajes de años previos): investigación lanzada (datosabiertos.gob.pe, SUNEDU/TUNI, INEI, anuarios UNI) — integrar la mejor fuente como serie histórica cuando haya resultados.
 - [ ] **Proceso 2026-2 cerrado** (resultados finales publicados 15-ago): bajar la frecuencia del cron de uniexamen (hoy cada 12 h).
 - [ ] Verificar visualmente en navegador: sección "Resultados finales", tablas nuevas y confeti (desplegado sin revisión visual).
 - [ ] Pregunta de usuarios (Diego): "tardanzas" no se publican, solo ausencias; el dato ya está en la tarjeta Ausentismo por prueba.
