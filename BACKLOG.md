@@ -24,7 +24,11 @@
 - [x] 2026-08-16 — **Notas mínimas y máximas por especialidad** (formato flyer UNI): `por_especialidad_ordinario` en el scraper (verificado contra el flyer oficial: solo modalidad ORDINARIO; Arquitectura /2,400). Tabla 2026-2 con facultad + código oficial (mapa ESP_COD) y tabla comparativa **2026-1 vs 2026-2 por carrera** (Δ mín; 2026-1 /1,845 con caveat de extraordinarias, Arq. /2,445 referencial). Top 10 del concurso ahora con columna Carrera (+carrera/modalidad en `top10` del stats.json). Bot sabe las notas mínimas oficiales.
 
 ## Pendiente
-- [ ] **Datos abiertos históricos** (postulantes/ingresantes/puntajes de años previos): investigación lanzada (datosabiertos.gob.pe, SUNEDU/TUNI, INEI, anuarios UNI) — integrar la mejor fuente como serie histórica cuando haya resultados.
+- [ ] **Datos abiertos históricos — investigación COMPLETA (17-ago), integración pendiente.** Hallazgos (URLs verificadas):
+  - **1º CSV oficiales en datosabiertos.gob.pe** (microdato por postulante CON puntaje `CALIF_FINAL` + `INGRESO` + modalidad/sexo/departamento, ID hasheado, licencia ODC-BY): `Datos_abiertos_admision_2021_1_2024_1.csv` (13.2MB), `..._2024_2_2025_1_0.csv` (4.8MB), `..._2025_2_2026_1.csv` (3.5MB) en `https://www.datosabiertos.gob.pe/sites/default/files/`. Cobertura continua 2021-1→2026-1 (11 procesos). ⚠️ Escala cambia en 2025-2 (vigesimal → ~2000) y hay `CALIF_FINAL=0` que son ausentes. WAF exige User-Agent de navegador. API CKAN para detectar updates.
+  - **2º 27 PDFs oficiales 2013-1→2025-2** (solo conteos por especialidad/modalidad/sexo, SIN puntajes): los enlaces vivos de admision.uni.edu.pe están TODOS 404; recuperables solo vía Wayback (`web.archive.org/web/<ts>id_/...`, rutas en informe). Archivar copia propia al extraer. `pdftotext -layout` funciona; PDFs viejos usan códigos A1/C1, nuevos FAUA/FIC.
+  - 3º opcional: CSV CEPRE 2016-2023; DIRCE (form 2007-2→2026-1, requiere scraping navegador). TUNI/INEI descartados.
+  - Gráficos posibles: serie postulantes/ingresantes desde 2013, ratio admisión por carrera (Civil 8.5% vs Textil 100% en 2025-1), brecha de género, modalidades, puntajes por carrera desde 2021, mapa por departamento.
 - [ ] **Proceso 2026-2 cerrado** (resultados finales publicados 15-ago): bajar la frecuencia del cron de uniexamen (hoy cada 12 h).
 - [ ] Verificar visualmente en navegador: sección "Resultados finales", tablas nuevas y confeti (desplegado sin revisión visual).
 - [ ] Pregunta de usuarios (Diego): "tardanzas" no se publican, solo ausencias; el dato ya está en la tarjeta Ausentismo por prueba.
