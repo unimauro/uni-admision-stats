@@ -1843,6 +1843,37 @@ function render(stats){
           [{label:"% mujeres postulantes", color:css("--a-violet")},{label:"% mujeres ingresantes", color:css("--a-magenta")}]));
       }
 
+      /* ¿dónde ingresan más mujeres? — sexo × carrera desde los microdatos */
+      const genEsp = serieH.genero_por_especialidad;
+      if(genEsp && genEsp.por_especialidad){
+        const itemsGE = Object.entries(genEsp.por_especialidad).map(([esp,sx])=>{
+          const F = sx.F || {postulantes:0, ingresantes:0}, M = sx.M || {postulantes:0, ingresantes:0};
+          const ti = (F.ingresantes||0)+(M.ingresantes||0), tp = (F.postulantes||0)+(M.postulantes||0);
+          return {name:esp, label:ESP_SHORT(esp), ti, tp, F,
+            values:[ti ? 100*(F.ingresantes||0)/ti : 0, tp ? 100*(F.postulantes||0)/tp : 0]};
+        }).filter(it=>it.ti >= 20).sort((a,b)=>b.values[0]-a.values[0]);
+        if(itemsGE.length){
+          const lider = itemsGE[0];
+          cardsH.appendChild(card("¿Dónde ingresan más mujeres? — por carrera",
+            "Porcentaje de mujeres entre los ingresantes (barra magenta) y entre los postulantes (violeta) de cada carrera, " +
+            "acumulado " + (genEsp.periodo || "2021-2026") + " según los microdatos oficiales. " +
+            "Solo carreras con 20 o más ingresantes en el periodo. " +
+            esc(ESP_SHORT(lider.name)) + " lidera con " + fmt1(lider.values[0]) + "% de mujeres entre sus ingresantes.",
+            hBars(itemsGE, {
+              W: fullW,
+              series:[{name:"% mujeres ingresantes", color:css("--a-magenta")},{name:"% mujeres postulantes", color:css("--a-violet")}],
+              aria:"Porcentaje de mujeres ingresantes y postulantes por carrera",
+              fmtVal: v => fmt1(v) + "%",
+              tip: it => `<div class="t-title">${esc(it.name)}</div>
+                <div class="t-row">Ingresantes: ${fmt(it.F.ingresantes||0)} mujeres de ${fmt(it.ti)} (${fmt1(it.values[0])}%)</div>
+                <div class="t-row">Postulantes: ${fmt(it.F.postulantes||0)} mujeres de ${fmt(it.tp)} (${fmt1(it.values[1])}%)</div>`
+            }),
+            tableView(["Carrera","Mujeres ingresantes","Total ingresantes","% mujeres ingresantes","% mujeres postulantes"],
+              itemsGE.map(it=>[it.name, fmt(it.F.ingresantes||0), fmt(it.ti), fmt1(it.values[0])+"%", fmt1(it.values[1])+"%"])),
+            [{label:"% mujeres ingresantes", color:css("--a-magenta")},{label:"% mujeres postulantes", color:css("--a-violet")}]));
+        }
+      }
+
       /* datos jugosos de la serie */
       const priH = itemsH[0], ultH = itemsH[itemsH.length-1];
       const dPostH = priH.values[0] > 0 ? 100*(ultH.values[0]-priH.values[0])/priH.values[0] : null;
