@@ -218,6 +218,9 @@ details.tablev td.num,details.tablev th.num{text-align:right; font-variant-numer
 .tabla-top tbody tr:last-child td{border-bottom:none}
 .tabla-top tr.primero{background:var(--oro)}
 .tabla-top tr.primero td{font-weight:650}
+/* tablas con muchas columnas (comparativo histórico): no comprimir, dejar que la tira se deslice */
+.tabla-ancha .tabla-top{width:auto; min-width:100%}
+.tabla-ancha .tabla-top td:nth-child(3){white-space:nowrap}
 
 /* ---------- confeti ---------- */
 .confeti-piece{position:fixed; top:-14px; z-index:60; pointer-events:none; will-change:transform,opacity}
@@ -337,6 +340,7 @@ footer.page-foot p{max-width:75ch}
       <a class="nav-link" href="#cepre"><span class="dot" style="background:var(--s2)"></span>CEPRE · vacantes</a>
       <a class="nav-link" href="#buscador"><span class="dot" style="background:var(--a-red)"></span>Buscar carrera</a>
       <a class="nav-link" href="#comparativas"><span class="dot" style="background:var(--a-violet)"></span>Carreras comparadas</a>
+      <a class="nav-link" href="#historia"><span class="dot" style="background:var(--s3)"></span>Serie histórica</a>
       <a class="nav-link" href="#historico"><span class="dot" style="background:var(--s3)"></span>Ciclo 2026-1</a>
       <a class="nav-link" href="#mercado"><span class="dot" style="background:var(--a-yellow)"></span>Mercado laboral</a>
       <a class="nav-link" href="#monitoreo"><span class="dot" style="background:var(--a-magenta)"></span>Monitoreo</a>
@@ -358,6 +362,7 @@ footer.page-foot p{max-width:75ch}
       <a href="#cepre"><span class="dot" style="background:var(--s2)"></span>CEPRE</a>
       <a href="#buscador"><span class="dot" style="background:var(--a-red)"></span>Buscar</a>
       <a href="#comparativas"><span class="dot" style="background:var(--a-violet)"></span>Carreras</a>
+      <a href="#historia"><span class="dot" style="background:var(--s3)"></span>Historia</a>
       <a href="#historico"><span class="dot" style="background:var(--s3)"></span>2026-1</a>
       <a href="#mercado"><span class="dot" style="background:var(--a-yellow)"></span>Salarios</a>
       <a href="#monitoreo"><span class="dot" style="background:var(--a-magenta)"></span>Monitoreo</a>
@@ -1615,6 +1620,157 @@ function render(stats){
     }
   }
 
+  /* ===== Serie histórica 2021-2026 (microdatos oficiales) ===== */
+  const serieH = stats.serie_historica;
+  if(serieH && serieH.por_proceso && Object.keys(serieH.por_proceso).length){
+    const procH = (serieH.procesos && serieH.procesos.length ? serieH.procesos : Object.keys(serieH.por_proceso).sort())
+      .filter(p => serieH.por_proceso[p]);
+    const n2 = v => Number(v).toLocaleString("es-PE",{minimumFractionDigits:2, maximumFractionDigits:2});
+    /* el 2026-2 aún no está en los microdatos: se toma de las publicaciones oficiales de la UNI */
+    const ordH = {};
+    if(conc && conc.por_especialidad_ordinario) Object.assign(ordH, conc.por_especialidad_ordinario);
+    if(concArq && concArq.por_especialidad_ordinario) Object.assign(ordH, concArq.por_especialidad_ordinario);
+    const baseH = esp => esp === "ARQUITECTURA" ? 2400 : 1800;   // Arquitectura suma la Aptitud Vocacional
+
+    const itemsH = procH.map(p => {
+      const d = serieH.por_proceso[p];
+      return {name:p, label:p, values:[d.postulantes || 0, d.ingresantes || 0]};
+    });
+    if(conc){
+      const post2 = (conc.total || 0) + (concArq ? (concArq.total || 0) : 0);
+      const ing2 = (conc.ingresantes || 0) + (concArq ? (concArq.ingresantes || 0) : 0);
+      if(post2 > 0) itemsH.push({name:"2026-2", label:"2026-2", values:[post2, ing2]});
+    }
+
+    if(itemsH.length){
+      const totPostH = itemsH.reduce((a,it)=>a+it.values[0], 0);
+      const totIngH = itemsH.reduce((a,it)=>a+it.values[1], 0);
+      const anioDe = p => p.slice(0,4);
+      const rangoH = anioDe(itemsH[0].name) + "–" + anioDe(itemsH[itemsH.length-1].name);
+      const mayorH = [...itemsH].sort((a,b)=>b.values[0]-a.values[0])[0];
+
+      const sH = section("historia", "Serie histórica", "--s3", "Diez años de admisión — la serie histórica",
+        "Cada proceso de admisión de la UNI desde " + itemsH[0].name + " hasta " + itemsH[itemsH.length-1].name + ": " +
+        "cuántos postularon, cuántos ingresaron y con qué nota cerró cada carrera. " +
+        "Los microdatos oficiales permiten comparar la exigencia de una especialidad a lo largo de los años, no solo dentro de un ciclo.");
+
+      const tilesH = document.createElement("div"); tilesH.className = "tiles";
+      tilesH.appendChild(tile("Procesos cubiertos", fmt(itemsH.length) + " procesos", rangoH, "var(--s3)",
+        "Procesos de admisión con datos en esta serie, desde " + itemsH[0].name + " hasta " + itemsH[itemsH.length-1].name +
+        ". La UNI convoca normalmente dos procesos por año (ciclo -1 y ciclo -2)."));
+      tilesH.appendChild(tile("Postulantes acumulados", fmt(totPostH),
+        fmt(totIngH) + " ingresantes en total", "var(--s3)",
+        "Suma de todos los postulantes de los procesos de la serie. No son personas distintas: quien postula varias veces cuenta una vez por proceso."));
+      tilesH.appendChild(tile("Proceso con más postulantes", fmt(mayorH.values[0]), mayorH.name, "var(--s3)",
+        "El proceso más concurrido de la serie: " + mayorH.name + " con " + fmt(mayorH.values[0]) + " postulantes y " +
+        fmt(mayorH.values[1]) + " ingresantes."));
+      if(totPostH > 0){
+        tilesH.appendChild(tile("Admisión promedio", fmt1(100*totIngH/totPostH) + "%",
+          "1 de cada " + Math.round(totPostH/Math.max(totIngH,1)), "var(--s3)",
+          "Ingresantes ÷ postulantes sumando todos los procesos de la serie. Es el promedio del periodo, no el de un ciclo en particular."));
+      }
+      sH.appendChild(tilesH);
+
+      const cardsH = document.createElement("div"); cardsH.className = "cards";
+      cardsH.appendChild(card("Postulantes e ingresantes por proceso",
+        "Volumen de cada proceso de admisión en orden cronológico. La distancia entre ambas barras es la competencia: mientras más larga, más difícil ingresar ese ciclo.",
+        hBars(itemsH, {
+          W: fullW, labelW: 90,
+          series:[{name:"Postulantes", color:css("--s1")},{name:"Ingresantes", color:css("--s3")}],
+          aria:"Postulantes e ingresantes por proceso de admisión",
+          tip: it => `<div class="t-title">Proceso ${esc(it.name)}</div>
+            <div class="t-row">Postulantes: ${fmt(it.values[0])}</div>
+            <div class="t-row">Ingresantes: ${fmt(it.values[1])}</div>
+            <div class="t-row">Admisión: ${it.values[0]?fmt1(100*it.values[1]/it.values[0]):"–"}% · 1 de cada ${it.values[1]?Math.round(it.values[0]/it.values[1]):"–"}</div>`
+        }),
+        tableView(["Proceso","Postulantes","Ingresantes","% de admisión"],
+          itemsH.map(it=>[it.name, fmt(it.values[0]), fmt(it.values[1]),
+            it.values[0] ? fmt1(100*it.values[1]/it.values[0]) + "%" : "–"])),
+        [{label:"Postulantes", color:css("--s1")},{label:"Ingresantes", color:css("--s3")}]));
+
+      /* columnas del comparativo: un proceso de los microdatos por columna, más el 2026-2 oficial */
+      const colsH = procH.map(p => ({t:p, nota: esp => {
+        const d = (serieH.por_proceso[p].por_especialidad || {})[esp];
+        return (d && d.nota_min != null) ? d.nota_min : null;
+      }}));
+      if(Object.keys(ordH).length){
+        colsH.push({t:"2026-2", nota: esp => (ordH[esp] && ordH[esp].min != null) ? 20*ordH[esp].min/baseH(esp) : null});
+      }
+      const espUnionH = {};
+      procH.forEach(p => Object.keys(serieH.por_proceso[p].por_especialidad || {}).forEach(e => espUnionH[e] = 1));
+      Object.keys(ordH).forEach(e => espUnionH[e] = 1);
+
+      if(Object.keys(espUnionH).length && colsH.length){
+        const filasH = filasNotasMinMax(espUnionH, esp => colsH.map(c => {
+          const v = c.nota(esp);
+          return v == null ? "–" : n2(v);
+        }));
+        const tablaH = tablaBonita([{t:"Facultad"},{t:"Cód."},{t:"Especialidad"}].concat(colsH.map(c=>({t:c.t, n:1}))),
+          filasH, false);
+        tablaH.classList.add("tabla-ancha");
+        cardsH.appendChild(card("Nota mínima de ingreso por carrera — comparativo histórico",
+          "La nota del último ingresante por la modalidad ORDINARIA en cada proceso, en escala vigesimal (0–20). " +
+          "Fuente: microdatos oficiales de datosabiertos.gob.pe (" + procH[0] + " a " + procH[procH.length-1] + ") y las publicaciones de la UNI para 2026-2. " +
+          "Mientras más alta la nota, más competitiva estuvo la carrera ese ciclo. '–' = la especialidad no tuvo oferta (o no hubo ingresantes ordinarios) en ese proceso. " +
+          "Desliza la tabla horizontalmente para ver todos los procesos.",
+          tablaH));
+      }
+
+      /* brecha de género a lo largo del tiempo */
+      const genH = procH.filter(p => serieH.por_proceso[p].por_sexo).map(p => {
+        const sx = serieH.por_proceso[p].por_sexo;
+        const F = sx.F || {}, M = sx.M || {};
+        const tp = (F.postulantes||0) + (M.postulantes||0);
+        const ti = (F.ingresantes||0) + (M.ingresantes||0);
+        return {name:p, label:p, values:[tp ? 100*(F.postulantes||0)/tp : 0, ti ? 100*(F.ingresantes||0)/ti : 0], F, M, tp, ti};
+      });
+      if(genH.length){
+        cardsH.appendChild(card("Brecha de género en el tiempo",
+          "Porcentaje de mujeres entre quienes postulan y entre quienes ingresan, proceso por proceso. " +
+          "Si la barra de ingresantes queda por debajo de la de postulantes, las mujeres ingresan en menor proporción de la que postulan.",
+          hBars(genH, {
+            W: fullW, labelW: 90,
+            series:[{name:"% mujeres postulantes", color:css("--a-violet")},{name:"% mujeres ingresantes", color:css("--a-magenta")}],
+            aria:"Porcentaje de mujeres postulantes e ingresantes por proceso",
+            fmtVal: v => fmt1(v) + "%",
+            tip: it => `<div class="t-title">Proceso ${esc(it.name)}</div>
+              <div class="t-row">Postulantes: ${fmt(it.F.postulantes||0)} mujeres de ${fmt(it.tp)} (${fmt1(it.values[0])}%)</div>
+              <div class="t-row">Ingresantes: ${fmt(it.F.ingresantes||0)} mujeres de ${fmt(it.ti)} (${fmt1(it.values[1])}%)</div>
+              <div class="t-row">Brecha: ${(it.values[1]-it.values[0]>=0?"+":"")}${fmt1(it.values[1]-it.values[0])} puntos porcentuales</div>`
+          }),
+          tableView(["Proceso","Mujeres postulantes","% postulantes","Mujeres ingresantes","% ingresantes"],
+            genH.map(it=>[it.name, fmt(it.F.postulantes||0), fmt1(it.values[0])+"%", fmt(it.F.ingresantes||0), fmt1(it.values[1])+"%"])),
+          [{label:"% mujeres postulantes", color:css("--a-violet")},{label:"% mujeres ingresantes", color:css("--a-magenta")}]));
+      }
+
+      /* datos jugosos de la serie */
+      const priH = itemsH[0], ultH = itemsH[itemsH.length-1];
+      const dPostH = priH.values[0] > 0 ? 100*(ultH.values[0]-priH.values[0])/priH.values[0] : null;
+      let subeH = null;
+      Object.keys(espUnionH).forEach(esp => {
+        const vals = colsH.map(c => c.nota(esp)).filter(v => v != null);
+        if(vals.length >= 2){
+          const delta = vals[vals.length-1] - vals[0];
+          if(!subeH || delta > subeH.delta) subeH = {esp, delta, de:vals[0], a:vals[vals.length-1]};
+        }
+      });
+      const partesH = [];
+      if(dPostH != null){
+        partesH.push(`Entre <b>${priH.name}</b> y <b>${ultH.name}</b> los postulantes pasaron de ${fmt(priH.values[0])} a ` +
+          `${fmt(ultH.values[0])} (<b>${dPostH>=0?"+":""}${fmt1(dPostH)}%</b>), mientras los ingresantes fueron de ` +
+          `${fmt(priH.values[1])} a ${fmt(ultH.values[1])}.`);
+      }
+      if(subeH && subeH.delta > 0){
+        partesH.push(`La carrera que más subió su exigencia es <b>${esc(ESP_SHORT(subeH.esp))}</b>: su nota de cierre pasó de ` +
+          `${n2(subeH.de)} a <b>${n2(subeH.a)}</b> sobre 20 (+${n2(subeH.delta)} puntos).`);
+      }
+      if(partesH.length) sH.appendChild(nota("--s3","--wash-s3", partesH.join(" ")));
+
+      sH.appendChild(cardsH);
+      app.appendChild(sH);
+    }
+  }
+
   /* ===== Histórico 2026-1 ===== */
   if(adm){
     const s4 = section("historico", "Ciclo anterior", "--s3", "Admisión 2026-1 — el ciclo completo",
@@ -1767,6 +1923,8 @@ function render(stats){
      "Sí, lo principal: las tres pruebas (Aptitud Académica y Humanidades, Matemática, y Física y Química), la Aptitud Vocacional de Arquitectura y los resultados finales con asignación de especialidad (incluida la publicación separada de Arquitectura y Urbanismo). El monitoreo seguirá captando cualquier publicación complementaria."],
     ["¿Los salarios son de egresados de la UNI?",
      "No. Son sueldos ofrecidos en convocatorias CAS del Estado que piden esas profesiones (de cualquier universidad). Sirven como referencia del mercado público, no como promesa salarial."],
+    ["¿De dónde salen los datos históricos?",
+     "De los microdatos oficiales de admisión que la UNI publica en datosabiertos.gob.pe, el portal de datos abiertos del Estado peruano: registros anonimizados (sin nombres ni documentos) con licencia de uso abierto, uno por postulante y proceso, de los que aquí solo se muestran agregados. Cubren de 2021 en adelante; el proceso 2026-2 se completa con las publicaciones de la Dirección de Admisión de la UNI, y los años 2013–2020 se incorporarán a partir de los PDF oficiales."],
     ["¿Este sitio es oficial de la UNI?",
      "No. Es un proyecto independiente de datos abiertos, sin afiliación con la UNI. Para información oficial, consulta admision.uni.edu.pe."],
   ];
@@ -1860,6 +2018,30 @@ function botContext(stats){
       parts.push(`Admisión 2026-1: ${adm.total_postulantes} postulantes, ${adm.total_ingresantes} ingresantes. Cierres más altos: ${cierresA}.`);
     }
     if(aus) parts.push(`Ausentismo 2026-1 por día: ${Object.values(aus).map(d=>d.pct+"%").join(" → ")}.`);
+    const sh = stats.serie_historica;
+    if(sh && sh.por_proceso){
+      const procs = (sh.procesos && sh.procesos.length ? sh.procesos : Object.keys(sh.por_proceso).sort()).filter(x=>sh.por_proceso[x]);
+      if(procs.length){
+        const resumen = procs.map(x=>{
+          const d = sh.por_proceso[x];
+          return `${x}: ${d.postulantes} post/${d.ingresantes} ing`;
+        }).join("; ");
+        parts.push(`SERIE HISTÓRICA (microdatos oficiales datosabiertos.gob.pe, modalidad ordinario) — ${resumen}.`);
+        const ultimo = procs[procs.length-1];
+        const espU = (sh.por_proceso[ultimo].por_especialidad)||{};
+        const topU = Object.entries(espU).filter(([,d])=>d.nota_min!=null).sort((a,b)=>b[1].nota_min-a[1].nota_min).slice(0,3);
+        if(topU.length){
+          const hist3 = topU.map(([k])=>{
+            const linea = procs.map(x=>{
+              const d = ((sh.por_proceso[x].por_especialidad)||{})[k];
+              return (d && d.nota_min!=null) ? `${x}=${d.nota_min.toFixed(2)}` : null;
+            }).filter(Boolean).join(" ");
+            return `${k}: ${linea}`;
+          }).join(" | ");
+          parts.push(`Notas mínimas de ingreso (/20) por proceso de las carreras más exigentes en ${ultimo} — ${hist3}.`);
+        }
+      }
+    }
     if(mer){
       const tops = Object.entries(mer.por_carrera||{}).filter(([,d])=>d.salario)
         .sort((a,b)=>b[1].salario.mediana-a[1].salario.mediana).slice(0,5)

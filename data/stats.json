@@ -1,10 +1,10 @@
 {
- "generado_utc": "2026-08-19T17:32:17.340466+00:00",
+ "generado_utc": "2026-08-20T16:07:08.859131+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
   "ciclo": "2026-2",
-  "ultima_fecha": "2026-08-19_17Z",
+  "ultima_fecha": "2026-08-16_17Z",
   "publicaciones": {
    "asignacion-admision-especial": {
     "nombre_oficial": "RESULTADOS DEL EXAMEN DE ADMISIÓN ESPECIAL",
@@ -4141,456 +4141,6 @@
       "ausentes": 0
      }
     }
-   },
-   {
-    "fecha": "2026-08-17_05Z",
-    "publicaciones": {
-     "asignacion-admision-especial": {
-      "total": 44,
-      "presentes": 44,
-      "ausentes": 0
-     },
-     "asignacion-admision-especial-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-juliaca": {
-      "total": 48,
-      "presentes": 48,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-lima": {
-      "total": 2242,
-      "presentes": 2242,
-      "ausentes": 0
-     },
-     "resultados-admision-aptitud-academica-humanidades": {
-      "total": 4642,
-      "presentes": 4605,
-      "ausentes": 37
-     },
-     "resultados-admision-examen-especial": {
-      "total": 47,
-      "presentes": 44,
-      "ausentes": 3
-     },
-     "resultados-admision-participante-sin-derecho-vacante-matematica": {
-      "total": 184,
-      "presentes": 169,
-      "ausentes": 15
-     },
-     "resultados-admision-prueba-fisica-quimica": {
-      "total": 4454,
-      "presentes": 4454,
-      "ausentes": 0
-     },
-     "resultados-admision-prueba-matematica": {
-      "total": 4458,
-      "presentes": 4407,
-      "ausentes": 51
-     },
-     "resultados-admision-vocacional": {
-      "total": 309,
-      "presentes": 303,
-      "ausentes": 6
-     },
-     "resultados-concurso-admision-2026-2": {
-      "total": 4120,
-      "presentes": 4120,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-arquitectura": {
-      "total": 334,
-      "presentes": 334,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante": {
-      "total": 185,
-      "presentes": 185,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     }
-    }
-   },
-   {
-    "fecha": "2026-08-17_17Z",
-    "publicaciones": {
-     "asignacion-admision-especial": {
-      "total": 44,
-      "presentes": 44,
-      "ausentes": 0
-     },
-     "asignacion-admision-especial-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-juliaca": {
-      "total": 48,
-      "presentes": 48,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-lima": {
-      "total": 2242,
-      "presentes": 2242,
-      "ausentes": 0
-     },
-     "resultados-admision-aptitud-academica-humanidades": {
-      "total": 4642,
-      "presentes": 4605,
-      "ausentes": 37
-     },
-     "resultados-admision-examen-especial": {
-      "total": 47,
-      "presentes": 44,
-      "ausentes": 3
-     },
-     "resultados-admision-participante-sin-derecho-vacante-matematica": {
-      "total": 184,
-      "presentes": 169,
-      "ausentes": 15
-     },
-     "resultados-admision-prueba-fisica-quimica": {
-      "total": 4454,
-      "presentes": 4454,
-      "ausentes": 0
-     },
-     "resultados-admision-prueba-matematica": {
-      "total": 4458,
-      "presentes": 4407,
-      "ausentes": 51
-     },
-     "resultados-admision-vocacional": {
-      "total": 309,
-      "presentes": 303,
-      "ausentes": 6
-     },
-     "resultados-concurso-admision-2026-2": {
-      "total": 4120,
-      "presentes": 4120,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-arquitectura": {
-      "total": 334,
-      "presentes": 334,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante": {
-      "total": 185,
-      "presentes": 185,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     }
-    }
-   },
-   {
-    "fecha": "2026-08-18_05Z",
-    "publicaciones": {
-     "asignacion-admision-especial": {
-      "total": 44,
-      "presentes": 44,
-      "ausentes": 0
-     },
-     "asignacion-admision-especial-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-juliaca": {
-      "total": 48,
-      "presentes": 48,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-lima": {
-      "total": 2242,
-      "presentes": 2242,
-      "ausentes": 0
-     },
-     "resultados-admision-aptitud-academica-humanidades": {
-      "total": 4642,
-      "presentes": 4605,
-      "ausentes": 37
-     },
-     "resultados-admision-examen-especial": {
-      "total": 47,
-      "presentes": 44,
-      "ausentes": 3
-     },
-     "resultados-admision-participante-sin-derecho-vacante-matematica": {
-      "total": 184,
-      "presentes": 169,
-      "ausentes": 15
-     },
-     "resultados-admision-prueba-fisica-quimica": {
-      "total": 4454,
-      "presentes": 4454,
-      "ausentes": 0
-     },
-     "resultados-admision-prueba-matematica": {
-      "total": 4458,
-      "presentes": 4407,
-      "ausentes": 51
-     },
-     "resultados-admision-vocacional": {
-      "total": 309,
-      "presentes": 303,
-      "ausentes": 6
-     },
-     "resultados-concurso-admision-2026-2": {
-      "total": 4120,
-      "presentes": 4120,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-arquitectura": {
-      "total": 334,
-      "presentes": 334,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante": {
-      "total": 185,
-      "presentes": 185,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     }
-    }
-   },
-   {
-    "fecha": "2026-08-18_17Z",
-    "publicaciones": {
-     "asignacion-admision-especial": {
-      "total": 44,
-      "presentes": 44,
-      "ausentes": 0
-     },
-     "asignacion-admision-especial-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-juliaca": {
-      "total": 48,
-      "presentes": 48,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-lima": {
-      "total": 2242,
-      "presentes": 2242,
-      "ausentes": 0
-     },
-     "resultados-admision-aptitud-academica-humanidades": {
-      "total": 4642,
-      "presentes": 4605,
-      "ausentes": 37
-     },
-     "resultados-admision-examen-especial": {
-      "total": 47,
-      "presentes": 44,
-      "ausentes": 3
-     },
-     "resultados-admision-participante-sin-derecho-vacante-matematica": {
-      "total": 184,
-      "presentes": 169,
-      "ausentes": 15
-     },
-     "resultados-admision-prueba-fisica-quimica": {
-      "total": 4454,
-      "presentes": 4454,
-      "ausentes": 0
-     },
-     "resultados-admision-prueba-matematica": {
-      "total": 4458,
-      "presentes": 4407,
-      "ausentes": 51
-     },
-     "resultados-admision-vocacional": {
-      "total": 309,
-      "presentes": 303,
-      "ausentes": 6
-     },
-     "resultados-concurso-admision-2026-2": {
-      "total": 4120,
-      "presentes": 4120,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-arquitectura": {
-      "total": 334,
-      "presentes": 334,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante": {
-      "total": 185,
-      "presentes": 185,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     }
-    }
-   },
-   {
-    "fecha": "2026-08-19_05Z",
-    "publicaciones": {
-     "asignacion-admision-especial": {
-      "total": 44,
-      "presentes": 44,
-      "ausentes": 0
-     },
-     "asignacion-admision-especial-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-juliaca": {
-      "total": 48,
-      "presentes": 48,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-lima": {
-      "total": 2242,
-      "presentes": 2242,
-      "ausentes": 0
-     },
-     "resultados-admision-aptitud-academica-humanidades": {
-      "total": 4642,
-      "presentes": 4605,
-      "ausentes": 37
-     },
-     "resultados-admision-examen-especial": {
-      "total": 47,
-      "presentes": 44,
-      "ausentes": 3
-     },
-     "resultados-admision-participante-sin-derecho-vacante-matematica": {
-      "total": 184,
-      "presentes": 169,
-      "ausentes": 15
-     },
-     "resultados-admision-prueba-fisica-quimica": {
-      "total": 4454,
-      "presentes": 4454,
-      "ausentes": 0
-     },
-     "resultados-admision-prueba-matematica": {
-      "total": 4458,
-      "presentes": 4407,
-      "ausentes": 51
-     },
-     "resultados-admision-vocacional": {
-      "total": 309,
-      "presentes": 303,
-      "ausentes": 6
-     },
-     "resultados-concurso-admision-2026-2": {
-      "total": 4120,
-      "presentes": 4120,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-arquitectura": {
-      "total": 334,
-      "presentes": 334,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante": {
-      "total": 185,
-      "presentes": 185,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     }
-    }
-   },
-   {
-    "fecha": "2026-08-19_17Z",
-    "publicaciones": {
-     "asignacion-admision-especial": {
-      "total": 44,
-      "presentes": 44,
-      "ausentes": 0
-     },
-     "asignacion-admision-especial-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-juliaca": {
-      "total": 48,
-      "presentes": 48,
-      "ausentes": 0
-     },
-     "asignacion-vacantes-lima": {
-      "total": 2242,
-      "presentes": 2242,
-      "ausentes": 0
-     },
-     "resultados-admision-aptitud-academica-humanidades": {
-      "total": 4642,
-      "presentes": 4605,
-      "ausentes": 37
-     },
-     "resultados-admision-examen-especial": {
-      "total": 47,
-      "presentes": 44,
-      "ausentes": 3
-     },
-     "resultados-admision-participante-sin-derecho-vacante-matematica": {
-      "total": 184,
-      "presentes": 169,
-      "ausentes": 15
-     },
-     "resultados-admision-prueba-fisica-quimica": {
-      "total": 4454,
-      "presentes": 4454,
-      "ausentes": 0
-     },
-     "resultados-admision-prueba-matematica": {
-      "total": 4458,
-      "presentes": 4407,
-      "ausentes": 51
-     },
-     "resultados-admision-vocacional": {
-      "total": 309,
-      "presentes": 303,
-      "ausentes": 6
-     },
-     "resultados-concurso-admision-2026-2": {
-      "total": 4120,
-      "presentes": 4120,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-arquitectura": {
-      "total": 334,
-      "presentes": 334,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante": {
-      "total": 185,
-      "presentes": 185,
-      "ausentes": 0
-     },
-     "resultados-concurso-admision-2026-2-sin-derecho-vacante-arquitectura": {
-      "total": 3,
-      "presentes": 3,
-      "ausentes": 0
-     }
-    }
    }
   ]
  },
@@ -6080,6 +5630,2156 @@
       "n": 4
      }
     ]
+   }
+  }
+ },
+ "serie_historica": {
+  "fuente": "Plataforma Nacional de Datos Abiertos (datosabiertos.gob.pe), microdatos oficiales UNI, licencia ODC-BY",
+  "procesos": [
+   "2021-1",
+   "2021-2",
+   "2022-1",
+   "2022-2",
+   "2023-1",
+   "2023-2",
+   "2024-1",
+   "2024-2",
+   "2025-1",
+   "2025-2",
+   "2026-1"
+  ],
+  "por_proceso": {
+   "2021-1": {
+    "postulantes": 5290,
+    "ingresantes": 825,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1253,
+      "ingresantes": 111
+     },
+     "M": {
+      "postulantes": 4037,
+      "ingresantes": 714
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 523,
+      "ingresantes": 36,
+      "nota_min": 11.29,
+      "nota_max": 13.92
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 151,
+      "ingresantes": 42,
+      "nota_min": 11.12,
+      "nota_max": 14.74
+     },
+     "FÍSICA": {
+      "postulantes": 103,
+      "ingresantes": 33,
+      "nota_min": 11.05,
+      "nota_max": 15.6
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 169,
+      "ingresantes": 27,
+      "nota_min": 11.01,
+      "nota_max": 12.94
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1002,
+      "ingresantes": 125,
+      "nota_min": 11.03,
+      "nota_max": 14.57
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 37,
+      "ingresantes": 10,
+      "nota_min": 11.54,
+      "nota_max": 13.66
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 177,
+      "ingresantes": 23,
+      "nota_min": 11.02,
+      "nota_max": 13.26
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 21,
+      "ingresantes": 3,
+      "nota_min": 11.17,
+      "nota_max": 11.17
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 648,
+      "ingresantes": 85,
+      "nota_min": 11.82,
+      "nota_max": 15.72
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 127,
+      "ingresantes": 32,
+      "nota_min": 11.03,
+      "nota_max": 15.96
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 205,
+      "ingresantes": 42,
+      "nota_min": 11.01,
+      "nota_max": 14.54
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 222,
+      "ingresantes": 53,
+      "nota_min": 11.03,
+      "nota_max": 16.25
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 113,
+      "ingresantes": 24,
+      "nota_min": 11.31,
+      "nota_max": 15.51
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 35,
+      "ingresantes": 6,
+      "nota_min": 11.65,
+      "nota_max": 11.77
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 44,
+      "ingresantes": 11,
+      "nota_min": 12.33,
+      "nota_max": 13.49
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 90,
+      "ingresantes": 14,
+      "nota_min": 11.0,
+      "nota_max": 12.03
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 470,
+      "ingresantes": 81,
+      "nota_min": 11.79,
+      "nota_max": 17.15
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 466,
+      "ingresantes": 60,
+      "nota_min": 11.1,
+      "nota_max": 15.53
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 195,
+      "ingresantes": 35,
+      "nota_min": 11.02,
+      "nota_max": 14.64
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 97,
+      "ingresantes": 21,
+      "nota_min": 11.27,
+      "nota_max": 14.46
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 29,
+      "ingresantes": 3
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 29,
+      "ingresantes": 4
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 41,
+      "ingresantes": 7,
+      "nota_min": 11.41,
+      "nota_max": 11.66
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 162,
+      "ingresantes": 21,
+      "nota_min": 11.01,
+      "nota_max": 14.81
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 57,
+      "ingresantes": 13,
+      "nota_min": 11.17,
+      "nota_max": 13.29
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 13,
+      "ingresantes": 1
+     },
+     "MATEMÁTICA": {
+      "postulantes": 39,
+      "ingresantes": 6,
+      "nota_min": 13.03,
+      "nota_max": 15.22
+     },
+     "QUÍMICA": {
+      "postulantes": 25,
+      "ingresantes": 7,
+      "nota_min": 11.46,
+      "nota_max": 14.07
+     }
+    }
+   },
+   "2021-2": {
+    "postulantes": 4255,
+    "ingresantes": 753,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1032,
+      "ingresantes": 132
+     },
+     "M": {
+      "postulantes": 3223,
+      "ingresantes": 621
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 474,
+      "ingresantes": 38,
+      "nota_min": 11.36,
+      "nota_max": 14.43
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 111,
+      "ingresantes": 30,
+      "nota_min": 11.18,
+      "nota_max": 14.53
+     },
+     "FÍSICA": {
+      "postulantes": 99,
+      "ingresantes": 18,
+      "nota_min": 11.21,
+      "nota_max": 15.89
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 100,
+      "ingresantes": 32,
+      "nota_min": 11.44,
+      "nota_max": 16.62
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 791,
+      "ingresantes": 117,
+      "nota_min": 13.52,
+      "nota_max": 16.65
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 30,
+      "ingresantes": 12,
+      "nota_min": 11.13,
+      "nota_max": 16.23
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 156,
+      "ingresantes": 43,
+      "nota_min": 11.57,
+      "nota_max": 17.2
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 17,
+      "ingresantes": 5,
+      "nota_min": 11.76,
+      "nota_max": 12.88
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 520,
+      "ingresantes": 63,
+      "nota_min": 11.02,
+      "nota_max": 15.3
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 106,
+      "ingresantes": 27,
+      "nota_min": 12.85,
+      "nota_max": 17.52
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 161,
+      "ingresantes": 38,
+      "nota_min": 11.14,
+      "nota_max": 16.92
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 156,
+      "ingresantes": 40,
+      "nota_min": 12.91,
+      "nota_max": 16.38
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 94,
+      "ingresantes": 16,
+      "nota_min": 13.58,
+      "nota_max": 14.79
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 29,
+      "ingresantes": 8,
+      "nota_min": 11.23,
+      "nota_max": 14.79
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 47,
+      "ingresantes": 11,
+      "nota_min": 11.15,
+      "nota_max": 15.23
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 76,
+      "ingresantes": 24,
+      "nota_min": 11.43,
+      "nota_max": 14.2
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 398,
+      "ingresantes": 64,
+      "nota_min": 11.18,
+      "nota_max": 16.5
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 343,
+      "ingresantes": 54,
+      "nota_min": 12.31,
+      "nota_max": 16.83
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 152,
+      "ingresantes": 24,
+      "nota_min": 12.61,
+      "nota_max": 16.16
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 75,
+      "ingresantes": 15,
+      "nota_min": 12.43,
+      "nota_max": 14.89
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 29,
+      "ingresantes": 10,
+      "nota_min": 11.43,
+      "nota_max": 14.24
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 20,
+      "ingresantes": 3,
+      "nota_min": 12.71,
+      "nota_max": 12.71
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 33,
+      "ingresantes": 8,
+      "nota_min": 13.59,
+      "nota_max": 14.63
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 138,
+      "ingresantes": 30,
+      "nota_min": 11.34,
+      "nota_max": 13.7
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 38,
+      "ingresantes": 12,
+      "nota_min": 11.27,
+      "nota_max": 15.02
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 14,
+      "ingresantes": 2,
+      "nota_min": 12.83,
+      "nota_max": 12.83
+     },
+     "MATEMÁTICA": {
+      "postulantes": 29,
+      "ingresantes": 5,
+      "nota_min": 11.9,
+      "nota_max": 12.3
+     },
+     "QUÍMICA": {
+      "postulantes": 19,
+      "ingresantes": 4,
+      "nota_min": 11.7,
+      "nota_max": 12.35
+     }
+    }
+   },
+   "2022-1": {
+    "postulantes": 5292,
+    "ingresantes": 1047,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1222,
+      "ingresantes": 178
+     },
+     "M": {
+      "postulantes": 4070,
+      "ingresantes": 869
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 629,
+      "ingresantes": 57,
+      "nota_min": 12.05,
+      "nota_max": 16.12
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 121,
+      "ingresantes": 45,
+      "nota_min": 10.54,
+      "nota_max": 16.23
+     },
+     "FÍSICA": {
+      "postulantes": 91,
+      "ingresantes": 39,
+      "nota_min": 10.16,
+      "nota_max": 16.44
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 102,
+      "ingresantes": 33,
+      "nota_min": 10.07,
+      "nota_max": 13.88
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 997,
+      "ingresantes": 155,
+      "nota_min": 13.0,
+      "nota_max": 17.8
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 20,
+      "ingresantes": 8,
+      "nota_min": 11.99,
+      "nota_max": 13.57
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 142,
+      "ingresantes": 40,
+      "nota_min": 10.13,
+      "nota_max": 14.13
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 12,
+      "ingresantes": 4,
+      "nota_min": 13.4,
+      "nota_max": 13.4
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 888,
+      "ingresantes": 93,
+      "nota_min": 11.92,
+      "nota_max": 17.74
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 128,
+      "ingresantes": 30,
+      "nota_min": 11.55,
+      "nota_max": 14.67
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 166,
+      "ingresantes": 50,
+      "nota_min": 10.05,
+      "nota_max": 14.87
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 159,
+      "ingresantes": 38,
+      "nota_min": 11.5,
+      "nota_max": 16.2
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 100,
+      "ingresantes": 26,
+      "nota_min": 11.79,
+      "nota_max": 14.45
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 38,
+      "ingresantes": 14,
+      "nota_min": 10.19,
+      "nota_max": 14.47
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 44,
+      "ingresantes": 26,
+      "nota_min": 10.39,
+      "nota_max": 14.52
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 84,
+      "ingresantes": 24,
+      "nota_min": 10.27,
+      "nota_max": 13.44
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 471,
+      "ingresantes": 74,
+      "nota_min": 12.0,
+      "nota_max": 17.58
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 474,
+      "ingresantes": 105,
+      "nota_min": 11.47,
+      "nota_max": 16.99
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 198,
+      "ingresantes": 31,
+      "nota_min": 11.51,
+      "nota_max": 16.5
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 78,
+      "ingresantes": 22,
+      "nota_min": 10.97,
+      "nota_max": 16.18
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 29,
+      "ingresantes": 12,
+      "nota_min": 10.1,
+      "nota_max": 13.83
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 28,
+      "ingresantes": 5,
+      "nota_min": 11.31,
+      "nota_max": 13.51
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 35,
+      "ingresantes": 16,
+      "nota_min": 10.45,
+      "nota_max": 14.88
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 141,
+      "ingresantes": 56,
+      "nota_min": 10.06,
+      "nota_max": 14.88
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 41,
+      "ingresantes": 19,
+      "nota_min": 10.31,
+      "nota_max": 15.34
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 15,
+      "ingresantes": 3,
+      "nota_min": 11.41,
+      "nota_max": 12.43
+     },
+     "MATEMÁTICA": {
+      "postulantes": 38,
+      "ingresantes": 14,
+      "nota_min": 10.37,
+      "nota_max": 14.84
+     },
+     "QUÍMICA": {
+      "postulantes": 23,
+      "ingresantes": 8,
+      "nota_min": 10.05,
+      "nota_max": 13.6
+     }
+    }
+   },
+   "2022-2": {
+    "postulantes": 4105,
+    "ingresantes": 1013,
+    "por_sexo": {
+     "F": {
+      "postulantes": 945,
+      "ingresantes": 185
+     },
+     "M": {
+      "postulantes": 3160,
+      "ingresantes": 828
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 481,
+      "ingresantes": 53,
+      "nota_min": 9.74,
+      "nota_max": 13.72
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 94,
+      "ingresantes": 34,
+      "nota_min": 7.31,
+      "nota_max": 16.71
+     },
+     "FÍSICA": {
+      "postulantes": 63,
+      "ingresantes": 40,
+      "nota_min": 7.02,
+      "nota_max": 12.05
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 63,
+      "ingresantes": 27,
+      "nota_min": 7.11,
+      "nota_max": 11.03
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 756,
+      "ingresantes": 136,
+      "nota_min": 11.81,
+      "nota_max": 15.51
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "postulantes": 71,
+      "ingresantes": 25,
+      "nota_min": 9.84,
+      "nota_max": 14.68
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 14,
+      "ingresantes": 5,
+      "nota_min": 7.36,
+      "nota_max": 8.03
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 116,
+      "ingresantes": 46,
+      "nota_min": 7.63,
+      "nota_max": 14.78
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 15,
+      "ingresantes": 6,
+      "nota_min": 9.08,
+      "nota_max": 14.55
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 672,
+      "ingresantes": 104,
+      "nota_min": 11.34,
+      "nota_max": 15.69
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 91,
+      "ingresantes": 26,
+      "nota_min": 9.48,
+      "nota_max": 14.44
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 128,
+      "ingresantes": 55,
+      "nota_min": 7.05,
+      "nota_max": 13.92
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 145,
+      "ingresantes": 43,
+      "nota_min": 9.43,
+      "nota_max": 14.01
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 81,
+      "ingresantes": 30,
+      "nota_min": 9.64,
+      "nota_max": 13.73
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 36,
+      "ingresantes": 23,
+      "nota_min": 7.42,
+      "nota_max": 13.71
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 25,
+      "ingresantes": 17,
+      "nota_min": 7.3,
+      "nota_max": 12.22
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 64,
+      "ingresantes": 24,
+      "nota_min": 8.81,
+      "nota_max": 11.25
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 373,
+      "ingresantes": 68,
+      "nota_min": 11.6,
+      "nota_max": 14.89
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 366,
+      "ingresantes": 76,
+      "nota_min": 10.95,
+      "nota_max": 18.37
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 146,
+      "ingresantes": 39,
+      "nota_min": 10.47,
+      "nota_max": 14.67
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 57,
+      "ingresantes": 21,
+      "nota_min": 10.64,
+      "nota_max": 14.01
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 24,
+      "ingresantes": 7,
+      "nota_min": 7.79,
+      "nota_max": 10.09
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 21,
+      "ingresantes": 4,
+      "nota_min": 10.66,
+      "nota_max": 10.66
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 15,
+      "ingresantes": 7,
+      "nota_min": 7.26,
+      "nota_max": 11.23
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 106,
+      "ingresantes": 50,
+      "nota_min": 7.07,
+      "nota_max": 14.98
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 29,
+      "ingresantes": 17,
+      "nota_min": 7.01,
+      "nota_max": 14.49
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 15,
+      "ingresantes": 9,
+      "nota_min": 8.2,
+      "nota_max": 10.05
+     },
+     "MATEMÁTICA": {
+      "postulantes": 24,
+      "ingresantes": 15,
+      "nota_min": 7.05,
+      "nota_max": 12.65
+     },
+     "QUÍMICA": {
+      "postulantes": 14,
+      "ingresantes": 6,
+      "nota_min": 7.28,
+      "nota_max": 16.63
+     }
+    }
+   },
+   "2023-1": {
+    "postulantes": 8658,
+    "ingresantes": 1102,
+    "por_sexo": {
+     "F": {
+      "postulantes": 2133,
+      "ingresantes": 179
+     },
+     "M": {
+      "postulantes": 6525,
+      "ingresantes": 923
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 1038,
+      "ingresantes": 65,
+      "nota_min": 13.34,
+      "nota_max": 16.04
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 166,
+      "ingresantes": 44,
+      "nota_min": 10.39,
+      "nota_max": 17.23
+     },
+     "FÍSICA": {
+      "postulantes": 102,
+      "ingresantes": 27,
+      "nota_min": 11.56,
+      "nota_max": 17.09
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 199,
+      "ingresantes": 36,
+      "nota_min": 10.04,
+      "nota_max": 13.97
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1708,
+      "ingresantes": 138,
+      "nota_min": 13.93,
+      "nota_max": 16.87
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "postulantes": 210,
+      "ingresantes": 32,
+      "nota_min": 12.28,
+      "nota_max": 15.1
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 36,
+      "ingresantes": 8,
+      "nota_min": 10.9,
+      "nota_max": 12.3
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 301,
+      "ingresantes": 58,
+      "nota_min": 10.28,
+      "nota_max": 13.8
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 28,
+      "ingresantes": 7,
+      "nota_min": 11.36,
+      "nota_max": 13.09
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 1453,
+      "ingresantes": 121,
+      "nota_min": 13.05,
+      "nota_max": 17.55
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 133,
+      "ingresantes": 25,
+      "nota_min": 11.99,
+      "nota_max": 16.4
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 281,
+      "ingresantes": 49,
+      "nota_min": 10.06,
+      "nota_max": 16.51
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 271,
+      "ingresantes": 51,
+      "nota_min": 11.9,
+      "nota_max": 16.84
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 143,
+      "ingresantes": 32,
+      "nota_min": 12.16,
+      "nota_max": 15.5
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 85,
+      "ingresantes": 22,
+      "nota_min": 10.04,
+      "nota_max": 12.95
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 53,
+      "ingresantes": 21,
+      "nota_min": 10.16,
+      "nota_max": 15.78
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 94,
+      "ingresantes": 20,
+      "nota_min": 10.65,
+      "nota_max": 15.44
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 735,
+      "ingresantes": 66,
+      "nota_min": 12.98,
+      "nota_max": 16.21
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 792,
+      "ingresantes": 106,
+      "nota_min": 12.36,
+      "nota_max": 17.27
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 237,
+      "ingresantes": 43,
+      "nota_min": 12.31,
+      "nota_max": 15.43
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 91,
+      "ingresantes": 19,
+      "nota_min": 12.65,
+      "nota_max": 15.66
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 42,
+      "ingresantes": 5,
+      "nota_min": 10.11,
+      "nota_max": 11.12
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 42,
+      "ingresantes": 9,
+      "nota_min": 13.76,
+      "nota_max": 15.2
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 45,
+      "ingresantes": 9,
+      "nota_min": 10.47,
+      "nota_max": 14.82
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 193,
+      "ingresantes": 46,
+      "nota_min": 10.26,
+      "nota_max": 15.49
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 68,
+      "ingresantes": 19,
+      "nota_min": 10.02,
+      "nota_max": 16.67
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 26,
+      "ingresantes": 1,
+      "nota_min": 10.19,
+      "nota_max": 10.19
+     },
+     "MATEMÁTICA": {
+      "postulantes": 61,
+      "ingresantes": 18,
+      "nota_min": 10.13,
+      "nota_max": 14.56
+     },
+     "QUÍMICA": {
+      "postulantes": 25,
+      "ingresantes": 5,
+      "nota_min": 11.11,
+      "nota_max": 15.16
+     }
+    }
+   },
+   "2023-2": {
+    "postulantes": 4951,
+    "ingresantes": 922,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1128,
+      "ingresantes": 143
+     },
+     "M": {
+      "postulantes": 3823,
+      "ingresantes": 779
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 522,
+      "ingresantes": 54,
+      "nota_min": 11.82,
+      "nota_max": 15.4
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 116,
+      "ingresantes": 35,
+      "nota_min": 10.11,
+      "nota_max": 14.98
+     },
+     "FÍSICA": {
+      "postulantes": 73,
+      "ingresantes": 25,
+      "nota_min": 10.4,
+      "nota_max": 15.94
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 122,
+      "ingresantes": 25,
+      "nota_min": 10.19,
+      "nota_max": 12.39
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 742,
+      "ingresantes": 105,
+      "nota_min": 13.33,
+      "nota_max": 16.13
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "postulantes": 130,
+      "ingresantes": 27,
+      "nota_min": 11.57,
+      "nota_max": 16.41
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 29,
+      "ingresantes": 5
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 216,
+      "ingresantes": 56,
+      "nota_min": 10.47,
+      "nota_max": 16.87
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 11,
+      "ingresantes": 0
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 688,
+      "ingresantes": 107,
+      "nota_min": 12.4,
+      "nota_max": 16.24
+     },
+     "INGENIERÍA DE SOFTWARE": {
+      "postulantes": 136,
+      "ingresantes": 23,
+      "nota_min": 12.14,
+      "nota_max": 15.84
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 100,
+      "ingresantes": 34,
+      "nota_min": 11.42,
+      "nota_max": 14.09
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 200,
+      "ingresantes": 38,
+      "nota_min": 10.13,
+      "nota_max": 15.3
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 193,
+      "ingresantes": 49,
+      "nota_min": 11.65,
+      "nota_max": 15.19
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 96,
+      "ingresantes": 22,
+      "nota_min": 11.61,
+      "nota_max": 14.71
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 73,
+      "ingresantes": 19,
+      "nota_min": 10.06,
+      "nota_max": 11.65
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 26,
+      "ingresantes": 13,
+      "nota_min": 10.86,
+      "nota_max": 17.99
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 72,
+      "ingresantes": 14,
+      "nota_min": 10.17,
+      "nota_max": 14.22
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 371,
+      "ingresantes": 60,
+      "nota_min": 12.11,
+      "nota_max": 15.62
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 383,
+      "ingresantes": 73,
+      "nota_min": 12.01,
+      "nota_max": 18.73
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 169,
+      "ingresantes": 30,
+      "nota_min": 11.95,
+      "nota_max": 15.64
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 69,
+      "ingresantes": 13,
+      "nota_min": 11.92,
+      "nota_max": 14.59
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 37,
+      "ingresantes": 3,
+      "nota_min": 10.31,
+      "nota_max": 10.31
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 27,
+      "ingresantes": 3
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 35,
+      "ingresantes": 8,
+      "nota_min": 10.22,
+      "nota_max": 12.45
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 171,
+      "ingresantes": 40,
+      "nota_min": 10.06,
+      "nota_max": 17.29
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 59,
+      "ingresantes": 17,
+      "nota_min": 10.07,
+      "nota_max": 12.09
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 11,
+      "ingresantes": 4
+     },
+     "MATEMÁTICA": {
+      "postulantes": 53,
+      "ingresantes": 16,
+      "nota_min": 11.01,
+      "nota_max": 14.22
+     },
+     "QUÍMICA": {
+      "postulantes": 21,
+      "ingresantes": 4,
+      "nota_min": 10.21,
+      "nota_max": 10.95
+     }
+    }
+   },
+   "2024-1": {
+    "postulantes": 9965,
+    "ingresantes": 1319,
+    "por_sexo": {
+     "F": {
+      "postulantes": 2384,
+      "ingresantes": 207
+     },
+     "M": {
+      "postulantes": 7581,
+      "ingresantes": 1112
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 1046,
+      "ingresantes": 70,
+      "nota_min": 12.37,
+      "nota_max": 14.16
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 120,
+      "ingresantes": 34,
+      "nota_min": 10.27,
+      "nota_max": 16.73
+     },
+     "FÍSICA": {
+      "postulantes": 109,
+      "ingresantes": 47,
+      "nota_min": 10.49,
+      "nota_max": 18.83
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 218,
+      "ingresantes": 48,
+      "nota_min": 10.09,
+      "nota_max": 16.85
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1612,
+      "ingresantes": 150,
+      "nota_min": 13.33,
+      "nota_max": 18.89
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "postulantes": 197,
+      "ingresantes": 34,
+      "nota_min": 11.56,
+      "nota_max": 18.54
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 41,
+      "ingresantes": 3
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 421,
+      "ingresantes": 73,
+      "nota_min": 10.25,
+      "nota_max": 14.82
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 40,
+      "ingresantes": 4
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 1465,
+      "ingresantes": 125,
+      "nota_min": 12.47,
+      "nota_max": 18.22
+     },
+     "INGENIERÍA DE SOFTWARE": {
+      "postulantes": 391,
+      "ingresantes": 43,
+      "nota_min": 12.86,
+      "nota_max": 17.53
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 132,
+      "ingresantes": 21,
+      "nota_min": 11.97,
+      "nota_max": 16.24
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 382,
+      "ingresantes": 65,
+      "nota_min": 10.3,
+      "nota_max": 16.8
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 326,
+      "ingresantes": 69,
+      "nota_min": 11.62,
+      "nota_max": 18.33
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 200,
+      "ingresantes": 38,
+      "nota_min": 11.51,
+      "nota_max": 14.89
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 156,
+      "ingresantes": 37,
+      "nota_min": 10.11,
+      "nota_max": 13.77
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 55,
+      "ingresantes": 18,
+      "nota_min": 10.16,
+      "nota_max": 15.59
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 121,
+      "ingresantes": 27,
+      "nota_min": 10.23,
+      "nota_max": 14.35
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 849,
+      "ingresantes": 71,
+      "nota_min": 12.61,
+      "nota_max": 15.83
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 877,
+      "ingresantes": 123,
+      "nota_min": 12.18,
+      "nota_max": 18.04
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 315,
+      "ingresantes": 42,
+      "nota_min": 12.34,
+      "nota_max": 16.43
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 120,
+      "ingresantes": 22,
+      "nota_min": 12.14,
+      "nota_max": 15.82
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 64,
+      "ingresantes": 8,
+      "nota_min": 11.54,
+      "nota_max": 12.89
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 55,
+      "ingresantes": 4,
+      "nota_min": 12.76,
+      "nota_max": 12.83
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 68,
+      "ingresantes": 11,
+      "nota_min": 10.29,
+      "nota_max": 13.54
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 318,
+      "ingresantes": 84,
+      "nota_min": 10.0,
+      "nota_max": 17.79
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 98,
+      "ingresantes": 25,
+      "nota_min": 10.24,
+      "nota_max": 11.78
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 25,
+      "ingresantes": 2,
+      "nota_min": 11.12,
+      "nota_max": 11.12
+     },
+     "MATEMÁTICA": {
+      "postulantes": 59,
+      "ingresantes": 15,
+      "nota_min": 10.03,
+      "nota_max": 17.3
+     },
+     "QUÍMICA": {
+      "postulantes": 30,
+      "ingresantes": 6,
+      "nota_min": 11.18,
+      "nota_max": 12.9
+     }
+    }
+   },
+   "2024-2": {
+    "postulantes": 5117,
+    "ingresantes": 1041,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1185,
+      "ingresantes": 197
+     },
+     "M": {
+      "postulantes": 3932,
+      "ingresantes": 844
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 492,
+      "ingresantes": 58,
+      "nota_min": 11.69,
+      "nota_max": 14.44
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 91,
+      "ingresantes": 34,
+      "nota_min": 10.06,
+      "nota_max": 12.21
+     },
+     "FÍSICA": {
+      "postulantes": 55,
+      "ingresantes": 21,
+      "nota_min": 10.01,
+      "nota_max": 14.7
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 132,
+      "ingresantes": 41,
+      "nota_min": 10.02,
+      "nota_max": 17.0
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 692,
+      "ingresantes": 131,
+      "nota_min": 12.4,
+      "nota_max": 15.36
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "postulantes": 139,
+      "ingresantes": 39,
+      "nota_min": 11.42,
+      "nota_max": 14.43
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 36,
+      "ingresantes": 9,
+      "nota_min": 10.32,
+      "nota_max": 11.35
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 238,
+      "ingresantes": 50,
+      "nota_min": 10.05,
+      "nota_max": 15.69
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 26,
+      "ingresantes": 5,
+      "nota_min": 10.77,
+      "nota_max": 12.63
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 645,
+      "ingresantes": 85,
+      "nota_min": 12.59,
+      "nota_max": 15.79
+     },
+     "INGENIERÍA DE SOFTWARE": {
+      "postulantes": 206,
+      "ingresantes": 39,
+      "nota_min": 12.83,
+      "nota_max": 17.31
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 84,
+      "ingresantes": 14,
+      "nota_min": 11.5,
+      "nota_max": 13.63
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 203,
+      "ingresantes": 53,
+      "nota_min": 10.01,
+      "nota_max": 14.81
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 188,
+      "ingresantes": 52,
+      "nota_min": 10.63,
+      "nota_max": 13.38
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 124,
+      "ingresantes": 30,
+      "nota_min": 11.47,
+      "nota_max": 14.98
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 103,
+      "ingresantes": 24,
+      "nota_min": 10.08,
+      "nota_max": 13.58
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 30,
+      "ingresantes": 15,
+      "nota_min": 10.08,
+      "nota_max": 15.02
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 72,
+      "ingresantes": 22,
+      "nota_min": 10.32,
+      "nota_max": 13.35
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 374,
+      "ingresantes": 54,
+      "nota_min": 11.29,
+      "nota_max": 17.25
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 372,
+      "ingresantes": 77,
+      "nota_min": 10.65,
+      "nota_max": 15.26
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 181,
+      "ingresantes": 25,
+      "nota_min": 12.21,
+      "nota_max": 15.7
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 79,
+      "ingresantes": 19,
+      "nota_min": 12.34,
+      "nota_max": 17.71
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 48,
+      "ingresantes": 16,
+      "nota_min": 10.22,
+      "nota_max": 14.24
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 54,
+      "ingresantes": 5,
+      "nota_min": 12.65,
+      "nota_max": 14.12
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 56,
+      "ingresantes": 17,
+      "nota_min": 10.06,
+      "nota_max": 13.19
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 233,
+      "ingresantes": 70,
+      "nota_min": 10.04,
+      "nota_max": 13.21
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 76,
+      "ingresantes": 21,
+      "nota_min": 10.29,
+      "nota_max": 12.27
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 16,
+      "ingresantes": 2,
+      "nota_min": 10.02,
+      "nota_max": 10.02
+     },
+     "MATEMÁTICA": {
+      "postulantes": 42,
+      "ingresantes": 9,
+      "nota_min": 10.08,
+      "nota_max": 16.58
+     },
+     "QUÍMICA": {
+      "postulantes": 30,
+      "ingresantes": 4,
+      "nota_min": 10.12,
+      "nota_max": 12.66
+     }
+    }
+   },
+   "2025-1": {
+    "postulantes": 10259,
+    "ingresantes": 1396,
+    "por_sexo": {
+     "F": {
+      "postulantes": 2321,
+      "ingresantes": 239
+     },
+     "M": {
+      "postulantes": 7938,
+      "ingresantes": 1157
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 850,
+      "ingresantes": 62,
+      "nota_min": 12.6,
+      "nota_max": 14.98
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 176,
+      "ingresantes": 45,
+      "nota_min": 7.77,
+      "nota_max": 14.95
+     },
+     "FÍSICA": {
+      "postulantes": 105,
+      "ingresantes": 38,
+      "nota_min": 7.84,
+      "nota_max": 16.19
+     },
+     "INGENIERÍA AEROESPACIAL": {
+      "postulantes": 251,
+      "ingresantes": 44,
+      "nota_min": 12.03,
+      "nota_max": 15.7
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 231,
+      "ingresantes": 72,
+      "nota_min": 8.38,
+      "nota_max": 14.26
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1485,
+      "ingresantes": 121,
+      "nota_min": 13.44,
+      "nota_max": 17.18
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "postulantes": 251,
+      "ingresantes": 42,
+      "nota_min": 12.07,
+      "nota_max": 16.34
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 47,
+      "ingresantes": 12,
+      "nota_min": 8.85,
+      "nota_max": 11.41
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 495,
+      "ingresantes": 84,
+      "nota_min": 10.44,
+      "nota_max": 14.53
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 39,
+      "ingresantes": 16,
+      "nota_min": 7.02,
+      "nota_max": 13.16
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 1367,
+      "ingresantes": 78,
+      "nota_min": 13.44,
+      "nota_max": 17.29
+     },
+     "INGENIERÍA DE SOFTWARE": {
+      "postulantes": 443,
+      "ingresantes": 39,
+      "nota_min": 13.52,
+      "nota_max": 17.66
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 124,
+      "ingresantes": 24,
+      "nota_min": 12.11,
+      "nota_max": 15.35
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 486,
+      "ingresantes": 81,
+      "nota_min": 10.53,
+      "nota_max": 17.41
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 318,
+      "ingresantes": 57,
+      "nota_min": 12.22,
+      "nota_max": 15.22
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 232,
+      "ingresantes": 43,
+      "nota_min": 12.22,
+      "nota_max": 15.63
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 150,
+      "ingresantes": 25,
+      "nota_min": 10.54,
+      "nota_max": 13.79
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 59,
+      "ingresantes": 24,
+      "nota_min": 8.88,
+      "nota_max": 12.56
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 124,
+      "ingresantes": 18,
+      "nota_min": 10.6,
+      "nota_max": 14.6
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 732,
+      "ingresantes": 55,
+      "nota_min": 13.46,
+      "nota_max": 17.29
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 864,
+      "ingresantes": 110,
+      "nota_min": 12.47,
+      "nota_max": 17.67
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 357,
+      "ingresantes": 39,
+      "nota_min": 12.0,
+      "nota_max": 16.39
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 156,
+      "ingresantes": 20,
+      "nota_min": 12.16,
+      "nota_max": 15.19
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 65,
+      "ingresantes": 7,
+      "nota_min": 10.59,
+      "nota_max": 13.2
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 82,
+      "ingresantes": 4,
+      "nota_min": 13.07,
+      "nota_max": 13.2
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 65,
+      "ingresantes": 38,
+      "nota_min": 6.91,
+      "nota_max": 16.67
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 410,
+      "ingresantes": 98,
+      "nota_min": 9.71,
+      "nota_max": 14.63
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 131,
+      "ingresantes": 47,
+      "nota_min": 8.6,
+      "nota_max": 15.1
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 35,
+      "ingresantes": 4,
+      "nota_min": 9.92,
+      "nota_max": 12.59
+     },
+     "MATEMÁTICA": {
+      "postulantes": 85,
+      "ingresantes": 32,
+      "nota_min": 7.83,
+      "nota_max": 13.82
+     },
+     "QUÍMICA": {
+      "postulantes": 44,
+      "ingresantes": 17,
+      "nota_min": 8.1,
+      "nota_max": 12.7
+     }
+    }
+   },
+   "2025-2": {
+    "postulantes": 5428,
+    "ingresantes": 1275,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1226,
+      "ingresantes": 246
+     },
+     "M": {
+      "postulantes": 4202,
+      "ingresantes": 1029
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 424,
+      "ingresantes": 85,
+      "nota_min": 11.1,
+      "nota_max": 19.62
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 140,
+      "ingresantes": 49,
+      "nota_min": 8.68,
+      "nota_max": 13.29
+     },
+     "FÍSICA": {
+      "postulantes": 60,
+      "ingresantes": 25,
+      "nota_min": 8.72,
+      "nota_max": 11.88
+     },
+     "INGENIERÍA AEROESPACIAL": {
+      "postulantes": 226,
+      "ingresantes": 33,
+      "nota_min": 13.01,
+      "nota_max": 15.23
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 130,
+      "ingresantes": 56,
+      "nota_min": 8.67,
+      "nota_max": 16.27
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 606,
+      "ingresantes": 109,
+      "nota_min": 13.16,
+      "nota_max": 20.0
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "postulantes": 149,
+      "ingresantes": 39,
+      "nota_min": 11.77,
+      "nota_max": 15.65
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 55,
+      "ingresantes": 28,
+      "nota_min": 8.89,
+      "nota_max": 11.3
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 256,
+      "ingresantes": 50,
+      "nota_min": 10.35,
+      "nota_max": 14.4
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 82,
+      "ingresantes": 19,
+      "nota_min": 8.66,
+      "nota_max": 10.9
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 575,
+      "ingresantes": 67,
+      "nota_min": 13.26,
+      "nota_max": 17.2
+     },
+     "INGENIERÍA DE SOFTWARE": {
+      "postulantes": 240,
+      "ingresantes": 27,
+      "nota_min": 12.91,
+      "nota_max": 17.05
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 90,
+      "ingresantes": 38,
+      "nota_min": 10.47,
+      "nota_max": 15.83
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 253,
+      "ingresantes": 54,
+      "nota_min": 10.6,
+      "nota_max": 18.47
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 168,
+      "ingresantes": 40,
+      "nota_min": 11.81,
+      "nota_max": 16.18
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 130,
+      "ingresantes": 41,
+      "nota_min": 11.21,
+      "nota_max": 14.28
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 99,
+      "ingresantes": 41,
+      "nota_min": 8.63,
+      "nota_max": 12.57
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 49,
+      "ingresantes": 26,
+      "nota_min": 8.75,
+      "nota_max": 12.31
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 82,
+      "ingresantes": 28,
+      "nota_min": 9.25,
+      "nota_max": 14.4
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 298,
+      "ingresantes": 61,
+      "nota_min": 12.38,
+      "nota_max": 15.46
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 336,
+      "ingresantes": 43,
+      "nota_min": 12.88,
+      "nota_max": 16.27
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 177,
+      "ingresantes": 39,
+      "nota_min": 11.58,
+      "nota_max": 20.0
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 120,
+      "ingresantes": 37,
+      "nota_min": 11.0,
+      "nota_max": 16.38
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 69,
+      "ingresantes": 26,
+      "nota_min": 9.08,
+      "nota_max": 12.69
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 49,
+      "ingresantes": 26,
+      "nota_min": 9.27,
+      "nota_max": 13.01
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 100,
+      "ingresantes": 34,
+      "nota_min": 9.23,
+      "nota_max": 12.1
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 222,
+      "ingresantes": 59,
+      "nota_min": 10.08,
+      "nota_max": 14.76
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 90,
+      "ingresantes": 35,
+      "nota_min": 8.64,
+      "nota_max": 12.95
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 49,
+      "ingresantes": 12,
+      "nota_min": 9.15,
+      "nota_max": 10.8
+     },
+     "MATEMÁTICA": {
+      "postulantes": 37,
+      "ingresantes": 20,
+      "nota_min": 9.09,
+      "nota_max": 14.79
+     },
+     "QUÍMICA": {
+      "postulantes": 53,
+      "ingresantes": 22,
+      "nota_min": 8.92,
+      "nota_max": 12.94
+     },
+     "URBANISMO": {
+      "postulantes": 14,
+      "ingresantes": 6,
+      "nota_min": 8.95,
+      "nota_max": 11.23
+     }
+    }
+   },
+   "2026-1": {
+    "postulantes": 6114,
+    "ingresantes": 1319,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1335,
+      "ingresantes": 221
+     },
+     "M": {
+      "postulantes": 4779,
+      "ingresantes": 1098
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 375,
+      "ingresantes": 72,
+      "nota_min": 10.42,
+      "nota_max": 18.34
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 110,
+      "ingresantes": 33,
+      "nota_min": 9.71,
+      "nota_max": 14.49
+     },
+     "FÍSICA": {
+      "postulantes": 71,
+      "ingresantes": 26,
+      "nota_min": 9.62,
+      "nota_max": 14.72
+     },
+     "INGENIERÍA AEROESPACIAL": {
+      "postulantes": 225,
+      "ingresantes": 39,
+      "nota_min": 13.35,
+      "nota_max": 16.29
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 83,
+      "ingresantes": 23,
+      "nota_min": 9.17,
+      "nota_max": 12.36
+     },
+     "INGENIERÍA BIOMÉDICA": {
+      "postulantes": 108,
+      "ingresantes": 34,
+      "nota_min": 9.3,
+      "nota_max": 16.43
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 653,
+      "ingresantes": 104,
+      "nota_min": 12.9,
+      "nota_max": 17.28
+     },
+     "INGENIERÍA DE CIBERSEGURIDAD": {
+      "postulantes": 164,
+      "ingresantes": 37,
+      "nota_min": 11.59,
+      "nota_max": 15.19
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 58,
+      "ingresantes": 10,
+      "nota_min": 9.26,
+      "nota_max": 10.93
+     },
+     "INGENIERÍA DE INTELIGENCIA ARTIFICIAL": {
+      "postulantes": 180,
+      "ingresantes": 26,
+      "nota_min": 11.7,
+      "nota_max": 15.72
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 265,
+      "ingresantes": 66,
+      "nota_min": 9.59,
+      "nota_max": 15.75
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 91,
+      "ingresantes": 16,
+      "nota_min": 9.22,
+      "nota_max": 14.31
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 588,
+      "ingresantes": 59,
+      "nota_min": 13.68,
+      "nota_max": 16.62
+     },
+     "INGENIERÍA DE SOFTWARE": {
+      "postulantes": 275,
+      "ingresantes": 31,
+      "nota_min": 14.09,
+      "nota_max": 18.34
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 86,
+      "ingresantes": 40,
+      "nota_min": 10.15,
+      "nota_max": 13.93
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 219,
+      "ingresantes": 47,
+      "nota_min": 10.76,
+      "nota_max": 14.67
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 157,
+      "ingresantes": 42,
+      "nota_min": 11.8,
+      "nota_max": 17.09
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 127,
+      "ingresantes": 41,
+      "nota_min": 11.27,
+      "nota_max": 13.32
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 162,
+      "ingresantes": 52,
+      "nota_min": 9.24,
+      "nota_max": 14.22
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 35,
+      "ingresantes": 12,
+      "nota_min": 9.95,
+      "nota_max": 16.83
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 112,
+      "ingresantes": 33,
+      "nota_min": 9.26,
+      "nota_max": 15.26
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 332,
+      "ingresantes": 59,
+      "nota_min": 12.58,
+      "nota_max": 14.93
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 380,
+      "ingresantes": 59,
+      "nota_min": 13.29,
+      "nota_max": 17.86
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 215,
+      "ingresantes": 54,
+      "nota_min": 10.63,
+      "nota_max": 16.01
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 146,
+      "ingresantes": 51,
+      "nota_min": 10.81,
+      "nota_max": 15.25
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 134,
+      "ingresantes": 38,
+      "nota_min": 9.27,
+      "nota_max": 14.63
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 112,
+      "ingresantes": 27,
+      "nota_min": 10.88,
+      "nota_max": 13.93
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 62,
+      "ingresantes": 13,
+      "nota_min": 9.58,
+      "nota_max": 16.69
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 237,
+      "ingresantes": 87,
+      "nota_min": 9.2,
+      "nota_max": 14.85
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 124,
+      "ingresantes": 25,
+      "nota_min": 9.29,
+      "nota_max": 11.37
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 83,
+      "ingresantes": 24,
+      "nota_min": 9.88,
+      "nota_max": 16.53
+     },
+     "MATEMÁTICA": {
+      "postulantes": 54,
+      "ingresantes": 15,
+      "nota_min": 9.76,
+      "nota_max": 13.03
+     },
+     "QUÍMICA": {
+      "postulantes": 38,
+      "ingresantes": 11,
+      "nota_min": 9.31,
+      "nota_max": 11.08
+     },
+     "URBANISMO": {
+      "postulantes": 53,
+      "ingresantes": 13,
+      "nota_min": 9.2,
+      "nota_max": 11.19
+     }
+    }
    }
   }
  },
