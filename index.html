@@ -222,6 +222,17 @@ details.tablev td.num,details.tablev th.num{text-align:right; font-variant-numer
 .tabla-ancha .tabla-top{width:auto; min-width:100%}
 .tabla-ancha .tabla-top td:nth-child(3){white-space:nowrap}
 
+/* ---------- selector de carreras (líneas históricas) ---------- */
+.esp-picker{display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 12px}
+.esp-picker button{
+  font:600 12.5px/1 system-ui,sans-serif; padding:6px 11px; border-radius:99px; cursor:pointer;
+  border:1.5px solid var(--ring); background:var(--surface); color:var(--ink-2);
+  display:flex; align-items:center; gap:6px;
+}
+.esp-picker button .pdot{width:9px; height:9px; border-radius:50%; background:var(--axis); flex:none}
+.esp-picker button.on{color:var(--ink); border-color:var(--pick, var(--s1)); background:var(--wash-s1)}
+.esp-picker button.on .pdot{background:var(--pick, var(--s1))}
+
 /* ---------- confeti ---------- */
 .confeti-piece{position:fixed; top:-14px; z-index:60; pointer-events:none; will-change:transform,opacity}
 @keyframes confeti-fall{ to{ transform:translateY(105vh) rotate(720deg); opacity:.85 } }
@@ -692,21 +703,31 @@ function rangePlot(items, opts){
 function lineChart(seriesList, labels, opts){
   const W = opts.W || 640, padL = 48, padR = 12, padT = 14, padB = 30, plotH = 190;
   const H = padT + plotH + padB;
-  const maxV = Math.max(...seriesList.flatMap(s=>s.values.filter(v=>v!=null)), 1);
-  const ticks = niceTicks(maxV, 4);
-  const yMax = ticks[ticks.length-1];
+  const vals = seriesList.flatMap(s=>s.values.filter(v=>v!=null));
+  const maxV = Math.max(...vals, 1);
+  let ticks, yMin, yMax;
+  if(opts.yMin != null){
+    /* dominio Y explícito (p.ej. notas 8-18): un eje desde 0 aplastaría las diferencias */
+    yMin = opts.yMin; yMax = opts.yMax != null ? opts.yMax : Math.ceil(maxV);
+    const nT = 4, stepT = (yMax - yMin)/nT;
+    ticks = Array.from({length:nT+1}, (_,i)=>Math.round((yMin+i*stepT)*10)/10);
+  } else {
+    ticks = niceTicks(maxV, 4); yMin = 0; yMax = ticks[ticks.length-1];
+  }
+  const fmtV = opts.fmtVal || fmt;
+  const lblFmt = opts.lblFmt || (lb => lb.slice(5));
   const plotW = W - padL - padR;
   const X = i => labels.length === 1 ? padL + plotW/2 : padL + (i/(labels.length-1))*plotW;
-  const Y = v => padT + plotH - (v/yMax)*plotH;
+  const Y = v => padT + plotH - ((v - yMin)/((yMax - yMin) || 1))*plotH;
   const svg = el("svg",{viewBox:`0 0 ${W} ${H}`, role:"img", "aria-label":opts.aria});
   ticks.forEach(t=>{
     svg.appendChild(el("line",{x1:padL, x2:W-padR, y1:Y(t), y2:Y(t), class:"gridline"}));
-    svg.appendChild(el("text",{x:padL-6, y:Y(t)+4, "text-anchor":"end", class:"ticktext", text:fmt(t)}));
+    svg.appendChild(el("text",{x:padL-6, y:Y(t)+4, "text-anchor":"end", class:"ticktext", text:fmtV(t)}));
   });
   svg.appendChild(el("line",{x1:padL, x2:W-padR, y1:padT+plotH, y2:padT+plotH, class:"axisline"}));
   labels.forEach((lb,i)=>{
     if(labels.length > 8 && i % Math.ceil(labels.length/8) !== 0 && i !== labels.length-1) return;
-    svg.appendChild(el("text",{x:X(i), y:padT+plotH+18, "text-anchor":"middle", class:"ticktext", text:lb.slice(5)}));
+    svg.appendChild(el("text",{x:X(i), y:padT+plotH+18, "text-anchor":"middle", class:"ticktext", text:lblFmt(lb)}));
   });
   seriesList.forEach(s=>{
     if(labels.length > 1){
@@ -722,7 +743,7 @@ function lineChart(seriesList, labels, opts){
   labels.forEach((lb,i)=>{
     const hit = el("rect",{x:X(i)-Math.max(plotW/labels.length/2,12), y:padT, width:Math.max(plotW/labels.length,24), height:plotH, fill:"transparent",
       onmousemove:e=>showTip(e,`<div class="t-title">${lb}</div>` +
-        seriesList.map(s=>s.values[i]==null?"":`<div class="t-row">${s.name}: ${fmt(s.values[i])}</div>`).join("")),
+        seriesList.map(s=>s.values[i]==null?"":`<div class="t-row">${s.name}: ${fmtV(s.values[i])}</div>`).join("")),
       onmouseleave:hideTip});
     svg.appendChild(hit);
   });
@@ -1688,6 +1709,19 @@ function render(stats){
             it.values[0] ? fmt1(100*it.values[1]/it.values[0]) + "%" : "–"])),
         [{label:"Postulantes", color:css("--s1")},{label:"Ingresantes", color:css("--s3")}]));
 
+      /* línea de tiempo 2013→2026: la tendencia de un vistazo */
+      cardsH.appendChild(card("Línea de tiempo — postulantes e ingresantes",
+        "La misma serie como tendencia continua. Se ve el pico pre-pandemia (2020-1), el desplome de 2021 y la recuperación; los ingresantes se mueven mucho menos que los postulantes. Pasa el cursor para los números exactos de cada proceso.",
+        lineChart(
+          [{name:"Postulantes", color:css("--s1"), values:itemsH.map(it=>it.values[0])},
+           {name:"Ingresantes", color:css("--s3"), values:itemsH.map(it=>it.values[1])}],
+          itemsH.map(it=>it.name),
+          {W: fullW, aria:"Línea de tiempo de postulantes e ingresantes 2013-2026", lblFmt: lb=>lb}),
+        tableView(["Proceso","Postulantes","Ingresantes","1 de cada"],
+          itemsH.map(it=>[it.name, fmt(it.values[0]), fmt(it.values[1]),
+            it.values[1] ? fmt1(it.values[0]/it.values[1]) : "–"])),
+        [{label:"Postulantes", color:css("--s1")},{label:"Ingresantes", color:css("--s3")}]));
+
       /* columnas del comparativo: solo procesos CON notas (2013-2020 viene de PDFs sin puntajes), más el 2026-2 oficial */
       const procNotasH = procH.filter(p => Object.values(serieH.por_proceso[p].por_especialidad || {}).some(d => d && d.nota_min != null));
       const colsH = procNotasH.map(p => ({t:p, nota: esp => {
@@ -1709,12 +1743,77 @@ function render(stats){
         const tablaH = tablaBonita([{t:"Facultad"},{t:"Cód."},{t:"Especialidad"}].concat(colsH.map(c=>({t:c.t, n:1}))),
           filasH, false);
         tablaH.classList.add("tabla-ancha");
+        /* heatmap: fondo más intenso = cierre más alto (carrera más exigente) */
+        {
+          const celdas = []; let loT = Infinity, hiT = -Infinity;
+          tablaH.querySelectorAll("tbody tr").forEach(tr=>{
+            [...tr.children].slice(3).forEach(td=>{
+              const v = td.textContent === "–" ? NaN : parseFloat(td.textContent.replace(",", "."));
+              if(!isNaN(v)){ celdas.push([td,v]); if(v<loT) loT=v; if(v>hiT) hiT=v; }
+            });
+          });
+          if(celdas.length && hiT > loT){
+            celdas.forEach(([td,v])=>{
+              td.style.background = `rgba(42,120,214,${(0.05 + 0.5*(v-loT)/(hiT-loT)).toFixed(3)})`;
+            });
+          }
+        }
         cardsH.appendChild(card("Nota mínima de ingreso por carrera — comparativo histórico",
           "La nota del último ingresante por la modalidad ORDINARIA en cada proceso, en escala vigesimal (0–20). " +
+          "El fondo funciona como mapa de calor: mientras más intenso el azul, más alto fue el cierre (carrera más exigente ese ciclo). " +
           "Fuente: microdatos oficiales de datosabiertos.gob.pe (" + procNotasH[0] + " a " + procNotasH[procNotasH.length-1] + ") y las publicaciones de la UNI para 2026-2; los años 2013-2020 no publicaron puntajes, por eso no aparecen aquí (sí en el gráfico de volumen). " +
-          "Mientras más alta la nota, más competitiva estuvo la carrera ese ciclo. '–' = la especialidad no tuvo oferta (o no hubo ingresantes ordinarios) en ese proceso. " +
-          "Desliza la tabla horizontalmente para ver todos los procesos.",
+          "'–' = la especialidad no tuvo oferta (o no hubo ingresantes ordinarios) en ese proceso. Desliza la tabla horizontalmente.",
           tablaH));
+
+        /* evolución visual: líneas de la nota mínima con selector de carreras */
+        const espDispLN = Object.keys(espUnionH).filter(esp => colsH.filter(c => c.nota(esp) != null).length >= 2);
+        if(espDispLN.length){
+          const PALH = ["--s1","--s2","--s3","--a-violet","--a-yellow","--a-magenta","--guinda","--a-red"];
+          const ordenPick = Object.keys(ESP_COD).filter(e=>espDispLN.includes(e))
+            .concat(espDispLN.filter(e=>!ESP_COD[e]).sort());
+          const DEFH = ["INGENIERÍA CIVIL","INGENIERÍA DE SISTEMAS","INGENIERÍA MECATRÓNICA","INGENIERÍA INDUSTRIAL"].filter(e=>espDispLN.includes(e));
+          const activoH = new Set(DEFH.length ? DEFH : espDispLN.slice(0,4));
+          const labelsLN = colsH.map(c=>c.t);
+          const picker = document.createElement("div"); picker.className = "esp-picker";
+          const contLN = document.createElement("div");
+          function pintarLN(){
+            contLN.innerHTML = "";
+            const act = ordenPick.filter(e=>activoH.has(e));
+            const series = act.map((esp,i)=>({name:ESP_SHORT(esp), color:css(PALH[i%PALH.length]),
+              values: labelsLN.map((_,j)=>{ const v = colsH[j].nota(esp); return v == null ? null : Math.round(v*100)/100; })}));
+            const visibles = series.flatMap(s=>s.values.filter(v=>v!=null));
+            const loY = Math.max(0, Math.floor(Math.min(...visibles) - 0.5));
+            const hiY = Math.min(20, Math.ceil(Math.max(...visibles) + 0.5));
+            contLN.appendChild(lineChart(series, labelsLN,
+              {W: fullW, yMin: loY, yMax: hiY, fmtVal: v=>n2(v), lblFmt: lb=>lb,
+               aria:"Evolución de la nota mínima de ingreso por carrera"}));
+            [...picker.children].forEach(b=>{
+              const idx = act.indexOf(b.dataset.esp);
+              b.classList.toggle("on", idx >= 0);
+              if(idx >= 0) b.style.setProperty("--pick", css(PALH[idx%PALH.length]));
+              b.querySelector(".pdot").style.background = idx >= 0 ? css(PALH[idx%PALH.length]) : "";
+            });
+          }
+          ordenPick.forEach(esp=>{
+            const b = document.createElement("button"); b.type = "button"; b.dataset.esp = esp;
+            b.appendChild(el("span",{class:"pdot"}));
+            b.appendChild(document.createTextNode(ESP_SHORT(esp)));
+            b.addEventListener("click", ()=>{
+              if(activoH.has(esp)){ if(activoH.size > 1) activoH.delete(esp); }
+              else { if(activoH.size >= 8) return; activoH.add(esp); }
+              pintarLN();
+            });
+            picker.appendChild(b);
+          });
+          const wrapLN = document.createElement("div");
+          wrapLN.appendChild(picker); wrapLN.appendChild(contLN);
+          pintarLN();
+          cardsH.appendChild(card("Evolución de la nota mínima — elige tus carreras",
+            "La nota del último ingresante ordinario, proceso a proceso, como línea de tiempo. " +
+            "Toca una carrera para añadirla o quitarla (hasta 8 a la vez); el eje se ajusta a lo elegido. " +
+            "Los tramos sin punto son ciclos donde la carrera no tuvo oferta o no publicó puntajes.",
+            wrapLN));
+        }
       }
 
       /* brecha de género a lo largo del tiempo */

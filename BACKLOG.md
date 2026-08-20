@@ -30,6 +30,8 @@
 
 - [x] 2026-08-20 — **Conteos corregidos con PDF oficial**: en años solapados los CSV subcuentan postulantes (2022-1: 5,292 vs 7,965; 2025-1: 10,259 vs 10,608 = cifra oficial exacta) → regla nueva: PDF autoritativo en conteos/sexo/especialidad, microdatos CSV aportan las notas. 2016-2 publicado con 859 ingresantes (3 tablas lo corroboran; el total impreso 977 está contaminado con datos de 2017-2, anotado en serie_pdf.json). 2018-2 tiene categoría sexo "NE" (15). 10 procesos corregidos.
 
+- [x] 2026-08-20 — **Serie histórica más visual**: (1) el comparativo de notas mínimas ahora es un HEATMAP (azul más intenso = cierre más alto); (2) card nueva "Evolución de la nota mínima — elige tus carreras": líneas por proceso con selector de hasta 8 carreras y eje ajustado (lineChart ganó yMin/yMax/fmtVal/lblFmt, retrocompatible); (3) card "Línea de tiempo — postulantes e ingresantes" 2013→2026-2 con todos los números en tooltip y tabla.
+
 ## Pendiente
 - [ ] **Datos abiertos históricos — investigación COMPLETA (17-ago), integración pendiente.** Hallazgos (URLs verificadas):
   - **1º CSV oficiales en datosabiertos.gob.pe** (microdato por postulante CON puntaje `CALIF_FINAL` + `INGRESO` + modalidad/sexo/departamento, ID hasheado, licencia ODC-BY): `Datos_abiertos_admision_2021_1_2024_1.csv` (13.2MB), `..._2024_2_2025_1_0.csv` (4.8MB), `..._2025_2_2026_1.csv` (3.5MB) en `https://www.datosabiertos.gob.pe/sites/default/files/`. Cobertura continua 2021-1→2026-1 (11 procesos). ⚠️ Escala cambia en 2025-2 (vigesimal → ~2000) y hay `CALIF_FINAL=0` que son ausentes. WAF exige User-Agent de navegador. API CKAN para detectar updates.
