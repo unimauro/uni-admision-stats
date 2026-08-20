@@ -1247,7 +1247,7 @@ function render(stats){
     /* comparación de notas mínimas y máximas por carrera: 2026-1 vs 2026-2 */
     const esp1c = (adm && adm.ingresantes_por_especialidad) || {};
     if(Object.keys(espOrd).length && Object.keys(esp1c).length){
-      const base1De = esp => esp==="ARQUITECTURA" ? 2445 : 1845;   // 2026-1: 1,845 (+600 vocacional en Arquitectura, referencial)
+      const base1De = () => 1845;   // 2026-1: todas /1,845 — los microdatos prueban que el puntaje de Arquitectura NO incluye la vocacional
       const baseDe2 = esp => esp==="ARQUITECTURA" ? 2400 : 1800;
       const union = {};
       Object.keys(espOrd).forEach(k=>union[k]=1);
@@ -1266,8 +1266,8 @@ function render(stats){
         ];
       });
       cardsR.appendChild(card("Notas mínimas y máximas por carrera — 2026-1 vs 2026-2",
-        "Nota vigesimal de cierre (mínima) y máxima por especialidad en ambos ciclos. 2026-2: modalidad ordinario sobre 1,800 (Arquitectura 2,400). " +
-        "2026-1: sobre 1,845 (Arquitectura 2,445, referencial) e incluye modalidades extraordinarias, por eso algunos mínimos son atípicamente bajos. " +
+        "Nota vigesimal de cierre (mínima) y máxima por especialidad en ambos ciclos. 2026-2: modalidad ordinario sobre 1,800 (Arquitectura 2,400 por incluir la vocacional). " +
+        "2026-1: sobre 1,845 (en ese ciclo el puntaje publicado de Arquitectura no incluía la vocacional) e incluye modalidades extraordinarias, por eso algunos mínimos son atípicamente bajos. " +
         "Δ mín positivo = la carrera se puso más exigente. '–' = sin datos en ese ciclo (carreras nuevas en 2026-2).",
         tablaBonita([{t:"Facultad"},{t:"Cód."},{t:"Especialidad"},{t:"Mín 2026-1",n:1},{t:"Mín 2026-2",n:1},{t:"Δ mín",n:1},{t:"Máx 2026-1",n:1},{t:"Máx 2026-2",n:1}],
           filasC, false)));
