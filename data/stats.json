@@ -1,5 +1,5 @@
 {
- "generado_utc": "2026-08-20T16:20:47.883072+00:00",
+ "generado_utc": "2026-08-20T17:20:02.653533+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
@@ -6084,8 +6084,23 @@
   }
  },
  "serie_historica": {
-  "fuente": "Plataforma Nacional de Datos Abiertos (datosabiertos.gob.pe), microdatos oficiales UNI, licencia ODC-BY",
+  "fuente": "Plataforma Nacional de Datos Abiertos (datosabiertos.gob.pe), microdatos oficiales UNI, licencia ODC-BY · 2013-2020: PDFs oficiales de la Dirección de Admisión UNI (vía Wayback Machine), solo conteos",
   "procesos": [
+   "2013-1",
+   "2013-2",
+   "2014-1",
+   "2014-2",
+   "2015-1",
+   "2015-2",
+   "2016-1",
+   "2016-2",
+   "2017-1",
+   "2017-2",
+   "2018-1",
+   "2018-2",
+   "2019-1",
+   "2019-2",
+   "2020-1",
    "2021-1",
    "2021-2",
    "2022-1",
@@ -6099,6 +6114,1930 @@
    "2026-1"
   ],
   "por_proceso": {
+   "2013-1": {
+    "postulantes": 7294,
+    "ingresantes": 1000,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1481,
+      "ingresantes": 130
+     },
+     "M": {
+      "postulantes": 5813,
+      "ingresantes": 870
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 644,
+      "ingresantes": 49
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 41,
+      "ingresantes": 24
+     },
+     "FÍSICA": {
+      "postulantes": 34,
+      "ingresantes": 23
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 217,
+      "ingresantes": 25
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1994,
+      "ingresantes": 113
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 28,
+      "ingresantes": 24
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 437,
+      "ingresantes": 28
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 85,
+      "ingresantes": 15
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 572,
+      "ingresantes": 57
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 90,
+      "ingresantes": 42
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 165,
+      "ingresantes": 58
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 355,
+      "ingresantes": 42
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 106,
+      "ingresantes": 44
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 15,
+      "ingresantes": 33
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 37,
+      "ingresantes": 23
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 108,
+      "ingresantes": 24
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 916,
+      "ingresantes": 58
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 541,
+      "ingresantes": 35
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 305,
+      "ingresantes": 42
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 160,
+      "ingresantes": 41
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 46,
+      "ingresantes": 33
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 34,
+      "ingresantes": 18
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 63,
+      "ingresantes": 17
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 209,
+      "ingresantes": 39
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 35,
+      "ingresantes": 23
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 22,
+      "ingresantes": 23
+     },
+     "MATEMÁTICA": {
+      "postulantes": 19,
+      "ingresantes": 24
+     },
+     "QUÍMICA": {
+      "postulantes": 16,
+      "ingresantes": 23
+     }
+    }
+   },
+   "2013-2": {
+    "postulantes": 5512,
+    "ingresantes": 875,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1165,
+      "ingresantes": 121
+     },
+     "M": {
+      "postulantes": 4347,
+      "ingresantes": 754
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 509,
+      "ingresantes": 51
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 34,
+      "ingresantes": 5
+     },
+     "FÍSICA": {
+      "postulantes": 31,
+      "ingresantes": 3
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 170,
+      "ingresantes": 20
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1489,
+      "ingresantes": 280
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 22,
+      "ingresantes": 3
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 338,
+      "ingresantes": 44
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 59,
+      "ingresantes": 9
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 354,
+      "ingresantes": 45
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 58,
+      "ingresantes": 13
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 119,
+      "ingresantes": 10
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 271,
+      "ingresantes": 56
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 89,
+      "ingresantes": 18
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 16,
+      "ingresantes": 0
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 35,
+      "ingresantes": 4
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 71,
+      "ingresantes": 8
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 722,
+      "ingresantes": 114
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 402,
+      "ingresantes": 86
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 247,
+      "ingresantes": 35
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 141,
+      "ingresantes": 28
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 24,
+      "ingresantes": 3
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 28,
+      "ingresantes": 3
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 43,
+      "ingresantes": 6
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 163,
+      "ingresantes": 24
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 30,
+      "ingresantes": 4
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 18,
+      "ingresantes": 0
+     },
+     "MATEMÁTICA": {
+      "postulantes": 16,
+      "ingresantes": 0
+     },
+     "QUÍMICA": {
+      "postulantes": 13,
+      "ingresantes": 3
+     }
+    }
+   },
+   "2014-1": {
+    "postulantes": 7002,
+    "ingresantes": 995,
+    "por_sexo": {
+     "F": {
+      "postulantes": 1403,
+      "ingresantes": 117
+     },
+     "M": {
+      "postulantes": 5599,
+      "ingresantes": 878
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 618,
+      "ingresantes": 49
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 30,
+      "ingresantes": 22
+     },
+     "FÍSICA": {
+      "postulantes": 35,
+      "ingresantes": 20
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 217,
+      "ingresantes": 24
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1933,
+      "ingresantes": 122
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 23,
+      "ingresantes": 20
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 448,
+      "ingresantes": 25
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 86,
+      "ingresantes": 16
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 480,
+      "ingresantes": 57
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 56,
+      "ingresantes": 42
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 150,
+      "ingresantes": 53
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 340,
+      "ingresantes": 43
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 116,
+      "ingresantes": 46
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 26,
+      "ingresantes": 41
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 37,
+      "ingresantes": 23
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 102,
+      "ingresantes": 24
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 880,
+      "ingresantes": 61
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 519,
+      "ingresantes": 35
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 317,
+      "ingresantes": 43
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 185,
+      "ingresantes": 43
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 34,
+      "ingresantes": 23
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 34,
+      "ingresantes": 20
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 69,
+      "ingresantes": 15
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 180,
+      "ingresantes": 42
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 33,
+      "ingresantes": 23
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 17,
+      "ingresantes": 20
+     },
+     "MATEMÁTICA": {
+      "postulantes": 20,
+      "ingresantes": 23
+     },
+     "QUÍMICA": {
+      "postulantes": 17,
+      "ingresantes": 20
+     }
+    }
+   },
+   "2014-2": {
+    "postulantes": 4977,
+    "ingresantes": 885,
+    "por_sexo": {
+     "F": {
+      "postulantes": 3955,
+      "ingresantes": 733
+     },
+     "M": {
+      "postulantes": 1022,
+      "ingresantes": 152
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 450,
+      "ingresantes": 55
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 49,
+      "ingresantes": 20
+     },
+     "FÍSICA": {
+      "postulantes": 35,
+      "ingresantes": 21
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 154,
+      "ingresantes": 21
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1279,
+      "ingresantes": 113
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 17,
+      "ingresantes": 18
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 341,
+      "ingresantes": 23
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 57,
+      "ingresantes": 14
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 353,
+      "ingresantes": 53
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 45,
+      "ingresantes": 38
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 102,
+      "ingresantes": 48
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 228,
+      "ingresantes": 38
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 80,
+      "ingresantes": 43
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 7,
+      "ingresantes": 37
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 30,
+      "ingresantes": 21
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 79,
+      "ingresantes": 23
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 640,
+      "ingresantes": 56
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 362,
+      "ingresantes": 27
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 253,
+      "ingresantes": 28
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 130,
+      "ingresantes": 29
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 21,
+      "ingresantes": 20
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 14,
+      "ingresantes": 16
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 47,
+      "ingresantes": 12
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 144,
+      "ingresantes": 35
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 25,
+      "ingresantes": 21
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 11,
+      "ingresantes": 15
+     },
+     "MATEMÁTICA": {
+      "postulantes": 15,
+      "ingresantes": 20
+     },
+     "QUÍMICA": {
+      "postulantes": 9,
+      "ingresantes": 20
+     }
+    }
+   },
+   "2015-1": {
+    "postulantes": 6495,
+    "ingresantes": 1015,
+    "por_sexo": {
+     "M": {
+      "postulantes": 5223,
+      "ingresantes": 882
+     },
+     "F": {
+      "postulantes": 1272,
+      "ingresantes": 133
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 586,
+      "ingresantes": 33
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 44,
+      "ingresantes": 26
+     },
+     "FÍSICA": {
+      "postulantes": 49,
+      "ingresantes": 25
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 204,
+      "ingresantes": 28
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1667,
+      "ingresantes": 118
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 30,
+      "ingresantes": 19
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 393,
+      "ingresantes": 27
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 79,
+      "ingresantes": 25
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 437,
+      "ingresantes": 57
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 79,
+      "ingresantes": 42
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 163,
+      "ingresantes": 43
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 275,
+      "ingresantes": 44
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 139,
+      "ingresantes": 49
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 46,
+      "ingresantes": 48
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 45,
+      "ingresantes": 26
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 99,
+      "ingresantes": 24
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 732,
+      "ingresantes": 60
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 490,
+      "ingresantes": 34
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 300,
+      "ingresantes": 44
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 181,
+      "ingresantes": 42
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 46,
+      "ingresantes": 23
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 45,
+      "ingresantes": 20
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 59,
+      "ingresantes": 24
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 183,
+      "ingresantes": 41
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 44,
+      "ingresantes": 25
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 30,
+      "ingresantes": 24
+     },
+     "MATEMÁTICA": {
+      "postulantes": 31,
+      "ingresantes": 22
+     },
+     "QUÍMICA": {
+      "postulantes": 19,
+      "ingresantes": 22
+     }
+    }
+   },
+   "2015-2": {
+    "postulantes": 4984,
+    "ingresantes": 910,
+    "por_sexo": {
+     "M": {
+      "postulantes": 4009,
+      "ingresantes": 767
+     },
+     "F": {
+      "postulantes": 975,
+      "ingresantes": 143
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 445,
+      "ingresantes": 52
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 37,
+      "ingresantes": 21
+     },
+     "FÍSICA": {
+      "postulantes": 35,
+      "ingresantes": 20
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 127,
+      "ingresantes": 21
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1248,
+      "ingresantes": 111
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 28,
+      "ingresantes": 17
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 275,
+      "ingresantes": 25
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 62,
+      "ingresantes": 22
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 366,
+      "ingresantes": 53
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 71,
+      "ingresantes": 38
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 106,
+      "ingresantes": 37
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 229,
+      "ingresantes": 41
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 115,
+      "ingresantes": 41
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 44,
+      "ingresantes": 52
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 44,
+      "ingresantes": 20
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 96,
+      "ingresantes": 21
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 540,
+      "ingresantes": 54
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 350,
+      "ingresantes": 28
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 228,
+      "ingresantes": 27
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 154,
+      "ingresantes": 31
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 31,
+      "ingresantes": 20
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 34,
+      "ingresantes": 15
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 59,
+      "ingresantes": 22
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 167,
+      "ingresantes": 38
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 34,
+      "ingresantes": 21
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 21,
+      "ingresantes": 22
+     },
+     "MATEMÁTICA": {
+      "postulantes": 19,
+      "ingresantes": 20
+     },
+     "QUÍMICA": {
+      "postulantes": 19,
+      "ingresantes": 20
+     }
+    }
+   },
+   "2016-1": {
+    "postulantes": 6746,
+    "ingresantes": 1286,
+    "por_sexo": {
+     "M": {
+      "postulantes": 5385,
+      "ingresantes": 1118
+     },
+     "F": {
+      "postulantes": 1361,
+      "ingresantes": 168
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 617,
+      "ingresantes": 52
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 46,
+      "ingresantes": 35
+     },
+     "FÍSICA": {
+      "postulantes": 53,
+      "ingresantes": 31
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 207,
+      "ingresantes": 37
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1655,
+      "ingresantes": 138
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 22,
+      "ingresantes": 28
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 323,
+      "ingresantes": 42
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 60,
+      "ingresantes": 23
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 538,
+      "ingresantes": 69
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 86,
+      "ingresantes": 50
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 146,
+      "ingresantes": 73
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 326,
+      "ingresantes": 51
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 143,
+      "ingresantes": 57
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 32,
+      "ingresantes": 33
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 35,
+      "ingresantes": 35
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 182,
+      "ingresantes": 35
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 765,
+      "ingresantes": 75
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 558,
+      "ingresantes": 40
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 302,
+      "ingresantes": 53
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 171,
+      "ingresantes": 51
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 47,
+      "ingresantes": 42
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 39,
+      "ingresantes": 32
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 54,
+      "ingresantes": 24
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 237,
+      "ingresantes": 66
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 46,
+      "ingresantes": 40
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 14,
+      "ingresantes": 25
+     },
+     "MATEMÁTICA": {
+      "postulantes": 26,
+      "ingresantes": 25
+     },
+     "QUÍMICA": {
+      "postulantes": 16,
+      "ingresantes": 24
+     }
+    }
+   },
+   "2016-2": {
+    "postulantes": 4414,
+    "ingresantes": 859,
+    "por_sexo": {
+     "M": {
+      "postulantes": 3497,
+      "ingresantes": 731
+     },
+     "F": {
+      "postulantes": 917,
+      "ingresantes": 128
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 399,
+      "ingresantes": 45
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 47,
+      "ingresantes": 29
+     },
+     "FÍSICA": {
+      "postulantes": 45,
+      "ingresantes": 21
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 164,
+      "ingresantes": 20
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 847,
+      "ingresantes": 19
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 52,
+      "ingresantes": 51
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 199,
+      "ingresantes": 21
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 28,
+      "ingresantes": 26
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 300,
+      "ingresantes": 24
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 59,
+      "ingresantes": 24
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 166,
+      "ingresantes": 18
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 244,
+      "ingresantes": 52
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 146,
+      "ingresantes": 109
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 24,
+      "ingresantes": 19
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 34,
+      "ingresantes": 56
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 149,
+      "ingresantes": 18
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 469,
+      "ingresantes": 23
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 307,
+      "ingresantes": 24
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 231,
+      "ingresantes": 34
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 101,
+      "ingresantes": 39
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 24,
+      "ingresantes": 7
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 23,
+      "ingresantes": 38
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 49,
+      "ingresantes": 33
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 176,
+      "ingresantes": 14
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 69,
+      "ingresantes": 10
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 19,
+      "ingresantes": 12
+     },
+     "MATEMÁTICA": {
+      "postulantes": 33,
+      "ingresantes": 21
+     },
+     "QUÍMICA": {
+      "postulantes": 10,
+      "ingresantes": 52
+     }
+    }
+   },
+   "2017-1": {
+    "postulantes": 8249,
+    "ingresantes": 1127,
+    "por_sexo": {
+     "M": {
+      "postulantes": 6397,
+      "ingresantes": 933
+     },
+     "F": {
+      "postulantes": 1872,
+      "ingresantes": 194
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 849,
+      "ingresantes": 69
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 72,
+      "ingresantes": 17
+     },
+     "FÍSICA": {
+      "postulantes": 56,
+      "ingresantes": 19
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 257,
+      "ingresantes": 35
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1691,
+      "ingresantes": 135
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 85,
+      "ingresantes": 30
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 295,
+      "ingresantes": 32
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 61,
+      "ingresantes": 11
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 713,
+      "ingresantes": 65
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 241,
+      "ingresantes": 51
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 289,
+      "ingresantes": 56
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 317,
+      "ingresantes": 59
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 184,
+      "ingresantes": 56
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 59,
+      "ingresantes": 17
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 47,
+      "ingresantes": 14
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 238,
+      "ingresantes": 29
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 834,
+      "ingresantes": 70
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 630,
+      "ingresantes": 41
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 290,
+      "ingresantes": 47
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 212,
+      "ingresantes": 47
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 107,
+      "ingresantes": 35
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 164,
+      "ingresantes": 25
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 67,
+      "ingresantes": 16
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 269,
+      "ingresantes": 67
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 88,
+      "ingresantes": 32
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 49,
+      "ingresantes": 22
+     },
+     "MATEMÁTICA": {
+      "postulantes": 62,
+      "ingresantes": 22
+     },
+     "QUÍMICA": {
+      "postulantes": 23,
+      "ingresantes": 8
+     }
+    }
+   },
+   "2017-2": {
+    "postulantes": 5044,
+    "ingresantes": 977,
+    "por_sexo": {
+     "M": {
+      "postulantes": 3943,
+      "ingresantes": 154
+     },
+     "F": {
+      "postulantes": 1101,
+      "ingresantes": 823
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 467,
+      "ingresantes": 66
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 71,
+      "ingresantes": 18
+     },
+     "FÍSICA": {
+      "postulantes": 68,
+      "ingresantes": 24
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 161,
+      "ingresantes": 29
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 915,
+      "ingresantes": 114
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 53,
+      "ingresantes": 28
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 187,
+      "ingresantes": 32
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 44,
+      "ingresantes": 14
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 391,
+      "ingresantes": 56
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 155,
+      "ingresantes": 50
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 184,
+      "ingresantes": 47
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 208,
+      "ingresantes": 51
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 180,
+      "ingresantes": 49
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 53,
+      "ingresantes": 19
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 54,
+      "ingresantes": 17
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 181,
+      "ingresantes": 26
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 430,
+      "ingresantes": 61
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 267,
+      "ingresantes": 34
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 185,
+      "ingresantes": 30
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 173,
+      "ingresantes": 28
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 102,
+      "ingresantes": 32
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 74,
+      "ingresantes": 23
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 42,
+      "ingresantes": 12
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 217,
+      "ingresantes": 63
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 76,
+      "ingresantes": 25
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 35,
+      "ingresantes": 9
+     },
+     "MATEMÁTICA": {
+      "postulantes": 36,
+      "ingresantes": 13
+     },
+     "QUÍMICA": {
+      "postulantes": 35,
+      "ingresantes": 7
+     }
+    }
+   },
+   "2018-1": {
+    "postulantes": 9842,
+    "ingresantes": 1121,
+    "por_sexo": {
+     "M": {
+      "postulantes": 7493,
+      "ingresantes": 906
+     },
+     "F": {
+      "postulantes": 2349,
+      "ingresantes": 215
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 997,
+      "ingresantes": 65
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 126,
+      "ingresantes": 47
+     },
+     "FÍSICA": {
+      "postulantes": 141,
+      "ingresantes": 29
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 330,
+      "ingresantes": 22
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1942,
+      "ingresantes": 28
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 72,
+      "ingresantes": 70
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 397,
+      "ingresantes": 32
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 52,
+      "ingresantes": 28
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 899,
+      "ingresantes": 37
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 149,
+      "ingresantes": 29
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 403,
+      "ingresantes": 27
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 355,
+      "ingresantes": 53
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 247,
+      "ingresantes": 136
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 87,
+      "ingresantes": 11
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 100,
+      "ingresantes": 61
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 296,
+      "ingresantes": 28
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 955,
+      "ingresantes": 22
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 769,
+      "ingresantes": 29
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 337,
+      "ingresantes": 35
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 213,
+      "ingresantes": 47
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 105,
+      "ingresantes": 28
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 121,
+      "ingresantes": 35
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 69,
+      "ingresantes": 46
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 368,
+      "ingresantes": 45
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 149,
+      "ingresantes": 20
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 69,
+      "ingresantes": 18
+     },
+     "MATEMÁTICA": {
+      "postulantes": 64,
+      "ingresantes": 29
+     },
+     "QUÍMICA": {
+      "postulantes": 30,
+      "ingresantes": 64
+     }
+    }
+   },
+   "2018-2": {
+    "postulantes": 5495,
+    "ingresantes": 787,
+    "por_sexo": {
+     "M": {
+      "postulantes": 4235,
+      "ingresantes": 665
+     },
+     "F": {
+      "postulantes": 1245,
+      "ingresantes": 122
+     },
+     "NE": {
+      "postulantes": 15,
+      "ingresantes": 0
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 561,
+      "ingresantes": 43
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 114,
+      "ingresantes": 18
+     },
+     "FÍSICA": {
+      "postulantes": 84,
+      "ingresantes": 16
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 162,
+      "ingresantes": 29
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 884,
+      "ingresantes": 105
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 65,
+      "ingresantes": 14
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 180,
+      "ingresantes": 24
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 30,
+      "ingresantes": 4
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 437,
+      "ingresantes": 55
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 155,
+      "ingresantes": 32
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 212,
+      "ingresantes": 38
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 217,
+      "ingresantes": 36
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 157,
+      "ingresantes": 29
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 78,
+      "ingresantes": 15
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 56,
+      "ingresantes": 12
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 150,
+      "ingresantes": 24
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 482,
+      "ingresantes": 56
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 280,
+      "ingresantes": 32
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 192,
+      "ingresantes": 29
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 187,
+      "ingresantes": 32
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 153,
+      "ingresantes": 23
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 78,
+      "ingresantes": 18
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 85,
+      "ingresantes": 9
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 283,
+      "ingresantes": 53
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 91,
+      "ingresantes": 17
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 47,
+      "ingresantes": 10
+     },
+     "MATEMÁTICA": {
+      "postulantes": 50,
+      "ingresantes": 7
+     },
+     "QUÍMICA": {
+      "postulantes": 25,
+      "ingresantes": 7
+     }
+    }
+   },
+   "2019-1": {
+    "postulantes": 9508,
+    "ingresantes": 1106,
+    "por_sexo": {
+     "M": {
+      "postulantes": 7330,
+      "ingresantes": 942
+     },
+     "F": {
+      "postulantes": 2178,
+      "ingresantes": 164
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 968,
+      "ingresantes": 54
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 158,
+      "ingresantes": 28
+     },
+     "FÍSICA": {
+      "postulantes": 140,
+      "ingresantes": 26
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 294,
+      "ingresantes": 32
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1785,
+      "ingresantes": 132
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 87,
+      "ingresantes": 23
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 324,
+      "ingresantes": 43
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 58,
+      "ingresantes": 9
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 876,
+      "ingresantes": 63
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 250,
+      "ingresantes": 37
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 329,
+      "ingresantes": 53
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 325,
+      "ingresantes": 41
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 209,
+      "ingresantes": 40
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 117,
+      "ingresantes": 32
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 75,
+      "ingresantes": 20
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 202,
+      "ingresantes": 36
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 843,
+      "ingresantes": 66
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 725,
+      "ingresantes": 42
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 336,
+      "ingresantes": 46
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 266,
+      "ingresantes": 50
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 176,
+      "ingresantes": 32
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 118,
+      "ingresantes": 28
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 90,
+      "ingresantes": 18
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 419,
+      "ingresantes": 70
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 125,
+      "ingresantes": 33
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 82,
+      "ingresantes": 20
+     },
+     "MATEMÁTICA": {
+      "postulantes": 81,
+      "ingresantes": 23
+     },
+     "QUÍMICA": {
+      "postulantes": 50,
+      "ingresantes": 9
+     }
+    }
+   },
+   "2019-2": {
+    "postulantes": 5218,
+    "ingresantes": 955,
+    "por_sexo": {
+     "M": {
+      "postulantes": 4040,
+      "ingresantes": 778
+     },
+     "F": {
+      "postulantes": 1178,
+      "ingresantes": 177
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 516,
+      "ingresantes": 45
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 125,
+      "ingresantes": 26
+     },
+     "FÍSICA": {
+      "postulantes": 92,
+      "ingresantes": 24
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 164,
+      "ingresantes": 30
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 832,
+      "ingresantes": 128
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 67,
+      "ingresantes": 20
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 192,
+      "ingresantes": 36
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 25,
+      "ingresantes": 6
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 452,
+      "ingresantes": 59
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 163,
+      "ingresantes": 34
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 211,
+      "ingresantes": 51
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 189,
+      "ingresantes": 35
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 145,
+      "ingresantes": 37
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 83,
+      "ingresantes": 27
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 42,
+      "ingresantes": 12
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 116,
+      "ingresantes": 29
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 394,
+      "ingresantes": 58
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 290,
+      "ingresantes": 33
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 193,
+      "ingresantes": 29
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 160,
+      "ingresantes": 28
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 86,
+      "ingresantes": 29
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 81,
+      "ingresantes": 21
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 64,
+      "ingresantes": 11
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 271,
+      "ingresantes": 66
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 106,
+      "ingresantes": 28
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 54,
+      "ingresantes": 14
+     },
+     "MATEMÁTICA": {
+      "postulantes": 57,
+      "ingresantes": 23
+     },
+     "QUÍMICA": {
+      "postulantes": 48,
+      "ingresantes": 16
+     }
+    }
+   },
+   "2020-1": {
+    "postulantes": 10159,
+    "ingresantes": 1128,
+    "por_sexo": {
+     "F": {
+      "postulantes": 2350,
+      "ingresantes": 179
+     },
+     "M": {
+      "postulantes": 7809,
+      "ingresantes": 949
+     }
+    },
+    "por_especialidad": {
+     "ARQUITECTURA": {
+      "postulantes": 1054,
+      "ingresantes": 57
+     },
+     "CIENCIA DE LA COMPUTACIÓN": {
+      "postulantes": 210,
+      "ingresantes": 29
+     },
+     "FÍSICA": {
+      "postulantes": 163,
+      "ingresantes": 29
+     },
+     "INGENIERÍA AMBIENTAL": {
+      "postulantes": 363,
+      "ingresantes": 32
+     },
+     "INGENIERÍA CIVIL": {
+      "postulantes": 1912,
+      "ingresantes": 146
+     },
+     "INGENIERÍA DE HIGIENE Y SEGURIDAD INDUSTRIAL": {
+      "postulantes": 68,
+      "ingresantes": 29
+     },
+     "INGENIERÍA DE MINAS": {
+      "postulantes": 393,
+      "ingresantes": 38
+     },
+     "INGENIERÍA DE PETRÓLEO Y GAS NATURAL": {
+      "postulantes": 47,
+      "ingresantes": 10
+     },
+     "INGENIERÍA DE SISTEMAS": {
+      "postulantes": 1054,
+      "ingresantes": 74
+     },
+     "INGENIERÍA DE TELECOMUNICACIONES": {
+      "postulantes": 272,
+      "ingresantes": 36
+     },
+     "INGENIERÍA ECONÓMICA": {
+      "postulantes": 385,
+      "ingresantes": 47
+     },
+     "INGENIERÍA ELECTRÓNICA": {
+      "postulantes": 366,
+      "ingresantes": 39
+     },
+     "INGENIERÍA ELÉCTRICA": {
+      "postulantes": 180,
+      "ingresantes": 34
+     },
+     "INGENIERÍA ESTADÍSTICA": {
+      "postulantes": 109,
+      "ingresantes": 44
+     },
+     "INGENIERÍA FÍSICA": {
+      "postulantes": 61,
+      "ingresantes": 24
+     },
+     "INGENIERÍA GEOLÓGICA": {
+      "postulantes": 225,
+      "ingresantes": 29
+     },
+     "INGENIERÍA INDUSTRIAL": {
+      "postulantes": 871,
+      "ingresantes": 70
+     },
+     "INGENIERÍA MECATRÓNICA": {
+      "postulantes": 914,
+      "ingresantes": 48
+     },
+     "INGENIERÍA MECÁNICA": {
+      "postulantes": 372,
+      "ingresantes": 46
+     },
+     "INGENIERÍA MECÁNICA-ELÉCTRICA": {
+      "postulantes": 212,
+      "ingresantes": 48
+     },
+     "INGENIERÍA METALÚRGICA": {
+      "postulantes": 78,
+      "ingresantes": 30
+     },
+     "INGENIERÍA NAVAL": {
+      "postulantes": 65,
+      "ingresantes": 27
+     },
+     "INGENIERÍA PETROQUÍMICA": {
+      "postulantes": 97,
+      "ingresantes": 19
+     },
+     "INGENIERÍA QUÍMICA": {
+      "postulantes": 375,
+      "ingresantes": 48
+     },
+     "INGENIERÍA SANITARIA": {
+      "postulantes": 127,
+      "ingresantes": 30
+     },
+     "INGENIERÍA TEXTIL": {
+      "postulantes": 40,
+      "ingresantes": 21
+     },
+     "MATEMÁTICA": {
+      "postulantes": 81,
+      "ingresantes": 26
+     },
+     "QUÍMICA": {
+      "postulantes": 65,
+      "ingresantes": 18
+     }
+    }
+   },
    "2021-1": {
     "postulantes": 5290,
     "ingresantes": 825,

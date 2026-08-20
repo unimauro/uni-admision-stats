@@ -1688,8 +1688,9 @@ function render(stats){
             it.values[0] ? fmt1(100*it.values[1]/it.values[0]) + "%" : "–"])),
         [{label:"Postulantes", color:css("--s1")},{label:"Ingresantes", color:css("--s3")}]));
 
-      /* columnas del comparativo: un proceso de los microdatos por columna, más el 2026-2 oficial */
-      const colsH = procH.map(p => ({t:p, nota: esp => {
+      /* columnas del comparativo: solo procesos CON notas (2013-2020 viene de PDFs sin puntajes), más el 2026-2 oficial */
+      const procNotasH = procH.filter(p => Object.values(serieH.por_proceso[p].por_especialidad || {}).some(d => d && d.nota_min != null));
+      const colsH = procNotasH.map(p => ({t:p, nota: esp => {
         const d = (serieH.por_proceso[p].por_especialidad || {})[esp];
         return (d && d.nota_min != null) ? d.nota_min : null;
       }}));
@@ -1697,7 +1698,7 @@ function render(stats){
         colsH.push({t:"2026-2", nota: esp => (ordH[esp] && ordH[esp].min != null) ? 20*ordH[esp].min/baseH(esp) : null});
       }
       const espUnionH = {};
-      procH.forEach(p => Object.keys(serieH.por_proceso[p].por_especialidad || {}).forEach(e => espUnionH[e] = 1));
+      procNotasH.forEach(p => Object.keys(serieH.por_proceso[p].por_especialidad || {}).forEach(e => espUnionH[e] = 1));
       Object.keys(ordH).forEach(e => espUnionH[e] = 1);
 
       if(Object.keys(espUnionH).length && colsH.length){
@@ -1710,7 +1711,7 @@ function render(stats){
         tablaH.classList.add("tabla-ancha");
         cardsH.appendChild(card("Nota mínima de ingreso por carrera — comparativo histórico",
           "La nota del último ingresante por la modalidad ORDINARIA en cada proceso, en escala vigesimal (0–20). " +
-          "Fuente: microdatos oficiales de datosabiertos.gob.pe (" + procH[0] + " a " + procH[procH.length-1] + ") y las publicaciones de la UNI para 2026-2. " +
+          "Fuente: microdatos oficiales de datosabiertos.gob.pe (" + procNotasH[0] + " a " + procNotasH[procNotasH.length-1] + ") y las publicaciones de la UNI para 2026-2; los años 2013-2020 no publicaron puntajes, por eso no aparecen aquí (sí en el gráfico de volumen). " +
           "Mientras más alta la nota, más competitiva estuvo la carrera ese ciclo. '–' = la especialidad no tuvo oferta (o no hubo ingresantes ordinarios) en ese proceso. " +
           "Desliza la tabla horizontalmente para ver todos los procesos.",
           tablaH));
