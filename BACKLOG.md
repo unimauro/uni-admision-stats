@@ -35,6 +35,8 @@
 - [x] 2026-08-20 — **Error de la fuente detectado por el usuario y corregido**: el PDF oficial 2017-2 imprime los ingresantes por sexo INTERCAMBIADOS (Femenino 823 = 84%, imposible en una serie de 14-19%); build_stats los devuelve a su sitio con guarda exacta anti doble-swap. Ahora 2017-2 = 15.8% mujeres ingresantes, coherente.
 - [x] 2026-08-20 — **Card "¿Dónde ingresan más mujeres?"**: sexo × carrera acumulado 2021-2026 desde microdatos (`genero_por_especialidad` nuevo en stats.json), % mujeres ingresantes vs postulantes por carrera (umbral 20+ ingresantes). Hallazgo: ARQUITECTURA es la única con mayoría femenina (55.8%); siguen Urbanismo 47.4%, Ambiental 41.4%, Textil 40.6%.
 
+- [x] 2026-08-20 — **Fix 2014-2 (detectado por el usuario)**: el PDF oficial imprime las filas F/M COMPLETAS intercambiadas (79.5% mujeres postulantes, imposible). Corregido con guarda exacta. Barrido completo de la serie: ya no queda ningún proceso anómalo (%F postulantes 19.6-24.6, %F ingresantes 11.8-19.3).
+
 ## Pendiente
 - [ ] **Datos abiertos históricos — investigación COMPLETA (17-ago), integración pendiente.** Hallazgos (URLs verificadas):
   - **1º CSV oficiales en datosabiertos.gob.pe** (microdato por postulante CON puntaje `CALIF_FINAL` + `INGRESO` + modalidad/sexo/departamento, ID hasheado, licencia ODC-BY): `Datos_abiertos_admision_2021_1_2024_1.csv` (13.2MB), `..._2024_2_2025_1_0.csv` (4.8MB), `..._2025_2_2026_1.csv` (3.5MB) en `https://www.datosabiertos.gob.pe/sites/default/files/`. Cobertura continua 2021-1→2026-1 (11 procesos). ⚠️ Escala cambia en 2025-2 (vigesimal → ~2000) y hay `CALIF_FINAL=0` que son ausentes. WAF exige User-Agent de navegador. API CKAN para detectar updates.

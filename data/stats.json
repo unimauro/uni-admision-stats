@@ -1,5 +1,5 @@
 {
- "generado_utc": "2026-08-20T19:45:09.125331+00:00",
+ "generado_utc": "2026-08-20T19:58:42.228448+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
@@ -6578,12 +6578,12 @@
     "ingresantes": 885,
     "por_sexo": {
      "F": {
-      "postulantes": 3955,
-      "ingresantes": 733
-     },
-     "M": {
       "postulantes": 1022,
       "ingresantes": 152
+     },
+     "M": {
+      "postulantes": 3955,
+      "ingresantes": 733
      }
     },
     "por_especialidad": {
