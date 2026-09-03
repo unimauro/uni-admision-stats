@@ -1,10 +1,10 @@
 {
- "generado_utc": "2026-09-02T19:40:30.501255+00:00",
+ "generado_utc": "2026-09-03T09:34:21.682417+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
   "ciclo": "2026-2",
-  "ultima_fecha": "2026-09-02_19Z",
+  "ultima_fecha": "2026-09-03_09Z",
   "publicaciones": {
    "asignacion-admision-especial": {
     "nombre_oficial": "RESULTADOS DEL EXAMEN DE ADMISIÓN ESPECIAL",
@@ -6628,6 +6628,86 @@
    },
    {
     "fecha": "2026-09-02_19Z",
+    "publicaciones": {
+     "asignacion-admision-especial": {
+      "total": 44,
+      "presentes": 44,
+      "ausentes": 0
+     },
+     "asignacion-admision-especial-arquitectura": {
+      "total": 3,
+      "presentes": 3,
+      "ausentes": 0
+     },
+     "asignacion-admision-titulado-uni": {
+      "total": 9,
+      "presentes": 0,
+      "ausentes": 0
+     },
+     "asignacion-vacantes-juliaca": {
+      "total": 48,
+      "presentes": 48,
+      "ausentes": 0
+     },
+     "asignacion-vacantes-lima": {
+      "total": 2242,
+      "presentes": 2242,
+      "ausentes": 0
+     },
+     "resultados-admision-aptitud-academica-humanidades": {
+      "total": 4642,
+      "presentes": 4605,
+      "ausentes": 37
+     },
+     "resultados-admision-examen-especial": {
+      "total": 47,
+      "presentes": 44,
+      "ausentes": 3
+     },
+     "resultados-admision-participante-sin-derecho-vacante-matematica": {
+      "total": 184,
+      "presentes": 169,
+      "ausentes": 15
+     },
+     "resultados-admision-prueba-fisica-quimica": {
+      "total": 4454,
+      "presentes": 4454,
+      "ausentes": 0
+     },
+     "resultados-admision-prueba-matematica": {
+      "total": 4458,
+      "presentes": 4407,
+      "ausentes": 51
+     },
+     "resultados-admision-vocacional": {
+      "total": 309,
+      "presentes": 303,
+      "ausentes": 6
+     },
+     "resultados-concurso-admision-2026-2": {
+      "total": 4120,
+      "presentes": 4120,
+      "ausentes": 0
+     },
+     "resultados-concurso-admision-2026-2-arquitectura": {
+      "total": 334,
+      "presentes": 334,
+      "ausentes": 0
+     },
+     "resultados-concurso-admision-2026-2-sin-derecho-vacante": {
+      "total": 185,
+      "presentes": 185,
+      "ausentes": 0
+     },
+     "resultados-concurso-admision-2026-2-sin-derecho-vacante-arquitectura": {
+      "total": 3,
+      "presentes": 3,
+      "ausentes": 0
+     }
+    }
+   },
+   {
+    "fecha": "2026-09-03_09Z",
     "publicaciones": {
      "asignacion-admision-especial": {
       "total": 44,
