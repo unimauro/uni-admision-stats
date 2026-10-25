@@ -1,5 +1,5 @@
 {
- "generado_utc": "2026-10-11T20:52:09.789835+00:00",
+ "generado_utc": "2026-10-25T15:41:30.627013+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
@@ -114,6 +114,7 @@
      268.0,
      264.0
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 432.0,
@@ -356,6 +357,7 @@
      164.0,
      156.0
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 240.0,
@@ -406,6 +408,7 @@
     "puntajes": null,
     "histograma": [],
     "top_puntajes": [],
+    "n_maximo": 0,
     "top10": [],
     "ingresantes": 9,
     "por_modalidad": {
@@ -583,6 +586,7 @@
      1645.55,
      1521.74
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 2203.795,
@@ -921,6 +925,7 @@
      2585.195,
      2573.187
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 2773.976,
@@ -1492,6 +1497,7 @@
      465.6,
      463.2
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 492.0,
@@ -1643,6 +1649,7 @@
      268.0,
      264.0
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 432.0,
@@ -1824,6 +1831,7 @@
      483.0,
      468.0
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 600.0,
@@ -1995,6 +2003,7 @@
      531.0,
      531.0
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 549.0,
@@ -2176,6 +2185,7 @@
      564.0,
      564.0
     ],
+    "n_maximo": 2,
     "top10": [
      {
       "puntaje": 600.0,
@@ -2347,6 +2357,7 @@
      526.8,
      526.8
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 558.0,
@@ -2508,6 +2519,7 @@
      1435.2,
      1425.0
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 1601.4,
@@ -3244,6 +3256,7 @@
      1110.0,
      1102.8
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 1235.4,
@@ -3482,6 +3495,7 @@
      1368.6,
      1347.0
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 1602.0,
@@ -3610,6 +3624,7 @@
      433.8,
      353.4
     ],
+    "n_maximo": 1,
     "top10": [
      {
       "puntaje": 611.4,
@@ -12542,6 +12557,697 @@
      "resultados-concurso-admision-2026-2-sin-derecho-vacante-arquitectura": {
       "total": 3,
       "presentes": 3,
+      "ausentes": 0
+     }
+    }
+   }
+  ]
+ },
+ "proceso_en_curso": {
+  "ciclo": "2027-1",
+  "ultima_fecha": "2026-10-25_15Z",
+  "publicaciones": {
+   "primer-parcial-juliaca": {
+    "nombre_oficial": "RESULTADOS DEL PRIMER PARCIAL CEPREUNI JULIACA – 2027-1",
+    "archivo_fuente": "primer-parcial-juliaca.json",
+    "total": 107,
+    "presentes": 87,
+    "ausentes": 20,
+    "pct_ausentismo": 18.69,
+    "puntajes": {
+     "n": 87,
+     "min": 7.25,
+     "max": 126.0,
+     "media": 67.506,
+     "mediana": 68.25,
+     "desv": 31.882,
+     "p10": 22.5,
+     "p25": 43.0,
+     "p75": 93.5,
+     "p90": 113.3
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 10,
+      "n": 2
+     },
+     {
+      "desde": 10,
+      "hasta": 20,
+      "n": 6
+     },
+     {
+      "desde": 20,
+      "hasta": 30,
+      "n": 4
+     },
+     {
+      "desde": 30,
+      "hasta": 40,
+      "n": 8
+     },
+     {
+      "desde": 40,
+      "hasta": 50,
+      "n": 8
+     },
+     {
+      "desde": 50,
+      "hasta": 60,
+      "n": 9
+     },
+     {
+      "desde": 60,
+      "hasta": 70,
+      "n": 7
+     },
+     {
+      "desde": 70,
+      "hasta": 80,
+      "n": 10
+     },
+     {
+      "desde": 80,
+      "hasta": 90,
+      "n": 9
+     },
+     {
+      "desde": 90,
+      "hasta": 100,
+      "n": 9
+     },
+     {
+      "desde": 100,
+      "hasta": 110,
+      "n": 6
+     },
+     {
+      "desde": 110,
+      "hasta": 120,
+      "n": 5
+     },
+     {
+      "desde": 120,
+      "hasta": 130,
+      "n": 4
+     }
+    ],
+    "top_puntajes": [
+     126.0,
+     125.0,
+     120.5,
+     120.0,
+     119.0,
+     117.25,
+     117.0,
+     116.5,
+     112.5,
+     108.25
+    ],
+    "n_maximo": 1,
+    "top10": [
+     {
+      "puntaje": 126.0,
+      "nombre": "TICONA MERMA RUBEN JAVIER"
+     },
+     {
+      "puntaje": 125.0,
+      "nombre": "CALDERON PERCA HECTOR FERNANDO"
+     },
+     {
+      "puntaje": 120.5,
+      "nombre": "CCASO CHURA MARCO ANTONIO"
+     },
+     {
+      "puntaje": 120.0,
+      "nombre": "YUCRA VILCA CLEVER DANIEL"
+     },
+     {
+      "puntaje": 119.0,
+      "nombre": "PAREDES MOLLEAPAZA LUIS FRANCO"
+     },
+     {
+      "puntaje": 117.25,
+      "nombre": "PEREZ MAMANI ARIAN ZAIDTH"
+     },
+     {
+      "puntaje": 117.0,
+      "nombre": "ENCINAS AMANQUI ROGER ABDIEL LEE"
+     },
+     {
+      "puntaje": 116.5,
+      "nombre": "GUTIERREZ QUISPE JOHAN JOSEP"
+     },
+     {
+      "puntaje": 112.5,
+      "nombre": "HINOJOSA MAMANI HAROLD DAVID"
+     },
+     {
+      "puntaje": 108.25,
+      "nombre": "PACCO COYLA BRAD BRANDON"
+     }
+    ]
+   },
+   "primer-parcial-lima": {
+    "nombre_oficial": "RESULTADOS DEL PRIMER PARCIAL CEPREUNI LIMA – 2027-1",
+    "archivo_fuente": "primer-parcial-lima.json",
+    "total": 2265,
+    "presentes": 2131,
+    "ausentes": 134,
+    "pct_ausentismo": 5.92,
+    "puntajes": {
+     "n": 2131,
+     "min": 1.0,
+     "max": 145.5,
+     "media": 68.016,
+     "mediana": 68.75,
+     "desv": 28.737,
+     "p10": 28.55,
+     "p25": 45.75,
+     "p75": 90.0,
+     "p90": 106.5
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 10,
+      "n": 15
+     },
+     {
+      "desde": 10,
+      "hasta": 20,
+      "n": 86
+     },
+     {
+      "desde": 20,
+      "hasta": 30,
+      "n": 127
+     },
+     {
+      "desde": 30,
+      "hasta": 40,
+      "n": 178
+     },
+     {
+      "desde": 40,
+      "hasta": 50,
+      "n": 213
+     },
+     {
+      "desde": 50,
+      "hasta": 60,
+      "n": 236
+     },
+     {
+      "desde": 60,
+      "hasta": 70,
+      "n": 244
+     },
+     {
+      "desde": 70,
+      "hasta": 80,
+      "n": 268
+     },
+     {
+      "desde": 80,
+      "hasta": 90,
+      "n": 230
+     },
+     {
+      "desde": 90,
+      "hasta": 100,
+      "n": 197
+     },
+     {
+      "desde": 100,
+      "hasta": 110,
+      "n": 177
+     },
+     {
+      "desde": 110,
+      "hasta": 120,
+      "n": 111
+     },
+     {
+      "desde": 120,
+      "hasta": 130,
+      "n": 40
+     },
+     {
+      "desde": 130,
+      "hasta": 140,
+      "n": 7
+     },
+     {
+      "desde": 140,
+      "hasta": 150,
+      "n": 2
+     }
+    ],
+    "top_puntajes": [
+     145.5,
+     141.25,
+     135.75,
+     132.75,
+     132.25,
+     132.0,
+     131.0,
+     130.75,
+     130.5,
+     129.25
+    ],
+    "n_maximo": 1,
+    "top10": [
+     {
+      "puntaje": 145.5,
+      "nombre": "DELGADO CLAROS VICTOR ANTONIO ROLANDO"
+     },
+     {
+      "puntaje": 141.25,
+      "nombre": "JARA RODRIGUEZ ELMER ARELE"
+     },
+     {
+      "puntaje": 135.75,
+      "nombre": "INOCENCIO ALIAGA JOSEPH BYERON"
+     },
+     {
+      "puntaje": 132.75,
+      "nombre": "HERRERA PANUERA JHORDAN DANIEL"
+     },
+     {
+      "puntaje": 132.25,
+      "nombre": "ZEGARRA DONAYRE MAURICIO ALEJANDRO"
+     },
+     {
+      "puntaje": 132.0,
+      "nombre": "LEONARDO SÁNCHEZ SEBASTIAN PABLO"
+     },
+     {
+      "puntaje": 131.0,
+      "nombre": "MARCOS TEJEDA MOISES GONZALO"
+     },
+     {
+      "puntaje": 130.75,
+      "nombre": "AGREDA CUYA MANUEL ANTONIO"
+     },
+     {
+      "puntaje": 130.5,
+      "nombre": "DIAZ DE LA CRUZ SMITH ALBERTH"
+     },
+     {
+      "puntaje": 129.25,
+      "nombre": "SALINAS AMAHUANCA JIRETH SAID"
+     }
+    ]
+   },
+   "simulacro-ien-2027-1-15-18": {
+    "nombre_oficial": "SIMULACRO IEN 2027-1 DE 15H00 A 18H00",
+    "archivo_fuente": "simulacro-ien-2027-1-15-18.json",
+    "total": 88,
+    "presentes": 88,
+    "ausentes": 0,
+    "pct_ausentismo": 0.0,
+    "puntajes": {
+     "n": 88,
+     "min": -1.5,
+     "max": 600.0,
+     "media": 262.276,
+     "mediana": 276.0,
+     "desv": 172.401,
+     "p10": 44.8,
+     "p25": 96.812,
+     "p75": 410.312,
+     "p90": 509.1
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 30,
+      "n": 5
+     },
+     {
+      "desde": 30,
+      "hasta": 60,
+      "n": 7
+     },
+     {
+      "desde": 60,
+      "hasta": 90,
+      "n": 7
+     },
+     {
+      "desde": 90,
+      "hasta": 120,
+      "n": 8
+     },
+     {
+      "desde": 120,
+      "hasta": 150,
+      "n": 4
+     },
+     {
+      "desde": 150,
+      "hasta": 180,
+      "n": 3
+     },
+     {
+      "desde": 180,
+      "hasta": 210,
+      "n": 4
+     },
+     {
+      "desde": 210,
+      "hasta": 240,
+      "n": 3
+     },
+     {
+      "desde": 240,
+      "hasta": 270,
+      "n": 2
+     },
+     {
+      "desde": 270,
+      "hasta": 300,
+      "n": 8
+     },
+     {
+      "desde": 300,
+      "hasta": 330,
+      "n": 4
+     },
+     {
+      "desde": 330,
+      "hasta": 360,
+      "n": 6
+     },
+     {
+      "desde": 360,
+      "hasta": 390,
+      "n": 4
+     },
+     {
+      "desde": 390,
+      "hasta": 420,
+      "n": 2
+     },
+     {
+      "desde": 420,
+      "hasta": 450,
+      "n": 8
+     },
+     {
+      "desde": 450,
+      "hasta": 480,
+      "n": 1
+     },
+     {
+      "desde": 480,
+      "hasta": 510,
+      "n": 4
+     },
+     {
+      "desde": 510,
+      "hasta": 540,
+      "n": 3
+     },
+     {
+      "desde": 540,
+      "hasta": 570,
+      "n": 2
+     },
+     {
+      "desde": 570,
+      "hasta": 600,
+      "n": 2
+     },
+     {
+      "desde": 600,
+      "hasta": 630,
+      "n": 1
+     }
+    ],
+    "top_puntajes": [
+     600.0,
+     591.0,
+     585.0,
+     560.0,
+     555.0,
+     529.0,
+     528.5,
+     528.0,
+     507.0,
+     506.5
+    ],
+    "n_maximo": 1,
+    "top10": [
+     {
+      "puntaje": 600.0,
+      "nombre": "RUFFNER TERREL JHORDY ANDREY"
+     },
+     {
+      "puntaje": 591.0,
+      "nombre": "ROSAS RAMIREZ JEREMY JORDAN"
+     },
+     {
+      "puntaje": 585.0,
+      "nombre": "BOZA AYALA MAURICIO DANIEL"
+     },
+     {
+      "puntaje": 560.0,
+      "nombre": "RODRÍGUEZ ALMONACID KIRA AMISZADAY"
+     },
+     {
+      "puntaje": 555.0,
+      "nombre": "MAMANI ACROTA DANNA MARIAM"
+     },
+     {
+      "puntaje": 529.0,
+      "nombre": "BUSTAMANTE VENTURA SAHORY DANIELA"
+     },
+     {
+      "puntaje": 528.5,
+      "nombre": "GONZALES BAUTISTA CARLOS ISRAEL"
+     },
+     {
+      "puntaje": 528.0,
+      "nombre": "LA TORRE CANCHAYA ISMAEL JIRO"
+     },
+     {
+      "puntaje": 507.0,
+      "nombre": "SARMIENTO LARICO AXEL RAUL ELOY"
+     },
+     {
+      "puntaje": 506.5,
+      "nombre": "QUILCA PEZUA RUBEN MATHIAS"
+     }
+    ]
+   },
+   "simulacro-ien-2027-1-9-12": {
+    "nombre_oficial": "SIMULACRO IEN 2027-1 DE 9H00 A 12H00",
+    "archivo_fuente": "simulacro-ien-2027-1-9-12.json",
+    "total": 2693,
+    "presentes": 2693,
+    "ausentes": 0,
+    "pct_ausentismo": 0.0,
+    "puntajes": {
+     "n": 2693,
+     "min": 1.0,
+     "max": 600.0,
+     "media": 281.415,
+     "mediana": 277.5,
+     "desv": 146.734,
+     "p10": 90.1,
+     "p25": 161.625,
+     "p75": 390.75,
+     "p90": 483.3
+    },
+    "histograma": [
+     {
+      "desde": 0,
+      "hasta": 30,
+      "n": 52
+     },
+     {
+      "desde": 30,
+      "hasta": 60,
+      "n": 81
+     },
+     {
+      "desde": 60,
+      "hasta": 90,
+      "n": 134
+     },
+     {
+      "desde": 90,
+      "hasta": 120,
+      "n": 180
+     },
+     {
+      "desde": 120,
+      "hasta": 150,
+      "n": 150
+     },
+     {
+      "desde": 150,
+      "hasta": 180,
+      "n": 188
+     },
+     {
+      "desde": 180,
+      "hasta": 210,
+      "n": 179
+     },
+     {
+      "desde": 210,
+      "hasta": 240,
+      "n": 174
+     },
+     {
+      "desde": 240,
+      "hasta": 270,
+      "n": 164
+     },
+     {
+      "desde": 270,
+      "hasta": 300,
+      "n": 192
+     },
+     {
+      "desde": 300,
+      "hasta": 330,
+      "n": 161
+     },
+     {
+      "desde": 330,
+      "hasta": 360,
+      "n": 191
+     },
+     {
+      "desde": 360,
+      "hasta": 390,
+      "n": 167
+     },
+     {
+      "desde": 390,
+      "hasta": 420,
+      "n": 133
+     },
+     {
+      "desde": 420,
+      "hasta": 450,
+      "n": 130
+     },
+     {
+      "desde": 450,
+      "hasta": 480,
+      "n": 126
+     },
+     {
+      "desde": 480,
+      "hasta": 510,
+      "n": 99
+     },
+     {
+      "desde": 510,
+      "hasta": 540,
+      "n": 70
+     },
+     {
+      "desde": 540,
+      "hasta": 570,
+      "n": 58
+     },
+     {
+      "desde": 570,
+      "hasta": 600,
+      "n": 43
+     },
+     {
+      "desde": 600,
+      "hasta": 630,
+      "n": 21
+     }
+    ],
+    "top_puntajes": [
+     600.0,
+     600.0,
+     600.0,
+     600.0,
+     600.0,
+     600.0,
+     600.0,
+     600.0,
+     600.0,
+     600.0
+    ],
+    "n_maximo": 21,
+    "top10": [
+     {
+      "puntaje": 600.0,
+      "nombre": "YUPANQUI ARTICA PATRICK RENATO"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "CUBAS FERNANDEZ PAULO AUGUSTO"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "CAMPOS ZUÑIGA DAVID MOISÉS"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "ALVA MELENDRES JAMES STEVEN MILLER"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "NAKAYOSHI INAMI AIMI"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "SULLCA PORRAS ANDRES OMAR"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "MORALES YOVERA ELISA SARAI"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "YTO MAMANI MARIA JOSE"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "ZEGARRA SOTELO SANTIAGO MATHIAS"
+     },
+     {
+      "puntaje": 600.0,
+      "nombre": "CAUTI HUAYHUA KRISTEL YAMILETH"
+     }
+    ]
+   }
+  },
+  "evolucion": [
+   {
+    "fecha": "2026-10-25_15Z",
+    "publicaciones": {
+     "primer-parcial-juliaca": {
+      "total": 107,
+      "presentes": 87,
+      "ausentes": 20
+     },
+     "primer-parcial-lima": {
+      "total": 2265,
+      "presentes": 2131,
+      "ausentes": 134
+     },
+     "simulacro-ien-2027-1-15-18": {
+      "total": 88,
+      "presentes": 88,
+      "ausentes": 0
+     },
+     "simulacro-ien-2027-1-9-12": {
+      "total": 2693,
+      "presentes": 2693,
       "ausentes": 0
      }
     }

@@ -345,6 +345,7 @@ footer.page-foot p{max-width:75ch}
     <div class="brand-sub">Admisión · estadísticas abiertas</div>
     <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema claro/oscuro">🌙</button>
     <nav id="side-nav">
+      <a class="nav-link" href="#proceso"><span class="dot" style="background:var(--guinda)"></span>Proceso 2027-1</a>
       <a class="nav-link" href="#examen"><span class="dot" style="background:var(--s1)"></span>Examen 2026-2</a>
       <a class="nav-link" href="#finales"><span class="dot" style="background:var(--a-magenta)"></span>Resultados finales</a>
       <a class="nav-link" href="#variacion"><span class="dot" style="background:var(--guinda)"></span>Variación 2026-1 → 2</a>
@@ -367,6 +368,7 @@ footer.page-foot p{max-width:75ch}
   <main>
     <nav class="topnav" aria-label="Secciones">
       <button class="theme-toggle" id="theme-toggle-m" aria-label="Cambiar tema claro/oscuro">🌙</button>
+      <a href="#proceso"><span class="dot" style="background:var(--guinda)"></span>2027-1</a>
       <a href="#examen"><span class="dot" style="background:var(--s1)"></span>Examen 2026-2</a>
       <a href="#finales"><span class="dot" style="background:var(--a-magenta)"></span>Finales</a>
       <a href="#variacion"><span class="dot" style="background:var(--guinda)"></span>Variación</a>
@@ -959,6 +961,101 @@ function facFilterCard(title, sub, espEntries, buildChart, table){
 /* ---------- render principal ---------- */
 let lastStats = null;
 
+/* ===== Proceso siguiente en curso (2027-1: simulacros IEN, parciales CEPRE) =====
+   Auto-render: cada JSON que la UNI publique bajo el nuevo proceso aparece aquí con
+   tiles + histograma + top 10, sin tocar las secciones del ciclo con resultados finales. */
+const BASE_SIMULACRO = 600;   // el simulacro IEN se califica como cada prueba del examen: /600
+function nombreCortoPub(k, p){
+  const of = String(p.nombre_oficial || "");
+  let m;
+  if((m = k.match(/simulacro.*?(\d{1,2})-(\d{1,2})$/))) return `Simulacro IEN · ${m[1]}–${m[2]} h`;
+  if((m = k.match(/^(primer|segundo|tercer|cuarto)-parcial-(\w+)$/)))
+    return `${{primer:"1er",segundo:"2do",tercer:"3er",cuarto:"4to"}[m[1]]} parcial CEPRE · ${m[2][0].toUpperCase()+m[2].slice(1)}`;
+  if(of) return of.replace(/\s*[–-]\s*20\d\d-[12]\s*$/,"").replace(/^RESULTADOS DEL?\s*/i,"").toLowerCase().replace(/(^|\s)\S/g, t=>t.toUpperCase());
+  return k.replace(/-/g," ");
+}
+function renderProcesoEnCurso(stats, app, halfW){
+  const pe = stats.proceso_en_curso;
+  const pubs = (pe && pe.publicaciones) || {};
+  const keys = Object.keys(pubs).filter(k => pubs[k] && pubs[k].puntajes && pubs[k].total);
+  if(!keys.length) return;
+  const ciclo = pe.ciclo || "";
+  const simK = keys.filter(k=>k.includes("simulacro")), parK = keys.filter(k=>k.includes("parcial"));
+  const tieneExamen = keys.some(k=>k.startsWith("resultados-admision") || k.includes("concurso"));
+  // simulacros por hora de inicio (9 antes que 15), luego parciales, luego el resto
+  const orden = k => { const m = k.match(/(\d{1,2})-(\d{1,2})$/);
+    return (k.includes("simulacro") ? "0" : k.includes("parcial") ? "1" : "2") + (m ? String(100+Number(m[1])) : "") + k; };
+  keys.sort((a,b)=> orden(a) < orden(b) ? -1 : 1);
+  const colorDe = k => k.includes("simulacro") ? "--guinda" : k.includes("parcial") ? "--s2" : "--a-violet";
+  const baseDe = k => k.includes("simulacro") ? BASE_SIMULACRO : (k.startsWith("resultados-admision") ? BASE_PRUEBA_2026_2 : null);
+  const fechaSnap = (pe.ultima_fecha||"").slice(0,10);
+
+  const sP = section("proceso", `Proceso ${ciclo} · en curso`, "--guinda", `Camino al examen ${ciclo}`,
+    `La Dirección de Admisión ya publica resultados del proceso ${ciclo}: ` +
+    (simK.length ? "simulacros IEN" : "") + (simK.length && parK.length ? " y " : "") +
+    (parK.length ? "parciales del CEPRE (Lima y Juliaca)" : "") + ". " +
+    (tieneExamen ? "" : `El examen de admisión ${ciclo} todavía no se rinde; `) +
+    `esta sección se actualiza sola cada 12 horas con lo que la UNI vaya publicando` +
+    (fechaSnap ? ` (última verificación ${fechaSnap})` : "") + ".");
+
+  const tiles = document.createElement("div"); tiles.className = "tiles";
+  keys.forEach(k => {
+    const p = pubs[k], base = baseDe(k), nom = nombreCortoPub(k,p);
+    const maxTxt = fmt1(p.puntajes.max) + " pts" + (base ? " · " + vig(p.puntajes.max, base) + "/20" : "");
+    tiles.appendChild(tile("Registrados · " + nom, fmt(p.total),
+      "máximo " + maxTxt + (p.ausentes ? " · " + fmt(p.ausentes) + " ausentes (" + p.pct_ausentismo + "%)" : ""),
+      `var(${colorDe(k)})`,
+      `Registros en la publicación oficial "${p.nombre_oficial || nom}". Debajo: puntaje máximo` +
+      (base ? ` (sobre ${fmt(base)} pts, con su nota de 0 a 20)` : " (la UNI no publica la escala de este parcial; se muestra el puntaje crudo)") +
+      (p.ausentes ? " y ausentes marcados como AUSENTE en el padrón." : ".")));
+  });
+  sP.appendChild(tiles);
+
+  const notas = [];
+  if(simK.length){
+    const perfectos = simK.reduce((a,k)=>a + (pubs[k].puntajes.max >= BASE_SIMULACRO ? (pubs[k].n_maximo || 0) : 0), 0);
+    notas.push(`<b>Simulacro IEN</b>: se califica sobre <b>600 puntos</b>, igual que cada prueba del examen (N = puntaje ÷ 600 × 20). ` +
+      `Es un ensayo: ni el puntaje ni el orden valen para la admisión.` +
+      (perfectos ? ` En esta edición hubo <b>${perfectos} puntaje${perfectos>1?"s":""} perfecto${perfectos>1?"s":""} (600 = 20/20)</b>.` : ""));
+  }
+  if(parK.length){
+    const medianas = parK.map(k=>`${nombreCortoPub(k,pubs[k]).replace("1er parcial CEPRE · ","")} ${fmt1(pubs[k].puntajes.mediana)}`).join(" · ");
+    notas.push(`<b>Parcial CEPRE</b>: nota interna del ciclo preuniversitario; la UNI no publica la escala ni la conversión a 20, ` +
+      `así que aquí va el puntaje tal cual (mediana: ${medianas}). El ingreso directo por CEPRE se define con el consolidado al cierre del ciclo.`);
+  }
+  if(notas.length) sP.appendChild(nota("--guinda","--wash-guinda", notas.join(" ")));
+
+  const cards = document.createElement("div"); cards.className = "cards two";
+  keys.forEach(k => {
+    const p = pubs[k], base = baseDe(k), nom = nombreCortoPub(k,p);
+    if(!p.histograma || !p.histograma.length) return;
+    cards.appendChild(card("Distribución de puntajes — " + nom,
+      fmt(p.presentes) + " presentes · máximo " + fmt1(p.puntajes.max) + " pts" + (base ? " (" + vig(p.puntajes.max, base) + "/20)" : "") +
+      " · mediana " + fmt1(p.puntajes.mediana),
+      histogram(p.histograma, {W: halfW, color: css(colorDe(k)), aria: "Histograma de puntajes de " + nom}),
+      tableView(["Rango (pts)","Registros"], p.histograma.filter(b=>b.n>0).map(b=>[`${b.desde}–${b.hasta}`, fmt(b.n)]))));
+  });
+  sP.appendChild(cards);
+
+  const cardsT = document.createElement("div"); cardsT.className = "cards two";
+  keys.forEach(k => {
+    const p = pubs[k], base = baseDe(k), nom = nombreCortoPub(k,p);
+    const top10 = (p.top10 && p.top10.length) ? p.top10 : (p.top_puntajes||[]).map(v=>({puntaje:v, nombre:null}));
+    if(!top10.length) return;
+    const conNombre = top10.some(t=>t.nombre);
+    const hdefs = [{t:"#"}].concat(conNombre ? [{t:"Participante"}] : [], [{t:"Puntaje",n:1}], base ? [{t:"Nota /20",n:1}] : []);
+    const filas = top10.map((t,i)=>{
+      const r = [i+1]; if(conNombre) r.push(t.nombre||"–"); r.push(fmt1(t.puntaje)); if(base) r.push(vig(t.puntaje, base)); return r;
+    });
+    cardsT.appendChild(card("Top 10 — " + nom,
+      "Los 10 mejores puntajes de la publicación oficial" + (base ? `, sobre ${fmt(base)} pts` : "") + ". Nombres tal como los publica la UNI." +
+      ((p.n_maximo||0) > 10 ? ` Ojo: ${fmt(p.n_maximo)} participantes empataron en el máximo (${fmt1(p.puntajes.max)}); el orden entre ellos es el de la publicación, no un ranking.` : ""),
+      tablaBonita(hdefs, filas, true)));
+  });
+  if(cardsT.children.length) sP.appendChild(cardsT);
+  app.appendChild(sP);
+}
+
 const BASE_PRUEBA_2026_2 = 600;   // examen 2026-2: cada prueba se califica sobre 600 pts (1,800 total = nota 20)
 function render(stats){
   const app = $("#app");
@@ -1202,6 +1299,7 @@ function render(stats){
       s1.appendChild(wrap);
     }
   }
+  renderProcesoEnCurso(stats, app, halfW);
   app.appendChild(s1);
 
   /* ===== Resultados finales 2026-2 ===== */
@@ -2032,6 +2130,21 @@ function render(stats){
       tableView(["Fecha", ...seriesList.map(s=>s.name)],
         labels.map((lb,i)=>[lb, ...seriesList.map(s=>fmt(s.values[i]))])),
       seriesList.map(s=>({label:s.name, color:s.color}))));
+    const evoP = (stats.proceso_en_curso||{}).evolucion || [];
+    if(evoP.length){
+      const pubsP = (stats.proceso_en_curso||{}).publicaciones || {};
+      const labP = evoP.map(e=>e.fecha);
+      const ultP = evoP[evoP.length-1].publicaciones;
+      const keysP = [...new Set(evoP.flatMap(e=>Object.keys(e.publicaciones)))]
+        .sort((a,b)=>((ultP[b]||{}).total||0)-((ultP[a]||{}).total||0));
+      const serP = keysP.map((k,i)=>({name: nombreCortoPub(k, pubsP[k]||{}), color: palette[i % palette.length],
+        values: evoP.map(e=>{ const p=e.publicaciones[k]; return p ? p.total : null; })}));
+      cards6.appendChild(card(`Proceso ${(stats.proceso_en_curso||{}).ciclo||""} — registros publicados por verificación`,
+        evoP.length === 1 ? "Primera verificación del nuevo proceso. La serie crecerá con cada revisión de 12 horas." : null,
+        lineChart(serP, labP, {W: fullW, aria:"Evolución de registros publicados del proceso en curso"}),
+        tableView(["Fecha", ...serP.map(s=>s.name)], labP.map((lb,i)=>[lb, ...serP.map(s=>fmt(s.values[i]))])),
+        serP.map(s=>({label:s.name, color:s.color}))));
+    }
     s6.appendChild(cards6);
     app.appendChild(s6);
   }
@@ -2050,6 +2163,8 @@ function render(stats){
      "El porcentaje de postulantes registrados que figuran como AUSENTE en la publicación oficial de una prueba, es decir, que no rindieron el examen ese día."],
     ["¿Qué es el 'puntaje de cierre'?",
      "El puntaje del último ingresante de cada especialidad: el mínimo con el que alguien alcanzó vacante. Mientras más alto el cierre, más competitiva la carrera en ese proceso."],
+    ["¿Qué hay del proceso 2027-1?",
+     "La UNI ya publica resultados preliminares del proceso 2027-1: los simulacros IEN (sobre 600 puntos, como cada prueba del examen) y el primer parcial del CEPRE en Lima y Juliaca (puntaje crudo, sin escala oficial publicada). El examen de admisión 2027-1 aún no se rinde; cuando la UNI publique sus pruebas y resultados, aparecerán automáticamente en la sección Proceso 2027-1."],
     ["¿Ya está todo publicado del examen 2026-2?",
      "Sí, lo principal: las tres pruebas (Aptitud Académica y Humanidades, Matemática, y Física y Química), la Aptitud Vocacional de Arquitectura y los resultados finales con asignación de especialidad (incluida la publicación separada de Arquitectura y Urbanismo). El monitoreo seguirá captando cualquier publicación complementaria."],
     ["¿Los salarios son de egresados de la UNI?",
@@ -2111,6 +2226,14 @@ function botContext(stats){
     const mer = stats.mercado_laboral_cas;
     const parts = [];
     parts.push("Escala 2026-2: cada prueba /600, total 3 pruebas /1800 = nota 20 (N = puntaje÷1800×20; por prueba ÷600×20).");
+    const pe = stats.proceso_en_curso;
+    if(pe && pe.publicaciones){
+      Object.entries(pe.publicaciones).forEach(([k,q])=>{
+        if(!q || !q.puntajes) return;
+        const base = k.includes("simulacro") ? 600 : null;
+        parts.push(`PROCESO ${pe.ciclo} EN CURSO (examen aún no rendido) — ${nombreCortoPub(k,q)}: ${q.total} registrados, ${q.ausentes} ausentes (${q.pct_ausentismo}%), max ${q.puntajes.max}${base?`/${base}`:" (escala no publicada, puntaje crudo)"}, mediana ${q.puntajes.mediana}${(q.top10&&q.top10[0])?`, 1er puesto ${q.top10[0].nombre} (${q.top10[0].puntaje})`:""}.`);
+      });
+    }
     if(aa) parts.push(`Examen 2026-2 Apt.Académica(10ago): ${aa.total} postulantes, ${aa.ausentes} ausentes (${aa.pct_ausentismo}%), max ${aa.puntajes?.max}, mediana ${aa.puntajes?.mediana}.`);
     if(mateB) parts.push(`Matemática(12ago): ${mateB.total} postulantes, max ${mateB.puntajes?.max}, mediana ${mateB.puntajes?.mediana}, ausentismo ${mateB.pct_ausentismo}%${(mateB.top10&&mateB.top10[0])?`, 1er puesto ${mateB.top10[0].nombre} (${mateB.top10[0].puntaje})`:""}.`);
     if(fqB) parts.push(`Física y Química(14ago): ${fqB.total} postulantes, max ${fqB.puntajes?.max}, mediana ${fqB.puntajes?.mediana}, ausentismo ${fqB.pct_ausentismo}%${(fqB.top10&&fqB.top10[0])?`, 1er puesto ${fqB.top10[0].nombre} (${fqB.top10[0].puntaje})`:""}.`);
