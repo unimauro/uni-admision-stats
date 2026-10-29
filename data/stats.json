@@ -1,5 +1,5 @@
 {
- "generado_utc": "2026-10-29T11:23:40.921411+00:00",
+ "generado_utc": "2026-10-29T21:42:09.952624+00:00",
  "fuente": "https://puntajes.admision.uni.edu.pe/ (publicaciones oficiales UNI)",
  "nota": "Estadísticas agregadas + top 10 por prueba (nombre y puntaje, ya públicos en la fuente oficial UNI). Sin padrones completos.",
  "ciclo_actual": {
@@ -12565,7 +12565,7 @@
  },
  "proceso_en_curso": {
   "ciclo": "2027-1",
-  "ultima_fecha": "2026-10-29_11Z",
+  "ultima_fecha": "2026-10-29_21Z",
   "publicaciones": {
    "primer-parcial-juliaca": {
     "nombre_oficial": "RESULTADOS DEL PRIMER PARCIAL CEPREUNI JULIACA – 2027-1",
@@ -13429,6 +13429,31 @@
    },
    {
     "fecha": "2026-10-29_11Z",
+    "publicaciones": {
+     "primer-parcial-juliaca": {
+      "total": 107,
+      "presentes": 87,
+      "ausentes": 20
+     },
+     "primer-parcial-lima": {
+      "total": 2265,
+      "presentes": 2131,
+      "ausentes": 134
+     },
+     "simulacro-ien-2027-1-15-18": {
+      "total": 88,
+      "presentes": 88,
+      "ausentes": 0
+     },
+     "simulacro-ien-2027-1-9-12": {
+      "total": 2693,
+      "presentes": 2693,
+      "ausentes": 0
+     }
+    }
+   },
+   {
+    "fecha": "2026-10-29_21Z",
     "publicaciones": {
      "primer-parcial-juliaca": {
       "total": 107,
