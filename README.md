@@ -24,4 +24,15 @@ estadísticos (mínimo, máximo, media, mediana, percentiles).
   `data/stats.json` se actualiza desde un pipeline privado que descarga, archiva y agrega
   las publicaciones oficiales.
 
+## Ecosistema
+
+Este dashboard forma parte de un conjunto de proyectos ciudadanos de datos abiertos sobre la UNI,
+del mismo autor y enlazados entre sí:
+
+- [Observatorio UNI](https://unimauro.github.io/observatorio-uni/) — presupuesto y ejecución, proveedores,
+  planilla, investigación y una sección de admisión que reutiliza estas estadísticas.
+- [Observatorio Electoral UNI](https://unimauro.github.io/observatorio-electoral-uni/#/) — elección de
+  rector y vicerrectores 2026: candidatos, fuentes, resultados y segunda vuelta.
+- Admisión UNI en cifras (este repositorio).
+
 Proyecto independiente, sin afiliación oficial con la UNI.
